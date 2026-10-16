@@ -1,0 +1,29 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Source Record",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["source_id","title","source_type","rights_status","review_status"],
+  "properties":{
+    "source_id":{"type":"string","pattern":"^src-[a-z0-9-]+$"},
+    "title":{"type":"string","minLength":1},
+    "creator":{"type":["string","null"]},
+    "publisher":{"type":["string","null"]},
+    "canonical_url":{"type":["string","null"],"format":"uri"},
+    "persistent_identifier":{"type":["string","null"]},
+    "publication_date":{"type":["string","null"]},
+    "version":{"type":["string","null"]},
+    "accessed_date":{"type":["string","null"],"format":"date"},
+    "source_type":{"enum":["paper","book","dictionary","corpus","dataset","audio","website","interview","community_statement","archive","other"]},
+    "language_codes":{"type":"array","items":{"type":"string"}},
+    "relevant_location":{"type":["string","null"]},
+    "licence_name":{"type":["string","null"]},
+    "licence_url":{"type":["string","null"],"format":"uri"},
+    "rights_status":{"enum":["verified-permitted","restricted","unknown","not-applicable","permission-pending"]},
+    "permitted_operations":{"type":"array","items":{"type":"string"}},
+    "attribution_requirements":{"type":"array","items":{"type":"string"}},
+    "integrity_hash":{"type":["string","null"]},
+    "review_status":{"enum":["referenced","located","inspected","rights-checked","approved-for-use","rejected","unavailable"]},
+    "notes":{"type":"string"}
+  }
+}
