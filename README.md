@@ -6,6 +6,13 @@
 Babel / Global (K)Creole is an evidence-led, machine-readable framework for documenting, comparing, designing, evaluating and responsibly applying Creole-related language knowledge. It is not a claim that all Creoles are one language, a replacement for existing Creoles, or a finished universal language.
 
 ## Start here
+- [AI/LLM discovery](llms.txt) and [agent entry point](AGENTS.md)
+- [Framework brief](docs/framework-brief.md)
+- [Consumer-agent contract](agents/consumer-agent-contract.md) and [answer schema](agents/consumer-answer.schema.json)
+- [Standards interoperability roadmap](docs/standards-interoperability.md)
+- [Data licensing and AI-use policy](DATA-LICENSE.md)
+- [Machine-readable catalog](catalog.json)
+- [Citation metadata](CITATION.cff)
 - [Vision and scope](docs/vision-and-scope.md)
 - [Terminology](docs/terminology.md)
 - [Language relationships](docs/language-relationships.md)
