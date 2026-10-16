@@ -1,0 +1,52 @@
+registry_version: 1
+framework: BabelGlobalKreole
+review_date: 2026-10-17
+entries:
+  - id: project-babel-global-kcreole
+    name: Babel / Global (K)Creole
+    role: canonical-framework
+    url: https://github.com/Francois-EF-WebOps/BabelGlobalKreole
+    status: initial-publication
+    relationship: Owns framework policies, schemas, governance, evaluation and adapter contracts.
+  - id: project-mkc
+    name: Mascarene Knowledge Commons
+    role: coordination-and-discovery
+    url: https://github.com/Francois-EF-WebOps/mascarene-knowledge-commons
+    status: existing
+    relationship: Coordinates and links related work; avoids duplicating canonical data.
+  - id: project-applied-creole-linguistics
+    name: Applied Creole Linguistics
+    role: existing-prototype-and-source
+    url: https://github.com/Francois-EF-WebOps/Applied-Creole-Linguistics
+    status: existing-repository-needs-full-audit
+    relationship: Preserve source/history; inspect before reuse or migration.
+  - id: project-refuge
+    name: Refuge
+    role: related-prototype
+    url: https://github.com/Francois-EF-WebOps/Refuge
+    status: existing-repository-needs-full-audit
+    relationship: Preserve independently; connect only verified artefacts.
+  - id: project-mrh-s01
+    name: Mascarene Refuge Hypothesis S01
+    role: research-source
+    url: https://github.com/Francois-EF-WebOps/Mascarene-Refuge-Hypothesis-S01
+    status: existing
+    relationship: Cite as research where relevant; verify item-level rights before reuse.
+  - id: project-mooritian
+    name: Mooritian / Fresh: Love and Water
+    role: application-specific-constructed-language
+    url: null
+    status: source-location-unverified
+    relationship: Fictional-language application, not evidence about real languages.
+  - id: project-music
+    name: Babel Creole music applications
+    role: application-domain
+    url: null
+    status: source-locations-and-integrations-unverified
+    relationship: Consume released language records; not the framework boundary.
+  - id: project-voice-lab
+    name: My Voice Lab TTS
+    role: speech-application-candidate
+    url: null
+    status: owner-reported-prototype; exact repository and export not verified
+    relationship: Potential speech consumer after source, rights and runtime audit.
