@@ -24,7 +24,9 @@
     "schemas/lexical-entry.schema.json",
     "schemas/source-record.schema.json",
     "schemas/evaluation-case.schema.json",
-    "agents/consumer-answer.schema.json"
+    "agents/consumer-answer.schema.json",
+    "schemas/language.schema.json",
+    "schemas/variety.schema.json"
   ],
   "note": "Counts are a manually maintained bootstrap inventory until a catalog generator is implemented. They describe repository records, not global language coverage."
 }
