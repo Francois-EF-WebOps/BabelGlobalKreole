@@ -1,27 +1,188 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"Lexical Entry",
-  "type":"object",
-  "additionalProperties":false,
-  "required":["entry_id","concept_id","language_id","form","definition","evidence_status","rights_status","record_status"],
-  "properties":{
-    "entry_id":{"type":"string","pattern":"^lex-[a-z0-9-]+$"},
-    "concept_id":{"type":"string","pattern":"^con-[a-z0-9-]+$"},
-    "language_id":{"type":"string"},
-    "variety_id":{"type":["string","null"]},
-    "form":{"type":"string","minLength":1},
-    "pronunciation":{"type":["string","null"]},
-    "pronunciation_system":{"type":["string","null"]},
-    "part_of_speech":{"type":["string","null"]},
-    "definition":{"type":"string","minLength":1},
-    "examples":{"type":"array","items":{"type":"object"}},
-    "register":{"type":"array","items":{"type":"string"}},
-    "variants":{"type":"array","items":{"type":"object"}},
-    "source_ids":{"type":"array","items":{"type":"string","pattern":"^src-[a-z0-9-]+$"}},
-    "evidence_status":{"enum":["attested","scholarly_analysis","comparative_observation","proposed_convergence","creative_coinage","application_canon","disputed","undecided","retracted"]},
-    "rights_status":{"enum":["verified-permitted","restricted","unknown","not-applicable","permission-pending"]},
-    "record_status":{"enum":["draft","proposed","accepted","deprecated","retracted"]},
-    "confidence_rationale":{"type":["string","null"]},
-    "decision_ref":{"type":["string","null"]}
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Lexical Entry",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "entry_id",
+    "concept_id",
+    "language_id",
+    "form",
+    "definition",
+    "evidence_status",
+    "rights_status",
+    "record_status"
+  ],
+  "properties": {
+    "entry_id": {
+      "type": "string",
+      "pattern": "^lex-[a-z0-9-]+$"
+    },
+    "concept_id": {
+      "type": "string",
+      "pattern": "^con-[a-z0-9-]+$"
+    },
+    "language_id": {
+      "type": "string"
+    },
+    "variety_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "form": {
+      "type": "string",
+      "minLength": 1
+    },
+    "pronunciation": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "pronunciation_system": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "part_of_speech": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "definition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "examples": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "register": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "variants": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      }
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^src-[a-z0-9-]+$"
+      }
+    },
+    "evidence_status": {
+      "enum": [
+        "attested",
+        "scholarly_analysis",
+        "comparative_observation",
+        "proposed_convergence",
+        "creative_coinage",
+        "application_canon",
+        "disputed",
+        "undecided",
+        "retracted"
+      ]
+    },
+    "rights_status": {
+      "enum": [
+        "verified-permitted",
+        "restricted",
+        "unknown",
+        "not-applicable",
+        "permission-pending"
+      ]
+    },
+    "record_status": {
+      "enum": [
+        "draft",
+        "proposed",
+        "accepted",
+        "deprecated",
+        "retracted"
+      ]
+    },
+    "confidence_rationale": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "decision_ref": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "ai_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "retrieval": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        },
+        "redistribution": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        },
+        "training": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        },
+        "speech_generation": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        },
+        "synthetic_data": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        },
+        "community_consent_status": {
+          "enum": [
+            "not-applicable",
+            "obtained",
+            "declined",
+            "required",
+            "withheld",
+            "unknown"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    }
   }
 }
