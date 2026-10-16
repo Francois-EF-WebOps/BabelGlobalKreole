@@ -8,7 +8,8 @@
     "title",
     "source_type",
     "rights_status",
-    "review_status"
+    "review_status",
+    "ai_use"
   ],
   "properties": {
     "source_id": {
@@ -201,7 +202,15 @@
         "notes": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "retrieval",
+        "redistribution",
+        "training",
+        "speech_generation",
+        "synthetic_data",
+        "community_consent_status"
+      ]
     }
   }
 }
