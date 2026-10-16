@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Language Variety Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["variety_id", "language_id", "name", "relationship_status", "source_ids", "record_status"],
+  "properties": {
+    "variety_id": {"type": "string", "pattern": "^var-[a-z0-9-]+$"},
+    "language_id": {"type": "string", "pattern": "^lng-[a-z0-9-]+$"},
+    "name": {"type": "string", "minLength": 1},
+    "autonyms": {"type": "array", "items": {"type": "string"}},
+    "scope": {"type": ["string", "null"]},
+    "relationship_status": {"enum": ["community-recognized", "scholarly-described", "provisional", "disputed", "undecided"]},
+    "external_identifiers": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["scheme", "value", "status", "source_ids"], "properties": {"scheme": {"enum": ["ISO-639-3", "BCP-47", "Glottolog", "Wikidata", "other"]}, "value": {"type": "string", "minLength": 1}, "status": {"enum": ["verified", "provisional", "disputed", "rejected"]}, "source_ids": {"type": "array", "items": {"type": "string", "pattern": "^src-[a-z0-9-]+$"}}, "checked_date": {"type": ["string", "null"], "format": "date"}, "notes": {"type": "string"}}}},
+    "source_ids": {"type": "array", "items": {"type": "string", "pattern": "^src-[a-z0-9-]+$"}},
+    "record_status": {"enum": ["draft", "proposed", "accepted", "deprecated", "retracted"]},
+    "notes": {"type": "string"}
+  }
+}
