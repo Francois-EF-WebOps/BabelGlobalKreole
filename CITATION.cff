@@ -1,0 +1,11 @@
+cff-version: 1.2.0
+message: "If you use this framework, cite the repository and the exact release or commit used."
+title: "Babel / Global (K)Creole"
+type: software
+authors:
+  - family-names: Francois-EF-WebOps
+repository-code: "https://github.com/Francois-EF-WebOps/BabelGlobalKreole"
+license: MIT
+version: "0.1.0-draft"
+date-released: 2026-10-17
+abstract: "Draft evidence-led interoperability framework for Creole-related language knowledge and applications. Not a completed language standard or a claim that Creoles form one language."
