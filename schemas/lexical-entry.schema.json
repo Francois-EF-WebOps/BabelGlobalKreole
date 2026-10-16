@@ -11,7 +11,8 @@
     "definition",
     "evidence_status",
     "rights_status",
-    "record_status"
+    "record_status",
+    "ai_use"
   ],
   "properties": {
     "entry_id": {
@@ -182,7 +183,15 @@
         "notes": {
           "type": "string"
         }
-      }
+      },
+      "required": [
+        "retrieval",
+        "redistribution",
+        "training",
+        "speech_generation",
+        "synthetic_data",
+        "community_consent_status"
+      ]
     }
   }
 }
