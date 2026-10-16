@@ -1,0 +1,30 @@
+{
+  "catalog_version": 1,
+  "framework": "Babel / Global (K)Creole",
+  "framework_version": "0.1.0-draft",
+  "status": "bootstrap",
+  "generated_at": "2026-10-17",
+  "record_counts": {
+    "lexical_entries": 0,
+    "source_records": 0,
+    "language_records": 0,
+    "variety_records": 0,
+    "grammar_rules": 0,
+    "evaluation_cases": 6
+  },
+  "record_paths": {
+    "lexical_entries": "data/lexicon/",
+    "source_records": "data/sources/",
+    "language_records": "data/languages/",
+    "variety_records": "data/varieties/",
+    "grammar_rules": "data/grammar/",
+    "evaluation_cases": "evaluation/test-cases/"
+  },
+  "schemas": [
+    "schemas/lexical-entry.schema.json",
+    "schemas/source-record.schema.json",
+    "schemas/evaluation-case.schema.json",
+    "agents/consumer-answer.schema.json"
+  ],
+  "note": "Counts are a manually maintained bootstrap inventory until a catalog generator is implemented. They describe repository records, not global language coverage."
+}
