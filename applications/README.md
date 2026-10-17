@@ -1,46 +1,38 @@
 # Applications
 
-Applications consume BabelGlobalKreole; they do not define its scope. Each application must pin the framework version, schema version and record IDs used.
+Applications consume BabelGlobalKreole; they do not define its scope. Each application must pin the framework version, schema version and record IDs used. Application contracts are not operational integrations.
 
 ## Priority order
 
-1. **Music, lyrics and poetry** — first priority.
-2. **Film and series scripts** — second priority.
-3. **Programming and software localization** — third priority.
-4. Other candidate domains — considered only after the core creative and localization tracks have useful, sourced records and tests.
+1. [Music, lyrics and poetry](music-poetry/README.md)
+2. [Film and series scripts](scripts/README.md)
+3. [Programming and software localization](localization/README.md)
+4. Other candidate domains below, only as evidence and capacity allow.
 
-## Creative tracks
+Third-party lyrics, scripts, dictionaries and corpora are excluded unless the specific source license permits the exact use. Creative output must be labelled `creative_coinage` or `application_canon` and must never be presented as attested linguistic evidence.
 
-- [Music, lyrics and poetry](music-poetry/README.md) — first priority.
-- [Film and series scripts](scripts/README.md) — second priority.
-- [Programming and software localization](localization/README.md) — third priority.
+## Candidate domains and risk tiers
 
-## Other current concepts
+| Priority | Candidate domain | Risk tier | Current status and required gate |
+|---|---|---|---|
+| 1 | Music, lyrics, poetry and performance | Low to moderate; rights-sensitive | First application priority. Use owner-authored work or explicitly licensed sources; record attribution and separate creative coinage from attested forms. |
+| 2 | Film/series scripts and dialogue | Moderate; rights- and representation-sensitive | Second priority. Use approved material only; register descriptions are optional free text and must be sourced when they make linguistic claims. |
+| 3 | Programming, UI strings and software localization | Moderate; errors may affect access or transactions | Third priority. Require source-backed terminology, locale review and human testing before release. |
+| 4 | Games, education, research and general publishing | Low to moderate depending on use | Later candidate applications; not operational integrations. Avoid claiming community endorsement or representing one register as universal. |
+| 5 | Speech, transcription and translation | Moderate to high; privacy and consent-sensitive | Research only until rights, speaker consent, data minimization and evaluation are documented. |
+| 6 | Finance, banking and remittances | High impact | Candidate domain only; not operational. Any consequential financial or regulatory translation requires qualified human review and testing. |
+| 7 | Medical, clinical intake and public health | Safety-critical | Research only; not operational. Any clinical use requires qualified medical and language experts to validate every consequential translation. Never use this framework alone for diagnosis, triage or treatment. |
+| 8 | Engineering, construction, maritime and industrial safety | Safety-critical | Research only; not operational. Human engineering/safety expert validation is mandatory; do not use generated translations as operating instructions. |
+| 9 | Space, satellite telemetry and emergency alerts | Safety-critical | Research only; not operational. Human domain-expert validation, end-to-end testing and fail-safe design are mandatory before any real alerting or control use. |
 
+Safety-critical means no production deployment, no autonomous decision-making, and no claim of operational readiness. A schema or example record does not constitute a validated technical vocabulary.
+
+## Existing track documents
+
+- [Music, lyrics and poetry](music-poetry/README.md)
+- [Film and series scripts](scripts/README.md)
+- [Programming and localization](localization/README.md)
 - [Education](education.md)
 - [Games](games.md)
 - [Research](research.md)
 - [Speech and translation](speech-and-translation.md)
-
-These documents define possible contracts and limits; they do not claim that an API, autonomous agent, translation engine or creative integration is operational.
-
-## Candidate domains and risk tiers
-
-This table records future possibilities only. It does not create or imply operational applications.
-
-| Candidate domain | Risk tier | Current boundary |
-|---|---|---|
-| General publishing, music discovery, poetry analysis | Low | Creative work must be labelled and rights-cleared; no third-party lyrics without permission. |
-| Games and fictional dialogue | Low–medium | Fictional canon stays separate from attested language evidence; optional register labels require sources. |
-| General software localization | Medium | Human review required before release; test placeholders, pluralization, accessibility and context. |
-| Education and public information | Medium | Review by qualified educators or domain owners; do not present uncertain claims as curriculum facts. |
-| Finance, banking and remittances | High | Candidate only; requires qualified financial/legal review and jurisdiction-specific validation. Not operational. |
-| Medical, clinical intake and public-health instructions | Safety-critical | Requires qualified medical and language-expert validation; not operational and not suitable for autonomous clinical decisions. |
-| Engineering, construction, maritime and industrial safety | Safety-critical | Requires qualified engineering/safety and language-expert validation; not operational. |
-| Aerospace, satellite telemetry and emergency alerts | Safety-critical | Requires domain-expert validation, controlled terminology and failure testing; not operational. |
-
-Safety-critical candidates must not be used as authoritative translations, instructions, alerts or decision support without documented human expert validation and an appropriate operational safety process.
-
-## Implementation status
-
-A written application contract is not an implementation. No safety-critical domain is operational. Do not create domain folders merely to reserve these ideas.
