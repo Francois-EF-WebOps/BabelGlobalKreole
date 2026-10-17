@@ -17,3 +17,7 @@ jobs:
       - run: python scripts/validate_records.py
       - name: no_placeholders
         run: python scripts/no_placeholders_check.py
+      - name: verify catalog is current
+        run: |
+          python scripts/generate_catalog.py
+          git diff --exit-code -- catalog.json
