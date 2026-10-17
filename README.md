@@ -7,6 +7,9 @@ BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowled
 
 Babel / Global (K)Creole is an evidence-led, machine-readable framework for documenting, comparing, designing, evaluating and responsibly applying Creole-related language knowledge. It is not a claim that all Creoles are one language, a replacement for existing Creoles, or a finished universal language.
 
+## Documentation site deployment status
+The Pages preview workflow passes, but the latest observed deployment job was skipped. The live URL is not verified yet; see [deployment status and verification steps](docs/site-deployment.md). A live-site link will be added after a successful deploy and URL integrity check.
+
 ## Start here
 
 ### People and community contributors
