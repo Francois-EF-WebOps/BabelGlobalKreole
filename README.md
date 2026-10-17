@@ -8,24 +8,40 @@ BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowled
 Babel / Global (K)Creole is an evidence-led, machine-readable framework for documenting, comparing, designing, evaluating and responsibly applying Creole-related language knowledge. It is not a claim that all Creoles are one language, a replacement for existing Creoles, or a finished universal language.
 
 ## Start here
-- [AI/LLM discovery](llms.txt) and [agent entry point](AGENTS.md)
-- [Framework brief](docs/framework-brief.md)
-- [Consumer-agent contract](agents/consumer-agent-contract.md) and [answer schema](agents/consumer-answer.schema.json)
-- [Standards interoperability roadmap](docs/standards-interoperability.md)
-- [Data licensing and AI-use policy](DATA-LICENSE.md)
-- [Machine-readable catalog](catalog.json)
-- [Citation metadata](CITATION.cff)
-- [Vision and scope](docs/vision-and-scope.md)
-- [Terminology](docs/terminology.md)
-- [Language relationships](docs/language-relationships.md)
-- [Evidence, provenance and rights](docs/evidence-policy.md)
-- [Governance](GOVERNANCE.md)
-- [Agent operating contract](agents/instructions.md)
-- [Data model](docs/data-model.md)
-- [Evaluation gates](evaluation/scoring-policy.md)
-- [Integration contract](adapters/README.md)
-- [Cross-project registry](registry/projects.yaml)
-- [Repository audit](docs/repository-audit.md)
+
+### People and community contributors
+- [Vision and scope](docs/vision-and-scope.md): what the framework is and is not.
+- [Terminology](docs/terminology.md): how this repository distinguishes languages, varieties, evidence and creative proposals.
+- [Contributing guide](CONTRIBUTING.md): propose a correction or resource with evidence and rights information.
+- [Governance](GOVERNANCE.md): current maintainer model and review safeguards.
+
+### Researchers
+- [Evidence policy](docs/evidence-policy.md): provenance, uncertainty, source locations, consent and rights.
+- [Language relationships](docs/language-relationships.md): comparison boundaries and classification cautions.
+- [Standards interoperability](docs/standards-interoperability.md): mappings and format strategy.
+- [Data model](docs/data-model.md): record families, identifiers and invariants.
+- [Machine-readable catalog](catalog.json): current record counts, paths and file hashes.
+- [Cross-project registry](registry/projects.yaml): related projects and their roles.
+
+### AI agents and LLM consumers
+- [LLM discovery entry point](llms.txt): canonical links and consumer rules.
+- [Root agent instructions](AGENTS.md): safe repository-editing rules.
+- [Consumer-agent contract](agents/consumer-agent-contract.md): evidence citation, rights and abstention behaviour.
+- [Consumer answer schema](agents/consumer-answer.schema.json): machine-readable answer contract.
+- [Offline retrieval demo](demo/retrieval/README.md): local metadata retrieval and tested abstention behaviour.
+
+### Developers and application builders
+- [Framework brief](docs/framework-brief.md): concise architecture and limitations.
+- [Schemas](schemas/): versioned record constraints and negative fixtures.
+- [Adapter contract](adapters/README.md): interchange direction and current implementation limits.
+- [Application tracks](applications/README.md): music/poetry, scripts, localization and other consumers.
+- [Data licensing and AI-use policy](DATA-LICENSE.md): source-specific reuse boundaries.
+- [Evaluation policy](evaluation/scoring-policy.md): regression and release gates.
+
+### Citation and maintenance
+- [Citation metadata](CITATION.cff): cite the repository and exact revision used.
+- [Changelog](CHANGELOG.md): recorded changes and limitations.
+- [Repository audit and artefact status](docs/artefact-status.md): verified state and remaining acceptance gates.
 
 ## Operating loop
 `DISCOVER → RETRIEVE → CLASSIFY → PROPOSE → VALIDATE → REVIEW → RELEASE → PROPAGATE → MEASURE → MAINTAIN`
