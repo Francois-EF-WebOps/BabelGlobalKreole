@@ -34,7 +34,7 @@ for relative in filter(None, tracked):
         content = path.read_text(encoding="utf-8")
     except UnicodeDecodeError:
         continue
-    if DRAFT_MARKERS.search(content):
+    if relative != "scripts/no_placeholders_check.py" and DRAFT_MARKERS.search(content):
         errors.append(f"{relative}: contains TODO/TBD/FIXME marker")
 
 # Empty arrays are forbidden in data records except source_ids on draft records.
