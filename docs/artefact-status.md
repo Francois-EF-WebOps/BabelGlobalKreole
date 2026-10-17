@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 113 tracked files on the default branch at this review point.  
-**Latest verified validation run before this register refresh:** [CI run 38994355948](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994355948), commit `956f3f3359f159fa4c9b131c19d698b8df713e03`. It passed 11 schemas, 95 JSONL records, 11 negative fixtures, 21 tests, source-rights resolution, data-integrity checks, and catalog freshness.
+**Latest verified validation run before this register refresh:** [CI run 38994489117](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994489117), commit `8d5f6531060d32e3290ae84be5956cc1279b1d7e`. It passed 11 schemas, 95 JSONL records, 11 negative fixtures, 21 tests, internal link checks, source-rights resolution, data-integrity checks, and catalog freshness.
 
 ## State meanings
 
