@@ -4,44 +4,44 @@ canonical_records: data/resources/resources.jsonl
 schema: schemas/resource-card.schema.json
 entries:
   - id: res-glottolog
-    name: Glottolog
+    name: "Glottolog"
     verification: verified
   - id: res-iso-639-3
-    name: ISO 639-3 Language Code Tables
+    name: "ISO 639-3 Language Code Tables"
     verification: unverified
   - id: res-cldf
-    name: Cross-Linguistic Data Formats (CLDF)
+    name: "Cross-Linguistic Data Formats (CLDF)"
     verification: verified
   - id: res-apics
-    name: Atlas of Pidgin and Creole Language Structures Online (APiCS)
+    name: "Atlas of Pidgin and Creole Language Structures Online (APiCS)"
     verification: verified
   - id: res-wals
-    name: World Atlas of Language Structures Online (WALS)
+    name: "World Atlas of Language Structures Online (WALS)"
     verification: verified
   - id: res-wikidata
-    name: Wikidata
+    name: "Wikidata"
     verification: verified
   - id: res-wiktionary
-    name: Wiktionary
+    name: "Wiktionary"
     verification: verified
   - id: res-common-voice
-    name: Mozilla Common Voice
+    name: "Mozilla Common Voice"
     verification: verified
   - id: res-internet-archive
-    name: Internet Archive
+    name: "Internet Archive"
     verification: verified
   - id: res-gallica
-    name: Gallica
+    name: "Gallica"
     verification: unverified
   - id: res-hathitrust
-    name: HathiTrust Digital Library
+    name: "HathiTrust Digital Library"
     verification: verified
   - id: res-prov
-    name: W3C PROV Overview
+    name: "W3C PROV Overview"
     verification: verified
   - id: res-ontolex
-    name: OntoLex-Lemon Lexicon Model
+    name: "OntoLex-Lemon Lexicon Model"
     verification: verified
   - id: res-care-principles
-    name: CARE Principles for Indigenous Data Governance
-    verification: unverified
+    name: "CARE Principles for Indigenous Data Governance"
+    verification: verified
