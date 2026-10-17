@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/variety.schema.json",
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "title": "Language Variety Record",
   "type": "object",
   "additionalProperties": false,
@@ -261,6 +261,14 @@
     },
     "notes": {
       "type": "string"
+    },
+    "retrieval_status": {
+      "type": "string",
+      "enum": [
+        "retrievable",
+        "non-retrievable"
+      ],
+      "description": "Use non-retrievable for an unsourced candidate that duplicates a language-level label and must not be returned as a distinct variety."
     }
   },
   "$defs": {
