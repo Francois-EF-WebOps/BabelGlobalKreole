@@ -21,6 +21,13 @@ jobs:
           test -s site-preview/index.html
           test -s site-preview/robots.txt
           test -s site-preview/sitemap.xml
+          grep -Fq '<link rel="canonical" href="https://francois-ef-webops.github.io/BabelGlobalKreole/">' site-preview/index.html
+          grep -Fq '"url":"https://francois-ef-webops.github.io/BabelGlobalKreole/"' site-preview/index.html
+          grep -Fq '<loc>https://francois-ef-webops.github.io/BabelGlobalKreole/</loc>' site-preview/sitemap.xml
+          grep -Fq '<loc>https://francois-ef-webops.github.io/BabelGlobalKreole/llms.txt</loc>' site-preview/sitemap.xml
+          grep -Fq '<loc>https://francois-ef-webops.github.io/BabelGlobalKreole/catalog.json</loc>' site-preview/sitemap.xml
+          grep -Fq 'Sitemap: https://francois-ef-webops.github.io/BabelGlobalKreole/sitemap.xml' site-preview/robots.txt
+          echo "PAGES BASE URL CHECKS PASSED: canonical URL, Dataset JSON-LD, sitemap and robots use the proposed Pages base."
       - uses: actions/upload-artifact@v4
         with:
           name: documentation-site-preview
