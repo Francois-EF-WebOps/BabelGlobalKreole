@@ -119,7 +119,7 @@ def build_answer(query, records, framework_version=None):
         })
         for source_id in record["source_ids"]:
             source = source_map[source_id]
-            location = source.get("relevant_location") or source.get("canonical_url")
+            location = source.get("relevant_location")
             if location:
                 citations[source_id] = {
                     "source_id": source_id,
