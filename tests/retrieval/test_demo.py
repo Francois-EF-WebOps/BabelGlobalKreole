@@ -25,6 +25,16 @@ class RetrievalDemoTests(unittest.TestCase):
         self.assertEqual(answer["sources"][0]["source_id"], "src-test")
         self.assertEqual(answer["sources"][0]["location"], "section 2")
 
+    def test_accepted_record_with_source_without_location_abstains(self):
+        records = [
+            {"language_id": "lng-test", "name": "Test Language", "record_status": "accepted", "source_ids": ["src-test"], "evidence_status": "scholarly_analysis"},
+            {"source_id": "src-test", "title": "Source with no location"},
+        ]
+        answer = build_answer("lng-test", records, "test-version")
+        self.assertEqual(answer["answer_status"], "abstained")
+        self.assertEqual(answer["claims"], [])
+        self.assertEqual(answer["sources"], [])
+
     def test_variety_id_is_not_shadowed_by_parent_language_id(self):
         records = [
             {"variety_id": "var-test", "language_id": "lng-test", "name": "Test Variety", "record_status": "draft", "source_ids": [], "retrieval_status": "non-retrievable"}
