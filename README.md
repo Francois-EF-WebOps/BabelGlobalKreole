@@ -61,5 +61,11 @@ This is an initial specification, not a complete comparative corpus, validated g
 ## Principles
 Preserve source repositories and their histories; distinguish evidence from inference and invention; respect language communities and rights; keep real-language description separate from fictional canon; make uncertainty machine-readable; prefer portable formats; let automation propose and test; track downstream dependencies rather than silently rewriting outputs.
 
+## Project operations
+- [Security policy](SECURITY.md): report vulnerabilities without publishing secrets.
+- [Support](SUPPORT.md): best-effort help and contribution routes.
+- [Code of conduct](CODE_OF_CONDUCT.md): participation, privacy and community-consent expectations.
+- [Dataset datasheet draft](docs/huggingface-datasheet.md): current coverage, provenance and limits; not a published dataset.
+
 ## Contribute
-Open an issue with scope and acceptance criteria, add provenance and rights information, use the relevant schema, add regression cases, run `python scripts/validate_records.py`, and request review. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Open an issue with scope and acceptance criteria, add provenance and rights information, use the relevant schema, add regression cases, run `python scripts/validate_records.py`, `python scripts/check_internal_links.py`, and `python scripts/no_placeholders_check.py`, and request review. See [CONTRIBUTING.md](CONTRIBUTING.md).
