@@ -37,7 +37,7 @@ def record_id(record):
 
 
 def searchable_text(record):
-    fields = ("name", "title", "lemma", "label", "language_id", "variety_id", "source_id", "id")
+    fields = ("name", "title", "lemma", "form", "definition", "statement", "label", "language_id", "variety_id", "source_id", "entry_id", "rule_id", "case_id", "concept_id", "work_id", "id", "notes", "autonyms")
     return " ".join(str(record.get(key, "")) for key in fields).casefold()
 
 
