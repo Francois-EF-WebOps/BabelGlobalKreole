@@ -39,6 +39,9 @@ for document in sorted(ROOT.rglob("*.md")):
             line = content.count("\n", 0, match.start()) + 1
             errors.append(f"{document.relative_to(ROOT)}:{line}: missing local target {target}")
 
+if checked == 0:
+    errors.append("no local Markdown links were detected; check the link parser")
+
 if errors:
     print("INTERNAL LINK CHECK FAILED")
     print("\n".join(errors))
