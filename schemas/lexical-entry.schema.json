@@ -12,7 +12,9 @@
     "evidence_status",
     "rights_status",
     "record_status",
-    "ai_use"
+    "ai_use",
+    "source_ids",
+    "source_locations"
   ],
   "properties": {
     "entry_id": {
@@ -24,13 +26,15 @@
       "pattern": "^con-[a-z0-9-]+$"
     },
     "language_id": {
-      "type": "string"
+      "type": "string",
+      "pattern": "^lng-[a-z0-9-]+$"
     },
     "variety_id": {
       "type": [
         "string",
         "null"
-      ]
+      ],
+      "pattern": "^var-[a-z0-9-]+$"
     },
     "form": {
       "type": "string",
@@ -78,6 +82,7 @@
     },
     "source_ids": {
       "type": "array",
+      "minItems": 1,
       "items": {
         "type": "string",
         "pattern": "^src-[a-z0-9-]+$"
@@ -192,6 +197,36 @@
         "synthetic_data",
         "community_consent_status"
       ]
+    },
+    "source_locations": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "source_id",
+          "location"
+        ],
+        "properties": {
+          "source_id": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+$"
+          },
+          "location": {
+            "type": "string",
+            "minLength": 1
+          },
+          "quote_or_locator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
     }
-  }
+  },
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/lexical-entry.schema.json",
+  "schema_version": "1.1.0"
 }
