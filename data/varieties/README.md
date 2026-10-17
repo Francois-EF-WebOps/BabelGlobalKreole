@@ -1,5 +1,7 @@
-# Language and variety registry
+# Variety records
 
-`varieties.jsonl` is a draft inventory of candidate variety labels, not a sourced classification catalogue. Each current entry is marked `record_status: draft` and `retrieval_status: non-retrievable` because it duplicates a matching language-level label without variety-specific evidence.
+This directory contains no variety records yet. The previous 24 placeholder records duplicated language-level labels without evidence that each represented a distinct variety, so they were removed.
 
-These records must not be cited as evidence of a distinct scholarly or community classification. Do not infer countries or regions, period, orthography, speaker estimate, parentage, lexifier, contact languages, Glottocode, or ISO code without a fetched source and a precise source location. If sources disagree, preserve the disagreement and use `disputed` only when the disagreement itself is documented by sources.
+Create a variety record only when a fetched source supports the distinction and the record can point to precise source locations. Do not use this file or an empty JSONL file to reserve names. Candidate coverage that cannot yet be supported is tracked in [the language coverage review](../../docs/language-coverage-review.md).
+
+The schema allows optional register metadata as free text plus source IDs. Register terms such as basilect, mesolect and acrolect are not a fixed taxonomy and must not be applied across all Creoles by default.
