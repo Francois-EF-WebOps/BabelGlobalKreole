@@ -63,5 +63,5 @@ catalog = {
     "catalog_generator": "scripts/generate_catalog.py",
     "note": "Generated deterministically from current JSONL record files. Counts describe records stored in this repository, not global language coverage.",
 }
-(ROOT / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\\n", encoding="utf-8")
+(ROOT / "catalog.json").write_text(json.dumps(catalog, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 print(f"CATALOG GENERATED: {len(record_files)} JSONL files; {sum(counts.values())} records; SHA-256 hashes written.")
