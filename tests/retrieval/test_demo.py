@@ -17,7 +17,7 @@ class RetrievalDemoTests(unittest.TestCase):
     def test_accepted_record_cites_resolved_source_metadata(self):
         records = [
             {"language_id": "lng-test", "name": "Test Language", "record_status": "accepted", "source_ids": ["src-test"], "evidence_status": "scholarly_analysis"},
-            {"source_id": "src-test", "title": "Test source", "canonical_url": "https://example.org/source", "relevant_location": "section 2"},
+            {"source_id": "src-test", "title": "Test source", "canonical_url": "https://example.org/source", "relevant_location": "section 2", "accessed_date": "2026-10-17"},
         ]
         answer = build_answer("lng-test", records, "test-version")
         self.assertEqual(answer["answer_status"], "partial")
