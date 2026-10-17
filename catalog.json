@@ -20,7 +20,7 @@
     "language_records": "data/languages/languages.jsonl",
     "variety_records": "data/varieties/varieties.jsonl",
     "grammar_rules": "data/grammar/",
-    "resource_cards": "data/resources/resources.jsonl",
+    "resource_cards": "data/resources/",
     "evaluation_cases": "evaluation/test-cases/"
   },
   "record_file_hashes": {
