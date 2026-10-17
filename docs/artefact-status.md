@@ -98,3 +98,26 @@ Audit baseline: `main` at `f9ca6385cfa7682093672bef6bb774bf43c121b0` (2026-10-17
 - No language or variety data records, external resource registry, creative-work schema, negative fixtures, offline retrieval demo, generated catalog, Pages deployment, or release tag were present in the baseline tree.
 - The repository's default branch is `main`; the repository is public. GitHub Pages is not enabled at baseline.
 - Security risk identified in sibling repositories remains open: client-side Vite substitutions for `GEMINI_API_KEY`/ `API_KEY` were observed in `Applied-Creole-Linguistics` and `Refuge`. This does not prove a real key was published. The owner should rotate any real key that may have been bundled into public client assets.
+
+## Maintainer batch report — 2026-10-17
+
+### Completed and verified in this batch
+
+- Canonical intent paragraph inserted verbatim into `README.md`, `docs/vision-and-scope.md`, `llms.txt`, and `docs/framework-brief.md`.
+- All 24 candidate language records are `record_status: draft`; no language identifiers, lexifier claims, substrate/adstrate claims, or lexical content were added from memory.
+- All 24 variety candidates are `record_status: draft` and `retrieval_status: non-retrievable` because each duplicates its language-level label and has no source record. This status is explicit in `schemas/variety.schema.json` version 1.2.0.
+- Added user-requested candidate labels for Rodriguan Creole, Agalega Creole, and Chagossian Creole at language and variety level; all remain draft and non-retrievable pending evidence.
+- Validator now rejects any JSONL record marked `accepted` when `source_ids` is missing or empty.
+- Consumer-agent contract explicitly prohibits citing records with missing or empty `source_ids` as evidence.
+- Retried the official ISO 639-3 code-table URL and Gallica homepage. Both returned HTTP 403 in this browser and remain `unverified`; no codes or lexical material were imported.
+- Opened the official GIDA CARE Principles page at `https://www.gida-global.org/careprinciples`. The resource card now uses that canonical URL and is marked `verified` for reachability/content only; site-wide reuse and AI permissions remain unknown. The official principles PDF identifies CC BY-NC-ND 4.0, which is not treated as blanket permission for adaptation or AI use.
+- Refreshed `catalog.json` counts to 24 language records, 24 variety records, 14 resource cards, and the existing verified evaluation count. Catalog generation is still manual; deterministic generation and stale-catalog CI are not yet implemented.
+
+### Not yet complete
+
+- Language/variety labels have not been promoted to accepted linguistic records. Every classification and external identifier still requires a fetched, cited source record.
+- The ISO 639-3 and Gallica URLs remain unverified due to HTTP 403; use only alternate official resources if their authority and contents can be verified.
+- History mining has not run: the owner has not supplied `conversations.json`. No private conversation content has been committed.
+- No seed lexical records were added under the strict link-first policy.
+- No release was created. Final CI for the latest commit must be checked before reporting the batch as green.
+
