@@ -1,5 +1,9 @@
 # Vision and scope
 
+## Owner-approved intent (verbatim)
+
+BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowledge and interoperability layer for Creole languages. It  from Creole (Kreol) and expands to French-lexifier Creoles of the Caribbean and Indian Ocean, then to Creoles with other European lexifiers (English, Portuguese, Spanish, Dutch), recording non-European contributions where documented. It links to existing scholarly and community resources instead of duplicating them. Creative applications (priority: music, lyrics, poetry; then film/series scripts; then programming and software localization) consume the framework and never define it. Creative output is always labelled separately from attested evidence.
+
 ## Vision
 Build durable, portable infrastructure that lets people and software discover, interpret, compare, evaluate and responsibly apply knowledge about Creole languages and related language-design work.
 
