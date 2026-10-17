@@ -80,10 +80,9 @@ def build_answer(query, records, framework_version=None):
             continue
         if any(
             source_id not in source_map
-            or not (
-                source_map[source_id].get("relevant_location")
-                or source_map[source_id].get("canonical_url")
-            )
+            or not source_map[source_id].get("canonical_url")
+            or not source_map[source_id].get("accessed_date")
+            or not source_map[source_id].get("relevant_location")
             for source_id in ids
         ):
             draft_matches.append(record)
