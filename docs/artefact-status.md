@@ -1,8 +1,8 @@
 # Artefact status and acceptance register
 
 **Audit date:** 2026-10-17  
-**Inventory:** 84 tracked files on the default branch at this review point.  
-**Latest verified review point before these documentation-only edits:** [CI run 38989618664](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38989618664), commit `5c6c91eb9e1a968fac7a6c128f81533c505fbb09`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, six retrieval tests, data-integrity checks, and catalog freshness. Documentation changes made after that commit require their own CI run before being called verified.
+**Inventory:** 94 tracked files on the default branch at this review point.  
+**Latest verified review point before the link-checker and contribution-guidance additions:** [CI run 38989618664](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38989618664), commit `5c6c91eb9e1a968fac7a6c128f81533c505fbb09`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, six retrieval tests, data-integrity checks, and catalog freshness. Documentation changes made after that commit require their own CI run before being called verified.
 
 ## State meanings
 
@@ -15,16 +15,23 @@
 
 | Path | State | Done criteria / current truth |
 |---|---|---|
-| `.github/workflows/validate.yml` | complete | Runs schema/record validation, negative fixtures, drafting-marker checks, retrieval tests and catalog freshness on push and pull request. |
+| `.github/ISSUE_TEMPLATE/bad-ai-answer.yml` | complete | Collects the question, problematic answer, cited IDs, failure type and evidence without requesting private material. |
+| `.github/ISSUE_TEMPLATE/correction.yml` | complete | Collects a record/path, proposed correction, source URL, precise location and rights acknowledgement. |
+| `.github/ISSUE_TEMPLATE/resource-suggestion.yml` | complete | Collects canonical resource URL, coverage, license/AI-use evidence and intended use. |
+| `.github/workflows/resource-links.yml` | complete | Runs a weekly/manual report-only link check and uploads its report; it does not rewrite registry verification. |
+| `.github/workflows/validate.yml` | complete | Runs schema/record validation, negative fixtures, data-integrity checks, retrieval tests and catalog freshness on push and pull request. |
 | `.gitignore` | complete | Excludes secrets and private history-mining inputs/outputs from version control. |
 | `AGENTS.md` | complete | Provides the agent entry point and links to detailed evidence, rights and review contracts. |
 | `CHANGELOG.md` | partial | Records changes for draft 0.1.0; update before any release. |
 | `CITATION.cff` | partial | Provides citation metadata; align version/date with an approved release before formal release. |
+| `CODE_OF_CONDUCT.md` | complete | Sets respectful participation, privacy, consent and dispute expectations without claiming community mandate. |
 | `CONTRIBUTING.md` | complete | Explains evidence, rights, validation, review and contribution workflow. |
 | `DATA-LICENSE.md` | complete | Separates repository code licensing from data/source rights and AI-use permissions. |
 | `GOVERNANCE.md` | partial | States maintainer-led status and safeguards; community review and succession are not established. |
 | `LICENSE` | complete | Provides repository code/documentation license; does not override source-specific rights. |
 | `README.md` | partial | Contains verbatim intent and entry points; deployment and broader coverage remain incomplete. |
+| `SECURITY.md` | complete | Defines private vulnerability reporting guidance and credential handling; no secret is included. |
+| `SUPPORT.md` | complete | Defines best-effort support and issue-form routes without a response-time promise. |
 | `VERSION` | partial | Identifies the public draft version; not a tagged release. |
 | `adapters/README.md` | partial | Documents adapter direction; no executable interchange adapters are implemented. |
 | `agents/consumer-agent-contract.md` | complete | Defines citation, abstention, evidence-scope and rights behaviour for consuming agents. |
@@ -62,6 +69,7 @@
 | `docs/data-model.md` | complete | Defines stable IDs and now lists language, variety, source, lexical, grammar, evaluation, concept, resource and creative-work prefixes. |
 | `docs/decisions/0001-framework-boundary.md` | complete | Records the framework/application boundary decision. |
 | `docs/evidence-policy.md` | complete | Defines evidence labels, provenance and claim limits. |
+| `docs/huggingface-datasheet.md` | partial | Describes current snapshot and limits for review; not a published dataset card. |
 | `docs/framework-brief.md` | partial | Contains verbatim intent and framework boundaries; full interoperability and coverage remain incomplete. |
 | `docs/language-relationships.md` | partial | Defines cautious relationship modelling; actual relationships require sourced claims. |
 | `docs/repository-audit.md` | partial | Records initial sibling-repository security findings; remediation PRs and full runtime audit remain open. |
@@ -84,6 +92,7 @@
 | `schemas/resource-card.schema.json` | complete | Defines resource metadata and omits unknown license URLs instead of requiring null. |
 | `schemas/source-record.schema.json` | complete | Defines source metadata, rights, review and AI-use fields. |
 | `schemas/variety.schema.json` | complete | Defines scoped varieties and conditional verified identifiers; unknown optional values can be omitted. |
+| `scripts/check_resource_links.py` | complete | Checks resource URLs and writes a report without changing rights or verification status. |
 | `scripts/generate_catalog.py` | complete | Deterministically generates record counts and SHA-256 hashes from JSONL data; CI detects stale output. |
 | `scripts/no_placeholders_check.py` | complete | Rejects zero-byte tracked files, drafting markers, empty strings/nulls in data records and empty arrays except draft source_ids. |
 | `scripts/validate_records.py` | complete | Checks all schemas, JSONL records, format constraints, negative fixtures and accepted-record source resolution. |
@@ -98,7 +107,8 @@
 | `tests/negative/source-record.schema.json.invalid.json` | complete | Intentionally invalid source-record instance must be rejected. |
 | `tests/negative/task-contract.schema.json.invalid.json` | complete | Intentionally invalid task-contract instance must be rejected. |
 | `tests/negative/variety.schema.json.invalid.json` | complete | Intentionally invalid variety instance must be rejected. |
-| `tests/retrieval/test_demo.py` | complete | Tests supported citation, abstention for draft/unsourced records and missing source locations, unknown queries, variety-ID resolution, and lexical-entry ID lookup. |
+| `tests/retrieval/test_demo.py` | complete | Tests supported citation, abstention for draft/unsourced data, unknown queries and variety-ID resolution. |
+| `tests/retrieval/test_resource_links.py` | complete | Tests that URL tracking parameters are removed and stable URL parts are preserved. | Tests supported citation, abstention for draft/unsourced records and missing source locations, unknown queries, variety-ID resolution, and lexical-entry ID lookup. |
 
 ## Verified data snapshot
 
@@ -117,7 +127,7 @@
 3. **Data usefulness:** add small sourced lexical/grammar records only after source locations, exact reuse permissions and relevant consent are established. Strict link-first remains the default.
 4. **Private-history review:** after the owner supplies `conversations.json`, mine it only into git-ignored candidates; show batches for approval. Assistant-authored claims stay quarantined until independently sourced.
 5. **Discoverability:** GitHub Pages is not enabled. Missing deployment artefacts include `robots.txt`, `sitemap.xml`, a Dataset JSON-LD landing page, issue templates, `SECURITY.md`, `SUPPORT.md`, and `CODE_OF_CONDUCT.md`. Add and test these before enabling public Pages.
-6. **Automation:** the offline retrieval demo is tested; a scheduled link checker and read-only MCP server are not deployed. Build the MCP server only after the demo's evidence/rights behaviour remains stable.
+6. **Automation:** the offline retrieval demo and report-only scheduled link checker are implemented. The link-check report has not yet been run from the new workflow. A read-only MCP server is not deployed; build it only after the demo's evidence/rights behaviour remains stable.
 7. **Sibling-repository security:** client-side Vite key substitution was observed in Applied-Creole-Linguistics and Refuge. This is a configuration exposure risk, not proof that a live key was published. Security remediation must go through PRs; do not rotate keys or publish secrets without owner direction.
 8. **Release:** the project remains `0.1.0-draft`. No release tag, GitHub Release or DOI exists. Create a release only after the current commit's CI is green and the release contents/metadata are reviewed.
 
