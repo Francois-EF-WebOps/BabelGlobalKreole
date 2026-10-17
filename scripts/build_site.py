@@ -45,7 +45,7 @@ def build(base_url, output_dir):
             "@type": "DataDownload",
             "name": "Machine-readable record catalog",
             "encodingFormat": "application/json",
-            "contentUrl": REPOSITORY_URL + "/blob/main/catalog.json",
+            "contentUrl": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/catalog.json",
         }],
         "additionalProperty": [
             {"@type": "PropertyValue", "name": name, "value": value}
