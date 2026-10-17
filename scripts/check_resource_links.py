@@ -20,7 +20,7 @@ def strip_tracking(url):
 
 
 def request_status(url, method):
-    request = Request(url, method=method, headers={"User-Agent": "BabelGlobalKreole-link-check/1.0"})
+    request = Request(url, method=method, headers={"User-Agent": "BabelGlobalKreole-link-check/1.0", **({"Range": "bytes=0-0"} if method == "GET" else {})})
     try:
         with urlopen(request, timeout=15) as response:
             return response.status, response.geturl()
@@ -32,7 +32,7 @@ def request_status(url, method):
 
 def check(url):
     status, final_url = request_status(url, "HEAD")
-    if status in (405, 501):
+    if status in (403, 405, 501):
         status, final_url = request_status(url, "GET")
     if status is None:
         label = "unreachable"
