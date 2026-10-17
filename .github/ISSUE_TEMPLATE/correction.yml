@@ -6,7 +6,6 @@ body:
     id: record_id
     attributes:
       label: Record ID or file path
-      placeholder: lng-..., var-..., src-..., or path
     validations:
       required: true
   - type: textarea
