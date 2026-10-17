@@ -11,6 +11,8 @@ Use stable opaque lowercase IDs with type prefixes. The canonical prefixes are:
 | `grm-` | Grammar rule |
 | `evl-` | Evaluation case |
 | `con-` | Concept |
+| `res-` | External resource card |
+| `wrk-` | Creative work |
 
 Additional record types may receive prefixes only through a documented schema and decision. Do not encode mutable spellings, definitions or statuses in IDs; never recycle retired IDs. Schema patterns and validator mappings must agree with this table.
 
