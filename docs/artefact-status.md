@@ -119,5 +119,5 @@ Audit baseline: `main` at `f9ca6385cfa7682093672bef6bb774bf43c121b0` (2026-10-17
 - The ISO 639-3 and Gallica URLs remain unverified due to HTTP 403; use only alternate official resources if their authority and contents can be verified.
 - History mining has not run: the owner has not supplied `conversations.json`. No private conversation content has been committed.
 - No seed lexical records were added under the strict link-first policy.
-- No release was created. Final CI for the latest commit must be checked before reporting the batch as green.
+- No release was created. CI for the catalog/status batch passed at [run 38988354673](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38988354673): `VALIDATION PASSED: 10 JSON Schemas checked; 68 JSONL records validated; 10 negative fixtures rejected; format checking enabled.` Any later commit requires its own CI verification.
 
