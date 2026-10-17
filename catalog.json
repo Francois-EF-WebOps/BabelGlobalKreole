@@ -5,7 +5,7 @@
   "status": "bootstrap",
   "record_counts": {
     "lexical_entries": 0,
-    "source_records": 0,
+    "source_records": 2,
     "language_records": 24,
     "variety_records": 24,
     "grammar_rules": 0,
@@ -22,8 +22,9 @@
     "evaluation_cases": "evaluation/test-cases/"
   },
   "record_file_hashes": {
-    "data/languages/languages.jsonl": "48d6bce64e9c51fd2d0ac633ab5463edb9abbafeb84bd00232bc4d287d7d4f42",
+    "data/languages/languages.jsonl": "245664c03c4dda50ccef8ece836e66a94a076cdfc56f5065a17b8226ae6c5acf",
     "data/resources/resources.jsonl": "6244eae8c318d82dbe1cb4b22239dc9cc35dd06b81be960aa4ed8d3e4ab4ac8d",
+    "data/sources/sources.jsonl": "e78f1dfa6923ec8861e8aad2ea646e07a9d4eacc3fb156b28bee7c4668aa1b19",
     "data/varieties/varieties.jsonl": "e1eb0ca8f1cc41fe33a69a7cc38140242fcf25e7d8aca8230d62d66ba4083bea",
     "evaluation/test-cases/starter-cases.jsonl": "1fbe67c8e8d6d5299618cd052b91d2baca97353e0fb3f6cbd824103b0ad678e6"
   },
