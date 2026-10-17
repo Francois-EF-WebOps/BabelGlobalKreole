@@ -3,32 +3,42 @@
   "framework": "Babel / Global (K)Creole",
   "framework_version": "0.1.0-draft",
   "status": "bootstrap",
-  "generated_at": "2026-10-17",
   "record_counts": {
     "lexical_entries": 0,
     "source_records": 0,
     "language_records": 24,
     "variety_records": 24,
     "grammar_rules": 0,
-    "evaluation_cases": 6,
-    "resource_cards": 14
+    "resource_cards": 14,
+    "evaluation_cases": 6
   },
   "record_paths": {
     "lexical_entries": "data/lexicon/",
     "source_records": "data/sources/",
-    "language_records": "data/languages/",
-    "variety_records": "data/varieties/",
+    "language_records": "data/languages/languages.jsonl",
+    "variety_records": "data/varieties/varieties.jsonl",
     "grammar_rules": "data/grammar/",
-    "evaluation_cases": "evaluation/test-cases/",
-    "resource_cards": "data/resources/resources.jsonl"
+    "resource_cards": "data/resources/resources.jsonl",
+    "evaluation_cases": "evaluation/test-cases/"
+  },
+  "record_file_hashes": {
+    "data/languages/languages.jsonl": "48d6bce64e9c51fd2d0ac633ab5463edb9abbafeb84bd00232bc4d287d7d4f42",
+    "data/resources/resources.jsonl": "6244eae8c318d82dbe1cb4b22239dc9cc35dd06b81be960aa4ed8d3e4ab4ac8d",
+    "data/varieties/varieties.jsonl": "e1eb0ca8f1cc41fe33a69a7cc38140242fcf25e7d8aca8230d62d66ba4083bea",
+    "evaluation/test-cases/starter-cases.jsonl": "1fbe67c8e8d6d5299618cd052b91d2baca97353e0fb3f6cbd824103b0ad678e6"
   },
   "schemas": [
-    "schemas/lexical-entry.schema.json",
-    "schemas/source-record.schema.json",
-    "schemas/evaluation-case.schema.json",
     "agents/consumer-answer.schema.json",
+    "agents/task-contract.schema.json",
+    "schemas/creative-work.schema.json",
+    "schemas/evaluation-case.schema.json",
+    "schemas/grammar-rule.schema.json",
     "schemas/language.schema.json",
+    "schemas/lexical-entry.schema.json",
+    "schemas/resource-card.schema.json",
+    "schemas/source-record.schema.json",
     "schemas/variety.schema.json"
   ],
-  "note": "Counts were refreshed from the current JSONL record files on 2026-10-17. The catalog remains manually maintained; deterministic generation and stale-catalog CI enforcement are still outstanding."
+  "catalog_generator": "scripts/generate_catalog.py",
+  "note": "Generated deterministically from current JSONL record files. Counts describe records stored in this repository, not global language coverage."
 }
