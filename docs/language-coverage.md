@@ -25,3 +25,14 @@ This document is the non-data register for candidates that are not yet suitable 
 - Glottolog pages: [Papiamento](https://glottolog.org/resource/languoid/id/papi1253), [Michif](https://glottolog.org/resource/languoid/id/mich1243), [Nubi](https://glottolog.org/resource/languoid/id/nubi1253).
 - APiCS: [Papiamentu dataset 47](https://apics-online.info/contributions/47), [Mauritian Creole survey](https://apics-online.info/surveys/55).
 - The identifiers in this document are not a substitute for machine-readable language records. The roadmap must not display ISO or Glottocode values unless those values are verified in `data/languages/` or `data/varieties/`.
+
+
+## APiCS regional datasets that must not be flattened
+
+| Catalogue label | APiCS datasets inspected | Modelling note |
+|---|---|---|
+| Kabuverdianu / Cape Verdean Creole | [Santiago (30)](https://apics-online.info/contributions/30), [Brava (31)](https://apics-online.info/contributions/31), [São Vicente (32)](https://apics-online.info/contributions/32) | The core language record links all three sources; the island datasets remain distinct and do not imply one uniform orthography or grammar. |
+| Chabacano / Chavacano | [Cavite (45)](https://apics-online.info/contributions/45), [Ternate (44)](https://apics-online.info/contributions/44), [Zamboanga (46)](https://apics-online.info/contributions/46) | The core record links these regional datasets, but no single dataset is treated as exhaustive of every Chabacano variety. Separate variety records require an explicit parent/identity mapping decision. |
+| Palenquero | [Palenquero (48)](https://apics-online.info/contributions/48) | The APiCS dataset is linked to the catalogue record; claims about substrate influence remain limited to the source's stated evidence. |
+
+The core data contains only identifiers confirmed on inspected Glottolog pages. This coverage register intentionally omits ISO and Glottocode columns for candidates without core language/variety records.
