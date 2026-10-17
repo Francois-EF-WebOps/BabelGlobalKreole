@@ -29,6 +29,7 @@ record_schema_by_parent = {
     "languages": "language.schema.json",
     "varieties": "variety.schema.json",
     "grammar": "grammar-rule.schema.json",
+    "resources": "resource-card.schema.json",
     "test-cases": "evaluation-case.schema.json",
 }
 records_checked = 0
