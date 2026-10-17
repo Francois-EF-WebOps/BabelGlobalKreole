@@ -35,18 +35,15 @@ entries:
   - id: project-mooritian
     name: Mooritian / Fresh: Love and Water
     role: application-specific-constructed-language
-    url: null
     status: source-location-unverified
     relationship: Fictional-language application, not evidence about real languages.
   - id: project-music
     name: Babel Creole music applications
     role: application-domain
-    url: null
     status: source-locations-and-integrations-unverified
     relationship: Consume released language records; not the framework boundary.
   - id: project-voice-lab
     name: My Voice Lab TTS
     role: speech-application-candidate
-    url: null
     status: owner-reported-prototype; exact repository and export not verified
     relationship: Potential speech consumer after source, rights and runtime audit.
