@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 84 tracked files on the default branch at this review point.  
-**Latest verified baseline before the current review fixes:** [CI run 38988947531](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38988947531), commit `c7a41156bbbefa7021e98be7032ce8dea9a6272d). That run passed 10 schemas, 70 JSONL records, 10 negative fixtures, three retrieval tests, the data-integrity check and catalog freshness. Changes made after that commit require their own CI run before being called verified.
+**Latest verified review point before these documentation-only edits:** [CI run 38989618664](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38989618664), commit `5c6c91eb9e1a968fac7a6c128f81533c505fbb09`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, six retrieval tests, data-integrity checks, and catalog freshness. Documentation changes made after that commit require their own CI run before being called verified.
 
 ## State meanings
 
@@ -98,7 +98,7 @@
 | `tests/negative/source-record.schema.json.invalid.json` | complete | Intentionally invalid source-record instance must be rejected. |
 | `tests/negative/task-contract.schema.json.invalid.json` | complete | Intentionally invalid task-contract instance must be rejected. |
 | `tests/negative/variety.schema.json.invalid.json` | complete | Intentionally invalid variety instance must be rejected. |
-| `tests/retrieval/test_demo.py` | complete | Tests supported citation, abstention for draft/unsourced data, unknown queries and variety-ID resolution. |
+| `tests/retrieval/test_demo.py` | complete | Tests supported citation, abstention for draft/unsourced records and missing source locations, unknown queries, variety-ID resolution, and lexical-entry ID lookup. |
 
 ## Verified data snapshot
 
