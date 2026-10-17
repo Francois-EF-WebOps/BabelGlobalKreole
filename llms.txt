@@ -2,22 +2,22 @@
 
 ## Owner-approved intent (verbatim)
 
-BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowledge and interoperability layer for Creole languages. It  from Creole (Kreol) and expands to French-lexifier Creoles of the Caribbean and Indian Ocean, then to Creoles with other European lexifiers (English, Portuguese, Spanish, Dutch), recording non-European contributions where documented. It links to existing scholarly and community resources instead of duplicating them. Creative applications (priority: music, lyrics, poetry; then film/series scripts; then programming and software localization) consume the framework and never define it. Creative output is always labelled separately from attested evidence.
+BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowledge and interoperability layer for Creole languages. It starts from Mauritian Creole (Kreol Morisien), expands to French-lexifier Creoles of the Caribbean and Indian Ocean, then to Creoles with other European lexifiers, recording non-European contributions where documented. It links to existing scholarly and community resources instead of duplicating them. Creative applications (first music, lyrics, poetry; then scripts; then programming/localization) consume the framework and never define it. Creative output is always labelled separately from attested evidence.
 
 > An evidence-led, machine-readable framework for documenting, comparing, designing, evaluating, and responsibly applying Creole-related language knowledge. It is not a single universal Creole language or a completed global standard.
 
 ## Start here
-- [Framework brief](docs/framework-brief.md): concise orientation for people and AI systems.
-- [README](README.md): scope, layers, limitations, and contribution entry point.
-- [Agent instructions](agents/instructions.md): repository-editing agent contract.
-- [Consumer-agent contract](agents/consumer-agent-contract.md): rules for systems answering user questions from framework data.
-- [Terminology](docs/terminology.md): defined terms and distinctions.
-- [Evidence and rights policy](docs/evidence-policy.md): provenance, uncertainty, reuse limits.
-- [Data model](docs/data-model.md): record families, IDs, invariants.
-- [Schemas](schemas/): machine-readable record constraints.
-- [Evaluation](evaluation/): evaluation policy and starter cases.
-- [Registry](registry/projects.yaml): related project relationships.
-- [Catalog](catalog.json): current declared dataset inventory and counts.
+- [Framework brief](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/framework-brief.md): concise orientation for people and AI systems.
+- [README](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/README.md): scope, layers, limitations, and contribution entry point.
+- [Agent instructions](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/agents/instructions.md): repository-editing agent contract.
+- [Consumer-agent contract](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/agents/consumer-agent-contract.md): rules for systems answering user questions from framework data.
+- [Terminology](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/terminology.md): defined terms and distinctions.
+- [Evidence and rights policy](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md): provenance, uncertainty, reuse limits.
+- [Data model](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/data-model.md): record families, IDs, invariants.
+- [Schemas](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/tree/main/schemas): machine-readable record constraints.
+- [Evaluation](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/tree/main/evaluation): evaluation policy and starter cases.
+- [Registry](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/registry/projects.yaml): related project relationships.
+- [Catalog](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/catalog.json): current declared dataset inventory and counts.
 
 ## Core rules
 - Similar forms do not prove common ancestry.
