@@ -53,18 +53,6 @@
         "$ref": "#/$defs/sourced-language-claim"
       }
     },
-    "substrate_languages": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/sourced-language-claim"
-      }
-    },
-    "adstrate_languages": {
-      "type": "array",
-      "items": {
-        "$ref": "#/$defs/sourced-language-claim"
-      }
-    },
     "external_identifiers": {
       "type": "array",
       "items": {
@@ -89,6 +77,18 @@
     },
     "notes": {
       "type": "string"
+    },
+    "substrate": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourced-language-claim"
+      }
+    },
+    "adstrate": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourced-language-claim"
+      }
     }
   },
   "$defs": {
