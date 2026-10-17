@@ -1,0 +1,194 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/resource-card.schema.json",
+  "schema_version": "1.0.0",
+  "title": "External Resource Card",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "name",
+    "maintainer",
+    "url",
+    "coverage",
+    "access",
+    "license_terms",
+    "permitted_operations",
+    "ai_use",
+    "how_babel_uses",
+    "last_checked",
+    "verification",
+    "contribution_route"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^res-[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "maintainer": {
+      "type": "string",
+      "minLength": 1
+    },
+    "url": {
+      "type": "string",
+      "format": "uri"
+    },
+    "coverage": {
+      "type": "string",
+      "minLength": 1
+    },
+    "access": {
+      "enum": [
+        "site",
+        "download",
+        "API",
+        "repo"
+      ]
+    },
+    "license_terms": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "url",
+        "summary"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "url": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "format": "uri"
+        },
+        "summary": {
+          "type": "string"
+        }
+      }
+    },
+    "permitted_operations": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "link",
+        "map",
+        "transform",
+        "redistribute"
+      ],
+      "properties": {
+        "link": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "permission-required"
+          ]
+        },
+        "map": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "permission-required"
+          ]
+        },
+        "transform": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "permission-required"
+          ]
+        },
+        "redistribute": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "permission-required"
+          ]
+        }
+      }
+    },
+    "ai_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "retrieval",
+        "training",
+        "speech",
+        "synthetic"
+      ],
+      "properties": {
+        "retrieval": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "permission-required"
+          ]
+        },
+        "training": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "permission-required"
+          ]
+        },
+        "speech": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "permission-required"
+          ]
+        },
+        "synthetic": {
+          "enum": [
+            "allowed",
+            "denied",
+            "unknown",
+            "permission-required"
+          ]
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "how_babel_uses": {
+      "enum": [
+        "link",
+        "map",
+        "transform",
+        "redistribute"
+      ]
+    },
+    "last_checked": {
+      "type": "string",
+      "format": "date"
+    },
+    "verification": {
+      "enum": [
+        "verified",
+        "unverified",
+        "unreachable"
+      ]
+    },
+    "contribution_route": {
+      "type": "string",
+      "minLength": 1
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
