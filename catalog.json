@@ -4,17 +4,19 @@
   "framework_version": "0.1.0-draft",
   "status": "bootstrap",
   "record_counts": {
-    "lexical_entries": 0,
-    "source_records": 33,
-    "language_records": 22,
-    "variety_records": 0,
-    "grammar_rules": 2,
+    "lexical_entries": 1,
+    "source_records": 44,
+    "concept_records": 1,
+    "language_records": 19,
+    "variety_records": 1,
+    "grammar_rules": 3,
     "resource_cards": 14,
     "evaluation_cases": 6
   },
   "record_paths": {
     "lexical_entries": "data/lexicon/",
     "source_records": "data/sources/",
+    "concept_records": "data/concepts/",
     "language_records": "data/languages/languages.jsonl",
     "variety_records": "data/varieties/varieties.jsonl",
     "grammar_rules": "data/grammar/",
@@ -22,11 +24,15 @@
     "evaluation_cases": "evaluation/test-cases/"
   },
   "record_file_hashes": {
-    "data/languages/languages.jsonl": "9d33def1cabb5ebe045017f90ffb2ba51257d1681bc11398d4eeebbbacf21566",
+    "data/concepts/concepts.jsonl": "5508406c08f3936eca39489c6f039def3ab872e9fa51f6a0daf7b4dfbd7e6a85",
+    "data/grammar/grammar.jsonl": "9bc94198e67d116344d744f89644072a73b2877fd6c39ee2fe02e1352f9a3804",
+    "data/grammar/rules.jsonl": "45c3fd357b16e3a75ce11a24987b4a025d275cbbf92464ae29794ec13167c244",
+    "data/languages/languages.jsonl": "e19ed76b63aff47e3186995250e091ea54aa529e6f5768388403e685f646a944",
+    "data/lexicon/entries.jsonl": "2133178584dd06279632f41f2f66c9c41fca3df5d6a5dbc9c8b515891d52ef10",
     "data/resources/resources.jsonl": "01494faee534eecbf393d02797dc52e58efecf641d640180e58ea63ceb0f1d44",
-    "data/sources/sources.jsonl": "65770afe77a0cb5e3f436bfc94932248dbcd33afa671e6ff5b0e013cd58470d1",
-    "evaluation/test-cases/starter-cases.jsonl": "1fbe67c8e8d6d5299618cd052b91d2baca97353e0fb3f6cbd824103b0ad678e6",
-    "data/grammar/grammar.jsonl": "9bc94198e67d116344d744f89644072a73b2877fd6c39ee2fe02e1352f9a3804"
+    "data/sources/sources.jsonl": "b98ac195b3c5cea76db42cadc689bbde9266a97b94c0df5e7755584d6adb2112",
+    "data/varieties/varieties.jsonl": "c2c093ab31d65af42044b02763b60b09ffe86e09bdd33ba33e6bda7f21aae778",
+    "evaluation/test-cases/starter-cases.jsonl": "1fbe67c8e8d6d5299618cd052b91d2baca97353e0fb3f6cbd824103b0ad678e6"
   },
   "schemas": [
     "agents/consumer-answer.schema.json",
