@@ -75,6 +75,8 @@ def main():
     for row in rows:
         counts[row["result"]] = counts.get(row["result"], 0) + 1
     print(f"RESOURCE LINK REPORT: {len(rows)} URLs checked; " + ", ".join(f"{key}={value}" for key, value in sorted(counts.items())))
+    for row in rows:
+        print(f"{row['id']}: {row['result']} (HTTP {row['http_status']}) {row['url']}")
     print(f"Report written to {args.output}; registry statuses unchanged.")
 
 
