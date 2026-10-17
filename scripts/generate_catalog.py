@@ -9,6 +9,7 @@ RECORD_ROOTS = [ROOT / "data", ROOT / "evaluation" / "test-cases"]
 record_files = sorted({p for base in RECORD_ROOTS if base.exists() for p in base.rglob("*.jsonl")})
 counts = {
     "lexical_entries": 0,
+    "concept_records": 0,
     "source_records": 0,
     "concept_records": 0,
     "language_records": 0,
@@ -22,6 +23,8 @@ for path in record_files:
     count = sum(1 for line in path.read_text(encoding="utf-8").splitlines() if line.strip())
     if rel.startswith("data/lexicon/"):
         counts["lexical_entries"] += count
+    elif rel.startswith("data/concepts/"):
+        counts["concept_records"] += count
     elif rel.startswith("data/sources/"):
         counts["source_records"] += count
     elif rel.startswith("data/concepts/"):
@@ -54,6 +57,7 @@ catalog = {
     "record_counts": counts,
     "record_paths": {
         "lexical_entries": "data/lexicon/",
+        "concept_records": "data/concepts/",
         "source_records": "data/sources/",
         "concept_records": "data/concepts/",
         "language_records": "data/languages/languages.jsonl",
