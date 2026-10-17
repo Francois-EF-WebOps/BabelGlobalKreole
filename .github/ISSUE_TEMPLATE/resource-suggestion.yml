@@ -1,0 +1,57 @@
+name: Suggest an external resource
+description: Suggest a scholarly, community, archive, standards, speech, or language-data resource.
+title: "[Resource] "
+body:
+  - type: markdown
+    attributes:
+      value: "Suggest links first. Do not upload copied dictionary entries, lyrics, recordings, or datasets."
+  - type: input
+    id: resource_name
+    attributes:
+      label: Resource name
+      placeholder: Official title
+    validations:
+      required: true
+  - type: input
+    id: official_url
+    attributes:
+      label: Official URL
+      description: Use a canonical URL without tracking parameters.
+      placeholder: https://example.org/
+    validations:
+      required: true
+  - type: textarea
+    id: coverage
+    attributes:
+      label: Coverage and relevance
+      description: Which languages, regions, time periods, or data types does it cover?
+    validations:
+      required: true
+  - type: input
+    id: license_evidence
+    attributes:
+      label: Official license or terms URL
+      description: If unknown or inaccessible, say so; do not infer permission.
+  - type: textarea
+    id: ai_rights
+    attributes:
+      label: AI-use and community-consent evidence
+      description: Note only what the source explicitly states; unknown is an acceptable answer.
+  - type: dropdown
+    id: proposed_use
+    attributes:
+      label: Proposed Babel use
+      options:
+        - Link only
+        - Map identifiers
+        - Transform with permission review
+        - Redistribute only after explicit rights review
+    validations:
+      required: true
+  - type: textarea
+    id: verification
+    attributes:
+      label: Verification notes
+      description: Access date, page section, and any access restrictions.
+    validations:
+      required: true
