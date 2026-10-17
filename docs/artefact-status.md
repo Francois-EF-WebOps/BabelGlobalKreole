@@ -1,8 +1,8 @@
 # Artefact status and acceptance register
 
 **Audit date:** 2026-10-17  
-**Inventory:** 113 tracked files on the default branch at this review point.  
-**Latest independently inspected validation run at this audit:** [CI run 38997304911](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38997304911), commit `93f7cb35ab5f2809bb56f43d12a4548acf35fa39`. The validation job completed successfully on that exact commit. The previous detailed job-log assertions remain tied to run 38995043702 and commit `88a3ec3c7ddd31ce9dacffbb3106796bb540a013`; they are not re-attributed to the newer run.
+**Inventory:** 112 tracked files on the default branch at this review point.  
+**Latest independently inspected validation run before this register refresh:** [CI run 39009554386](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/39009554386), commit `eb1d811d4bd8df01cce5664eebc36fdf5a299b3c`, completed successfully. The matching [Pages workflow run 39009554559](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/39009554559) passed its preview build, but the `deploy` job was skipped. This register-only commit triggers new validation; verify its run separately.
 
 ## State meanings
 
@@ -59,7 +59,7 @@
 | `data/grammar/rules.jsonl` | complete | One sourced Mauritian Creole nominal-plurality grammar claim. |
 | `data/languages/README.md` | complete | Explains accepted catalogue records, identifier provenance and the coverage register. |
 | `data/languages/languages.jsonl` | partial | 19 accepted catalogue records have inspected Glottolog identifiers and source records; unverified candidates remain in `docs/language-coverage.md`. |
-| `data/lexicon/README.md` | complete | Documents provenance and rights requirements; one source-backed Mauritian Creole lexical entry is present. |
+| `data/lexicon/README.md` | partial | Documents provenance and rights requirements; no lexical records are currently included. APiCS structural datapoints belong in grammar records, not the lexical dataset. |
 | `data/lexicon/entries.jsonl` | partial | One APiCS-attributed lexical record for the Mauritian Creole pluralizer; AI training remains unknown. |
 | `data/resources/README.md` | complete | Explains resource cards and the difference between reachability and reuse permission. |
 | `data/resources/resources.jsonl` | partial | 14 cards; ISO 639-3 and Gallica remain unverified; other statuses are scoped to checked pages/terms. |
@@ -138,14 +138,14 @@
 - Grammar claims: 3 across `data/grammar/grammar.jsonl` and `data/grammar/rules.jsonl`, including nominal plurality, preverbal tense/aspect/mood marking and the position of standard negation.
 - Concept records: 1 organizing concept for nominal plurality.
 - Resource cards: 14; unresolved reachability and rights limits remain recorded per resource.
-- The current catalog generator should record 95 JSONL records across data and evaluation files after the latest six APiCS source records; CI must verify catalog counts and hashes on the final commit.
+- The current catalog reports 94 JSONL records across data and evaluation files; CI verifies catalog counts and hashes. The APiCS plural datapoint is now represented as a grammar rule, not a lexical entry.
 - Creative work from owner history: none imported. No `conversations.json` was supplied for private mining or batch approval.
 
 ## Remaining work, in dependency order
 
 1. **Language evidence coverage:** the current 19 accepted catalogue records are sourced, but coverage is not complete. Dominican Kwéyòl, Rodrigues, Agalega and Chagossian claims remain in the non-data coverage register pending direct evidence. Keep Papiamento's lexifier attribution disputed; Michif and Nubi remain scope extensions, not core European-lexifier records.
 2. **APiCS coverage:** source pages have been inspected for selected languages. Fetch and record the canonical APiCS page, date and precise location for every candidate where an APiCS entry exists before claiming APiCS coverage is complete.
-3. **Data quality:** keep the one lexical entry and three grammar claims link-first and narrowly scoped. Do not add copied dictionary entries or third-party lyrics/scripts without source-specific rights review. AI training, speech and synthetic-data flags remain unknown where not explicitly verified.
+3. **Data quality:** the lexical dataset currently has zero entries; three Mauritian grammar claims remain link-first and narrowly scoped. Add lexical entries only from a lexicon whose license permits the intended reuse. Do not add copied dictionary entries or third-party lyrics/scripts without source-specific rights review. AI training, speech and synthetic-data flags remain unknown where not explicitly verified.
 4. **Discoverability and Pages:** the static site preview builds, but the latest checked workflow's deploy job was skipped. The site URL and generated `sitemap.xml`, `robots.txt`, `llms.txt`, `CITATION.cff` and Dataset JSON-LD have not been verified against a live deployment. The owner must ensure Pages source is GitHub Actions and repository variable `PAGES_ENABLED=true`, then rerun the workflow. Do not add a live URL to README until deployment succeeds and URL checks pass.
 5. **Automation:** schema/record validation, negative fixtures, internal Markdown links, record integrity, offline retrieval, catalog freshness and the report-only resource link checker are implemented. The read-only stdio MCP adapter is local, not deployed as a network service.
 6. **Sibling-repository security:** [Applied-Creole-Linguistics PR #2](https://github.com/Francois-EF-WebOps/Applied-Creole-Linguistics/pull/2) and [Refuge PR #2](https://github.com/Francois-EF-WebOps/Refuge/pull/2) remain owner-review items. No key rotation is confirmed. If a real key was ever built into a public bundle, rotate it directly in the provider console.
@@ -168,8 +168,8 @@
 ### Verified repository snapshot
 
 - Default-branch HEAD inspected for this register refresh: `93f7cb35ab5f2809bb56f43d12a4548acf35fa39` (the register-only commit below advances HEAD).
-- GitHub tree reports 113 tracked files and 11 JSON Schema files.
-- Generated `catalog.json` reports 19 language records, 1 variety, 50 source records, 1 lexical entry, 3 grammar rules, 1 concept, 14 resource cards and 6 evaluation cases. Its recorded file hashes are generated from the data files and the validator workflow checks catalog freshness.
+- GitHub tree reports 112 tracked files and 11 JSON Schema files.
+- Generated `catalog.json` reports 19 language records, 1 variety, 50 source records, 0 lexical entries, 3 grammar rules, 1 concept, 14 resource cards and 6 evaluation cases (94 records total). Its recorded file hashes are generated from the data files and the validator workflow checks catalog freshness.
 - `data/languages/languages.jsonl` and `docs/artefact-status.md` are present on the default branch. Earlier reports that these paths were missing are superseded by this direct inspection.
 - Language and source identifier patterns are present in the inspected language schema. The validation run also proves the current full schema set passes; it does not by itself prove that every possible malformed identifier is rejected unless a corresponding fixture exercises it.
 - Application entry points already exist for music/poetry, scripts and localization. Do not create duplicate directories. Review their contents and define the creative-work labelling and provenance contract before adding creative records.
@@ -182,7 +182,7 @@
 ### Additional gaps for the next implementation pass
 
 1. **Source rights completeness:** the source schema and records distinguish retrieval, redistribution, training, speech generation, synthetic data and community consent. Audit all 50 records field-by-field; do not infer a blanket license or training permission from the resource's general availability.
-2. **Evidence precision:** one lexical entry is not a usable general-purpose lexicon. Expand only from inspected source locations and permitted data; keep entries narrow, attributed, and clearly separate attested evidence from creative coinage.
+2. **Evidence precision:** the lexical dataset is intentionally empty until a suitable licensed lexicon is inspected. APiCS structural datapoints are recorded as grammar evidence with APiCS's own locator; keep claims narrow and do not copy example sentences.
 3. **Language scope:** 19 records are a bounded catalogue, not comprehensive coverage of the five lexifier clusters. Continue with source-first candidates and keep disputed classifications in the coverage register until evidence and modelling decisions support a record.
 4. **Creative applications:** existing application tracks are lightweight documentation, not evidence that music, script or localization workflows are implemented. Define required fields, rights checks, provenance and validation before adding original work; no owner-history content is approved by this audit.
 5. **External link checking:** the scheduled resource-link workflow is report-only. A reachable URL is not proof of correct attribution, stable content, license terms or community consent.
@@ -198,6 +198,13 @@ This review used the public GitHub tree, selected repository files, the recorded
 ### Register refresh note — 2026-10-17
 
 - Updated the audit pointer to the successful validation run on HEAD `93f7cb35ab5f2809bb56f43d12a4548acf35fa39` and the matching Pages preview run. The register-only commit that records this note will itself trigger fresh validation; its run must be checked separately.
-- Counts remain the generated catalogue snapshot: 19 languages, 1 variety, 50 source records, 1 lexical entry, 3 grammar rules, 1 concept, 14 resource cards and 6 evaluation cases (95 records total). These are record counts, not proof that every claim has been independently re-fetched.
+- Counts remain the generated catalogue snapshot: 19 languages, 1 variety, 50 source records, 0 lexical entries, 3 grammar rules, 1 concept, 14 resource cards and 6 evaluation cases (94 records total). These are record counts, not proof that every claim has been independently re-fetched.
 - Source review found one record, `src-papiamento-lexifier-debate-20261017`, whose own notes say “Bibliographic link only” and whose license is not stated. Its `rights_status` and AI-use flags are `unknown`; until the paper itself and rights terms are inspected, do not treat it as cleared for reuse. The record's `review_status: inspected` should be downgraded to `referenced` in a subsequent data change with catalog regeneration and CI.
 - Existing schema ID patterns are already present in the inspected language, variety, source, lexical-entry and grammar-rule schemas; do not add duplicate patterns without checking the remaining schemas and fixtures.
+
+
+### APiCS structural-data correction — 2026-10-17
+
+- Removed the single lexical entry because its only source was an APiCS structural datapoint, not a licensed lexicon. The grammatical claim remains in `data/grammar/rules.jsonl`, with the exact APiCS valueset locator `https://apics-online.info/valuesets/55-23` and its feature/value description.
+- Updated the APiCS source note to state that it supports a grammar rule only; no example sentence or lexical dataset is copied. Regenerated the catalogue count and SHA-256 hashes; validation passed on commit `eb1d811d4bd8df01cce5664eebc36fdf5a299b3c` before this register refresh.
+- The catalogue is now 94 records: 19 languages, 1 variety, 50 sources, 0 lexical entries, 3 grammar rules, 1 concept, 14 resources and 6 evaluation cases. The absence of a lexicon is explicit rather than concealed by a structural-data-derived entry.
