@@ -78,7 +78,14 @@ def build_answer(query, records, framework_version=None):
         if record.get("record_status") != "accepted" or not isinstance(ids, list) or not ids:
             draft_matches.append(record)
             continue
-        if any(source_id not in source_map for source_id in ids):
+        if any(
+            source_id not in source_map
+            or not (
+                source_map[source_id].get("relevant_location")
+                or source_map[source_id].get("canonical_url")
+            )
+            for source_id in ids
+        ):
             draft_matches.append(record)
             continue
         supported.append(record)
