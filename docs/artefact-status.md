@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 112 tracked files on the default branch at this review point.  
-**Latest independently inspected validation run before this register refresh:** [CI run 39009554386](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/39009554386), commit `eb1d811d4bd8df01cce5664eebc36fdf5a299b3c`, completed successfully. The matching [Pages workflow run 39009554559](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/39009554559) passed its preview build, but the `deploy` job was skipped. This register-only commit triggers new validation; verify its run separately.
+**Latest independently inspected validation run before this register refresh:** [CI run 39009578483](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/39009578483), commit `b8b544a77e9aec82a9464f8780143288dfc27aa9`, completed successfully. The matching [Pages workflow run 39009578561](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/39009578561) passed its preview build, but the `deploy` job was skipped. This register-only commit triggers new validation; verify its run separately.
 
 ## State meanings
 
@@ -199,7 +199,7 @@ This review used the public GitHub tree, selected repository files, the recorded
 
 - Updated the audit pointer to the successful validation run on HEAD `93f7cb35ab5f2809bb56f43d12a4548acf35fa39` and the matching Pages preview run. The register-only commit that records this note will itself trigger fresh validation; its run must be checked separately.
 - Counts remain the generated catalogue snapshot: 19 languages, 1 variety, 50 source records, 0 lexical entries, 3 grammar rules, 1 concept, 14 resource cards and 6 evaluation cases (94 records total). These are record counts, not proof that every claim has been independently re-fetched.
-- Source review found one record, `src-papiamento-lexifier-debate-20261017`, whose own notes say “Bibliographic link only” and whose license is not stated. Its `rights_status` and AI-use flags are `unknown`; until the paper itself and rights terms are inspected, do not treat it as cleared for reuse. The record's `review_status: inspected` should be downgraded to `referenced` in a subsequent data change with catalog regeneration and CI.
+- The publisher landing page and abstract for `src-papiamento-lexifier-debate-20261017` were inspected, but the full article was not reviewed. The page states copyright is transferred to the journal for online publication and does not identify an open reuse license; its license fields are therefore absent, and its `rights_status` and AI-use flags remain `unknown`. Do not reuse the article text without further rights review.
 - Existing schema ID patterns are already present in the inspected language, variety, source, lexical-entry and grammar-rule schemas; do not add duplicate patterns without checking the remaining schemas and fixtures.
 
 
@@ -208,3 +208,12 @@ This review used the public GitHub tree, selected repository files, the recorded
 - Removed the single lexical entry because its only source was an APiCS structural datapoint, not a licensed lexicon. The grammatical claim remains in `data/grammar/rules.jsonl`, with the exact APiCS valueset locator `https://apics-online.info/valuesets/55-23` and its feature/value description.
 - Updated the APiCS source note to state that it supports a grammar rule only; no example sentence or lexical dataset is copied. Regenerated the catalogue count and SHA-256 hashes; validation passed on commit `eb1d811d4bd8df01cce5664eebc36fdf5a299b3c` before this register refresh.
 - The catalogue is now 94 records: 19 languages, 1 variety, 50 sources, 0 lexical entries, 3 grammar rules, 1 concept, 14 resources and 6 evaluation cases. The absence of a lexicon is explicit rather than concealed by a structural-data-derived entry.
+
+
+### Canonical source fetch audit — 2026-10-17
+
+- Opened all 50 canonical URLs represented by `data/sources/sources.jsonl`: 23 Glottolog pages, 26 APiCS pages, and one publisher landing page. This confirms page reachability during this audit, not permanent availability.
+- The 23 Glottolog pages were checked for the language/variety label, Glottocode, ISO 639-3 code where shown, and Glottolog's CC BY 4.0 license notice. The current core Seychellois record is supported by Glottocode `sese1246` and ISO 639-3 `crs`; do not substitute the unsupported `seyc1234` candidate.
+- APiCS pages were checked for dataset/feature identity and their CC BY 4.0 notice. APiCS structural features are used for grammar claims, not treated as a general-purpose lexicon. The Mauritian nominal-plural construction points to valueset `55-23`.
+- Source-field inventory: all 50 records have a canonical URL, access date, relevant-location field, review status, rights status, and complete `ai_use` object. Forty-nine records have a stated CC BY 4.0 license and `verified-permitted` rights status. One publisher article record has no license fields and correctly remains `rights_status: unknown`.
+- Source-page access does not itself grant rights to reproduce content. AI training, speech generation, synthetic data and community consent remain `unknown` unless the source or an authorized community statement establishes otherwise.
