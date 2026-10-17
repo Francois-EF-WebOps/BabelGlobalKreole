@@ -29,7 +29,7 @@ def load_records(data_root=DATA_ROOT):
 
 
 def record_id(record):
-    for key in ("language_id", "variety_id", "source_id", "lexical_id", "lex_id", "grammar_id", "rule_id", "case_id", "concept_id", "work_id", "id"):
+    for key in ("variety_id", "language_id", "source_id", "lex_id", "rule_id", "case_id", "concept_id", "work_id", "id"):
         value = record.get(key)
         if isinstance(value, str) and value.startswith(("lng-", "var-", "src-", "lex-", "grm-", "evl-", "con-", "wrk-", "res-")):
             return value
