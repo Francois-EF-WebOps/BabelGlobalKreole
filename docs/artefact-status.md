@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 108 tracked files on the default branch at this review point.  
-**Latest verified validation run before this register update:** [CI run 38990985804](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990985804), commit `d330722b70be1c22187c3966eac35e87e3f21c79`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 44 local Markdown links, 20 tests, data-integrity checks, and catalog freshness.
+**Latest verified validation run before this register update:** [CI run 38991049514](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38991049514), commit `6061517afb8919278d076f6fbb3d112561126a36`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 44 local Markdown links, 20 tests, data-integrity checks, and catalog freshness.
 
 ## State meanings
 
@@ -103,7 +103,7 @@
 | `scripts/check_internal_links.py` | complete | Checks local Markdown link targets and fails if none are detected. |
 | `scripts/check_resource_links.py` | complete | Checks resource URLs and writes a report without changing rights or verification status. |
 | `scripts/generate_catalog.py` | complete | Deterministically generates record counts and SHA-256 hashes from JSONL data; CI detects stale output. |
-| `scripts/no_placeholders_check.py` | complete | Rejects zero-byte tracked files, drafting markers, empty strings/nulls in data records and empty arrays except draft source_ids. |
+| `scripts/no_placeholders_check.py` | complete | Rejects zero-byte tracked files, drafting markers, URL tracking parameters, null/empty data values and empty arrays except draft source_ids. |
 | `scripts/record_integrity.py` | complete | Provides tested canonical-ID extraction and duplicate-ID detection, prioritizing each record's own ID over parent references. |
 | `scripts/validate_records.py` | complete | Checks all schemas, JSONL records, format constraints, negative fixtures, duplicate IDs and accepted-record source resolution. |
 | `tests/negative/concept.schema.json.invalid.json` | complete | Intentionally invalid concept instance must be rejected. |
