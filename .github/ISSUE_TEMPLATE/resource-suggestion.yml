@@ -9,7 +9,6 @@ body:
     id: resource_name
     attributes:
       label: Resource name
-      placeholder: Official title
     validations:
       required: true
   - type: input
@@ -17,7 +16,6 @@ body:
     attributes:
       label: Official URL
       description: Use a canonical URL without tracking parameters.
-      placeholder: https://example.org/
     validations:
       required: true
   - type: textarea
