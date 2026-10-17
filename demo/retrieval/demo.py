@@ -91,7 +91,7 @@ def build_answer(query, records, framework_version=None):
         supported.append(record)
 
     if not supported:
-        names = [str(r.get("name") or r.get("title") or record_id(r)) for r in draft_matches]
+        names = [str(r.get("name") or r.get("title") or r.get("lemma") or r.get("form") or record_id(r)) for r in draft_matches]
         answer = {
             "answer_status": "abstained",
             "answer": "Matching metadata exists, but none of the matching records is eligible evidence: records must be accepted and have non-empty source_ids resolving to source records. Matches: " + ", ".join(names),
