@@ -5,7 +5,7 @@ import sys
 from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
-from scripts.record_integrity import register_record_id
+from record_integrity import register_record_id
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
