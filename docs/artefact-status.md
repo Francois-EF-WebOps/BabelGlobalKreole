@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 113 tracked files on the default branch at this review point.  
-**Latest independently inspected validation run at this audit:** [CI run 38995043702](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38995043702), commit `88a3ec3c7ddd31ce9dacffbb3106796bb540a013`. The job log confirms 11 schemas, 95 JSONL records, 11 negative fixtures rejected, format checking enabled, 51 internal Markdown links resolved, and the no-placeholders check passed. This run is evidence for that exact commit only.
+**Latest independently inspected validation run at this audit:** [CI run 38995043702](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38995043702), commit `88a3ec3c7ddd31ce9dacffbb3106796bb540a013`. The job log confirms 11 schemas, 95 JSONL records, 11 negative fixtures rejected, format checking enabled, 51 internal Markdown links resolved, and the tracked-file and draft-marker check passed. This run is evidence for that exact commit only.
 
 ## State meanings
 
