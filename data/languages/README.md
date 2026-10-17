@@ -1,7 +1,7 @@
 # Language records
 
-`languages.jsonl` is a candidate-scope inventory, not a sourced classification catalogue.
+`languages.jsonl` is a draft inventory of candidate language labels, not a sourced classification catalogue.
 
-Current entries are provisional placeholders with `kind: undecided`, no external identifiers, no source claims, and no asserted lexifier/substrate/adstrate relationships. Their names originate from the owner's requested scope. They must not be cited as evidence that a classification is established.
+Each candidate remains `record_status: draft`. Where a record has no source IDs, external identifiers, or sourced classification claims, it must not be cited as evidence that the classification is established. The candidate names reflect the owner's requested scope and are not an assertion that each label is a separate language.
 
-To accept or enrich a record, add a source record and precise source location for each claim; keep conflicting scholarly classifications explicitly disputed; only add Glottocodes or ISO 639-3 codes after verification against the relevant registry. Do not add lexical entries from memory.
+To accept or enrich a record, add source records and precise source locations for each claim. Preserve conflicting scholarly classifications as disputed only when the disagreement itself is sourced. Add Glottocodes or ISO 639-3 codes only after verification against the relevant official registry. Do not add lexical entries from memory.
