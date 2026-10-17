@@ -25,6 +25,16 @@ class RetrievalDemoTests(unittest.TestCase):
         self.assertEqual(answer["sources"][0]["source_id"], "src-test")
         self.assertEqual(answer["sources"][0]["location"], "section 2")
 
+    def test_accepted_record_with_source_missing_access_date_abstains(self):
+        records = [
+            {"language_id": "lng-test", "name": "Test Language", "record_status": "accepted", "source_ids": ["src-test"], "evidence_status": "scholarly_analysis"},
+            {"source_id": "src-test", "title": "Source without access date", "canonical_url": "https://example.org/source", "relevant_location": "section 2"},
+        ]
+        answer = build_answer("lng-test", records, "test-version")
+        self.assertEqual(answer["answer_status"], "abstained")
+        self.assertEqual(answer["claims"], [])
+        self.assertEqual(answer["sources"], [])
+
     def test_accepted_record_with_source_without_location_abstains(self):
         records = [
             {"language_id": "lng-test", "name": "Test Language", "record_status": "accepted", "source_ids": ["src-test"], "evidence_status": "scholarly_analysis"},
