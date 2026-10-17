@@ -1,0 +1,151 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/creative-work.schema.json",
+  "schema_version": "1.0.0",
+  "title": "Creative Work",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "work_id",
+    "type",
+    "author",
+    "license",
+    "ai_use",
+    "language_id",
+    "variety_id",
+    "orthography",
+    "uses_record_ids",
+    "label",
+    "status"
+  ],
+  "properties": {
+    "work_id": {
+      "type": "string",
+      "pattern": "^wrk-[a-z0-9-]+$"
+    },
+    "type": {
+      "enum": [
+        "lyrics",
+        "poem",
+        "script",
+        "code",
+        "localization"
+      ]
+    },
+    "author": {
+      "type": "string",
+      "minLength": 1
+    },
+    "license": {
+      "type": "string",
+      "minLength": 1
+    },
+    "ai_use": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "retrieval",
+        "training",
+        "speech",
+        "synthetic"
+      ],
+      "properties": {
+        "retrieval": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        },
+        "training": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        },
+        "speech": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        },
+        "synthetic": {
+          "enum": [
+            "allowed",
+            "denied",
+            "permission-required",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "language_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^lng-[a-z0-9-]+$"
+    },
+    "variety_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^var-[a-z0-9-]+$"
+    },
+    "orthography": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "uses_record_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^(lng|var|src|lex|grm|evl|con|wrk|res)-[a-z0-9-]+$"
+      }
+    },
+    "label": {
+      "enum": [
+        "creative_coinage",
+        "application_canon"
+      ]
+    },
+    "status": {
+      "enum": [
+        "draft",
+        "proposed",
+        "accepted",
+        "published",
+        "withdrawn",
+        "retracted"
+      ]
+    },
+    "title": {
+      "type": "string"
+    },
+    "created_date": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "format": "date"
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^src-[a-z0-9-]+$"
+      }
+    },
+    "notes": {
+      "type": "string"
+    }
+  }
+}
