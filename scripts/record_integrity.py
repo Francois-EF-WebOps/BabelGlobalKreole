@@ -2,14 +2,14 @@
 
 RECORD_ID_KEYS = (
     "variety_id",
-    "language_id",
-    "source_id",
     "entry_id",
-    "lex_id",
     "rule_id",
     "case_id",
     "concept_id",
     "work_id",
+    "source_id",
+    "language_id",
+    "lex_id",
     "id",
 )
 
