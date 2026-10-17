@@ -1,5 +1,9 @@
 # Framework brief
 
+## Owner-approved intent (verbatim)
+
+BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowledge and interoperability layer for Creole languages. It  from Creole (Kreol) and expands to French-lexifier Creoles of the Caribbean and Indian Ocean, then to Creoles with other European lexifiers (English, Portuguese, Spanish, Dutch), recording non-European contributions where documented. It links to existing scholarly and community resources instead of duplicating them. Creative applications (priority: music, lyrics, poetry; then film/series scripts; then programming and software localization) consume the framework and never define it. Creative output is always labelled separately from attested evidence.
+
 Babel / Global (K)Creole is a proposed interoperability framework for evidence-grounded Creole-related language knowledge and applications. It documents distinct real languages and varieties, compares claims with provenance, records explicitly marked convergence proposals, and supports constructed or fictional language work without presenting it as attested community usage.
 
 ## Non-negotiable distinctions
