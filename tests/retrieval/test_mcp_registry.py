@@ -50,6 +50,10 @@ class MCPRegistryTests(unittest.TestCase):
     def test_missing_record_is_explicit(self):
         self.assertFalse(get_record("lng-missing", records=[])["found"])
 
+    def test_found_record_is_explicit(self):
+        records = [{"language_id": "lng-test", "name": "Test", "record_status": "draft", "source_ids": []}]
+        self.assertTrue(get_record("lng-test", records=records)["found"])
+
 
 if __name__ == "__main__":
     unittest.main()
