@@ -34,6 +34,7 @@ record_schema_by_parent = {
     "test-cases": "evaluation-case.schema.json",
 }
 records_checked = 0
+accepted_records = []
 record_paths = sorted((ROOT / "data").rglob("*.jsonl")) + sorted((ROOT / "evaluation" / "test-cases").glob("*.jsonl"))
 for path in record_paths:
     schema_name = record_schema_by_parent.get(path.parent.name)
@@ -54,11 +55,39 @@ for path in record_paths:
             errors.append(f"{path.relative_to(ROOT)}:{line_no}: invalid JSON: {exc}")
             continue
         records_checked += 1
-        if item.get("record_status") == "accepted" and not item.get("source_ids"):
-            errors.append(f"{path.relative_to(ROOT)}:{line_no}: accepted record must have at least one source_id")
+        if item.get("record_status") == "accepted":
+            if not item.get("source_ids"):
+                errors.append(f"{path.relative_to(ROOT)}:{line_no}: accepted record must have at least one source_id")
+            else:
+                accepted_records.append((path.relative_to(ROOT).as_posix(), line_no, item))
         for issue in validator.iter_errors(item):
             location = ".".join(str(p) for p in issue.absolute_path) or "<root>"
             errors.append(f"{path.relative_to(ROOT)}:{line_no}:{location}: {issue.message}")
+
+# Every accepted record must resolve to source records with a URL, access date,
+# and precise location. This prevents a non-empty but dangling source_ids array
+# from passing validation.
+source_path = ROOT / "data" / "sources" / "sources.jsonl"
+source_records = {}
+if source_path.exists():
+    for line_no, line in enumerate(source_path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            source = json.loads(line)
+            if source.get("source_id"):
+                source_records[source["source_id"]] = source
+        except Exception:
+            pass
+for relative, line_no, record in accepted_records:
+    for source_id in record.get("source_ids", []):
+        source = source_records.get(source_id)
+        if source is None:
+            errors.append(f"{relative}:{line_no}: accepted record references unknown source_id {source_id}")
+            continue
+        for field in ("canonical_url", "accessed_date", "relevant_location"):
+            if not source.get(field):
+                errors.append(f"{relative}:{line_no}: source {source_id} lacks required evidence field {field}")
 
 # Every schema must have an intentionally invalid fixture; CI must fail if any
 # fixture is accidentally accepted or missing.
