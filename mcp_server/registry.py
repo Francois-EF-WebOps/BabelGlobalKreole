@@ -8,7 +8,7 @@ ROOT = Path(__file__).resolve().parents[1]
 DATA_ROOT = ROOT / "data"
 CONTENT_FIELDS = {
     "form", "definition", "examples", "counterexamples", "pronunciation",
-    "statement", "autonyms", "notes",
+    "statement", "autonyms",
 }
 
 
