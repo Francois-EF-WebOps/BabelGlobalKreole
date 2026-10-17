@@ -79,10 +79,7 @@
             "type": "string"
           },
           "citation": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         }
       }
@@ -100,12 +97,9 @@
       }
     },
     "framework_version": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     }
   },
   "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/agents/consumer-answer.schema.json",
-  "schema_version": "1.0.0"
+  "schema_version": "1.1.0"
 }
