@@ -133,7 +133,7 @@
 
 - Language records: 19 accepted catalogue entries with Glottolog identifiers and source IDs. Candidate names not supported as distinct records remain in `docs/language-coverage.md`.
 - Variety records: 1 accepted Martinican Creole record supported by a Glottolog dialect page and APiCS dataset. The former set of 24 unsupported variety entries is not present.
-- Source records: 44. Source records include Glottolog catalogue pages and inspected APiCS resources; AI training, speech generation and synthetic-data permissions remain unknown unless individually verified.
+- Source records: 50. Source records include Glottolog catalogue pages and inspected APiCS resources; AI training, speech generation and synthetic-data permissions remain unknown unless individually verified.
 - Lexical entries: 1 (`ban`, a Mauritian Creole pluralizer, attributed to APiCS). No dictionary or corpus was copied.
 - Grammar claims: 3 across `data/grammar/grammar.jsonl` and `data/grammar/rules.jsonl`, including nominal plurality, preverbal tense/aspect/mood marking and the position of standard negation.
 - Concept records: 1 organizing concept for nominal plurality.
