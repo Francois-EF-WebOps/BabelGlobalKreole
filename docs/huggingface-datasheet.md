@@ -12,7 +12,7 @@ Provide a transparent description for any future dataset package derived from Ba
 ## Current contents
 
 - 19 accepted catalogue-level language records with inspected Glottolog identifiers and source records; APiCS records are linked where their pages were inspected.
-- 1 accepted, sourced variety record (Martinican Creole); the 24 unsourced duplicate variety placeholders were removed.
+- 1 accepted, sourced variety record (Martinican Creole); the 24 unsupported duplicate variety records were removed.
 - 50 source metadata records, including Glottolog and APiCS pages; a source link does not imply permission for training or speech generation.
 - 14 external resource cards with per-resource verification and rights notes.
 - 6 evaluation cases.
