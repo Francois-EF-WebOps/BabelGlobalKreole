@@ -1,17 +1,24 @@
 # Documentation site deployment
 
-The site builder creates a static landing page with Schema.org Dataset JSON-LD, an absolute-URL sitemap, robots.txt, a copy of llms.txt, and the generated catalog. It does not copy third-party language data or private conversation history.
+The site builder generates a static landing page, Schema.org Dataset JSON-LD, an absolute-URL sitemap, robots.txt, a copy of llms.txt, and the current catalog. It does not copy third-party language data or private conversation history.
 
-## One-time repository setting
+## Observed deployment state
 
-The connected GitHub operation can commit repository files and inspect CI, but it cannot change the repository's Pages settings or create the required non-default token. To publish the site:
+As of the latest checked run, [Pages workflow run 38993917493](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38993917493), the preview build succeeded but the `deploy` job was skipped. Therefore the site is **not yet verified live**, even if Pages settings have since been changed. The deployment URL and generated absolute URLs must be checked after a successful deploy run.
+
+## Owner-only settings
 
 1. Open **Settings → Pages** for this repository.
 2. Under **Build and deployment**, choose **GitHub Actions** as the source.
-3. Add repository variable `PAGES_ENABLED` with value `true`.
-4. Run the **Build and deploy documentation site** workflow, or push a later commit to `main`.
+3. Under **Settings → Secrets and variables → Actions → Variables**, ensure repository variable `PAGES_ENABLED` is exactly `true`.
+4. Run the **Build and deploy documentation site** workflow again.
+5. Confirm the run's `deploy` job succeeded and use the exact URL shown by the GitHub Pages environment/deployment.
 
-The workflow builds a preview artifact on every push. The deploy job remains skipped until the variable is set, so it does not falsely claim that a site is live. The Pages deployment action obtains the exact base URL from GitHub's configured Pages metadata; the sitemap is generated from that value rather than a guessed URL.
+The build preview runs on pushes even when deployment is disabled. A green preview-only run is not evidence that the site is published.
+
+## URL integrity checks after deployment
+
+Compare the exact configured base URL against the deployed `sitemap.xml`, `robots.txt`, `llms.txt`, `CITATION.cff`, and Dataset JSON-LD. The sitemap and robots files are generated into the site artifact by `scripts/build_site.py`; they are not necessarily tracked at repository root. Do not add a live-site link to the README or claim that URLs are verified until the deployment URL loads and the generated files agree.
 
 ## Local build
 
@@ -19,4 +26,4 @@ The workflow builds a preview artifact on every push. The deploy job remains ski
 python scripts/build_site.py --base-url https://your-configured-pages-url --output-dir site
 ```
 
-Use the exact URL shown in the repository's Pages settings. The preview artifact uses the repository URL only for validation; the deploy job rebuilds with the configured Pages URL. Do not publish the preview artifact.
+Use the exact URL shown in repository Pages settings. The preview artifact uses the repository URL only for validation; the deploy job rebuilds with the configured Pages URL. Do not publish the preview artifact.
