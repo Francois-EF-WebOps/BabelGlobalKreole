@@ -86,8 +86,22 @@ if source_path.exists():
                 source_records[source["source_id"]] = source
         except Exception:
             pass
+def collect_source_ids(value):
+    found = []
+    if isinstance(value, dict):
+        for key, child in value.items():
+            if key == "source_ids" and isinstance(child, list):
+                found.extend(item for item in child if isinstance(item, str))
+            else:
+                found.extend(collect_source_ids(child))
+    elif isinstance(value, list):
+        for child in value:
+            found.extend(collect_source_ids(child))
+    return found
+
+
 for relative, line_no, record in accepted_records:
-    for source_id in record.get("source_ids", []):
+    for source_id in sorted(set(collect_source_ids(record))):
         source = source_records.get(source_id)
         if source is None:
             errors.append(f"{relative}:{line_no}: accepted record references unknown source_id {source_id}")
@@ -95,6 +109,10 @@ for relative, line_no, record in accepted_records:
         for field in ("canonical_url", "accessed_date", "relevant_location"):
             if not source.get(field):
                 errors.append(f"{relative}:{line_no}: source {source_id} lacks required evidence field {field}")
+        if source.get("review_status") not in {"inspected", "rights-checked", "approved-for-use"}:
+            errors.append(f"{relative}:{line_no}: source {source_id} is not inspected or rights-checked")
+        if source.get("rights_status") != "verified-permitted":
+            errors.append(f"{relative}:{line_no}: source {source_id} lacks verified permitted reuse rights")
 
 # Every schema must have an intentionally invalid fixture; CI must fail if any
 # fixture is accidentally accepted or missing.
