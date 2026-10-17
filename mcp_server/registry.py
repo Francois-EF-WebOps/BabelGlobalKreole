@@ -78,11 +78,16 @@ def search_records(query, records=None, limit=10):
         rid = extract_record_id(record)
         if not rid:
             continue
-        haystack = " ".join(
-            str(value)
-            for key, value in record.items()
-            if not key.startswith("_") and key not in {"source_ids", "ai_use"}
-        ).casefold()
+        ai_use = record.get("ai_use")
+        can_search_content = isinstance(ai_use, dict) and ai_use.get("retrieval") == "allowed"
+        searchable = []
+        for key, value in record.items():
+            if key.startswith("_") or key in {"source_ids", "ai_use"}:
+                continue
+            if key in CONTENT_FIELDS and not can_search_content:
+                continue
+            searchable.append(str(value))
+        haystack = " ".join(searchable).casefold()
         if q in rid.casefold() or q in haystack:
             matches.append({
                 "record_id": rid,
@@ -90,19 +95,20 @@ def search_records(query, records=None, limit=10):
                 "line": record.get("_line"),
                 "record": safe_record_view(record, sources),
             })
-        if len(matches) >= limit:
-            break
+    # Prefer eligible evidence records so a prefix of draft matches cannot hide them.
+    matches.sort(key=lambda item: not item["record"]["evidence_eligible"])
+    matches = matches[:limit]
+    eligible_found = any(item["record"]["evidence_eligible"] for item in matches)
     return {
         "query": query,
         "results": matches,
-        "abstained": not any(item["record"]["evidence_eligible"] for item in matches),
+        "abstained": not eligible_found,
         "reason": (
             "No accepted, source-resolved evidence record matched; draft/provisional matches are metadata only."
-            if not any(item["record"]["evidence_eligible"] for item in matches)
+            if not eligible_found
             else "At least one accepted record has resolvable source metadata; inspect each record's evidence note and rights fields."
         ),
     }
-
 
 def get_record(record_id, records=None):
     records = records if records is not None else load_records()
