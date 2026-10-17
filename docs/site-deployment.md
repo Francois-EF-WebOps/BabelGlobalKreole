@@ -4,7 +4,7 @@ The site builder generates a static landing page, Schema.org Dataset JSON-LD, an
 
 ## Observed deployment state
 
-The most recent deployment attempt reviewed for this note is [Pages workflow run 38994770664](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994770664), commit `e6fa4578893b9c36b2b36d7bddc8d06781613422`. Its preview build succeeded using the proposed Pages base URL, but the `deploy` job was skipped. The proposed site address is `https://francois-ef-webops.github.io/BabelGlobalKreole/`; it is not verified as live. The web verifier reported `DisabledError` while attempting to fetch the page and generated files, which is not an HTTP 404 and does not independently establish their HTTP status.
+The most recent deployment attempt reviewed for this note is [Pages workflow run 38994949912](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994949912), commit `014ed63cbcaa2feb8d91eef252de9df0d53a6c9b`. Its preview build succeeded using the proposed Pages base URL and the URL assertions passed, but the `deploy` job was skipped. The proposed site address is `https://francois-ef-webops.github.io/BabelGlobalKreole/`; it is not verified as live. The web verifier reported `DisabledError` while attempting to fetch the page and generated files, which is not an HTTP 404 and does not independently establish their HTTP status.
 
 A skipped `deploy` job means this workflow did not publish the current build. Check the repository variable `PAGES_ENABLED` and Pages configuration; do not infer that a successful preview means deployment succeeded.
 
