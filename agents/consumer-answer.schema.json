@@ -3,20 +3,62 @@
   "title": "Consumer Agent Answer",
   "type": "object",
   "additionalProperties": false,
-  "required": ["answer_status", "answer", "claims", "sources", "uncertainties", "rights_notes", "framework_version"],
+  "required": [
+    "answer_status",
+    "answer",
+    "claims",
+    "sources",
+    "uncertainties",
+    "rights_notes",
+    "framework_version"
+  ],
   "properties": {
-    "answer_status": {"enum": ["answered", "partial", "abstained"]},
-    "answer": {"type": "string"},
+    "answer_status": {
+      "enum": [
+        "answered",
+        "partial",
+        "abstained"
+      ]
+    },
+    "answer": {
+      "type": "string"
+    },
     "claims": {
       "type": "array",
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["claim", "record_ids", "evidence_labels"],
+        "required": [
+          "claim",
+          "record_ids",
+          "evidence_labels"
+        ],
         "properties": {
-          "claim": {"type": "string"},
-          "record_ids": {"type": "array", "items": {"type": "string"}},
-          "evidence_labels": {"type": "array", "items": {"enum": ["attested", "scholarly_analysis", "comparative_observation", "proposed_convergence", "creative_coinage", "application_canon", "disputed", "undecided", "retracted"]}}
+          "claim": {
+            "type": "string"
+          },
+          "record_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "evidence_labels": {
+            "type": "array",
+            "items": {
+              "enum": [
+                "attested",
+                "scholarly_analysis",
+                "comparative_observation",
+                "proposed_convergence",
+                "creative_coinage",
+                "application_canon",
+                "disputed",
+                "undecided",
+                "retracted"
+              ]
+            }
+          }
         }
       }
     },
@@ -25,16 +67,45 @@
       "items": {
         "type": "object",
         "additionalProperties": false,
-        "required": ["source_id", "location"],
+        "required": [
+          "source_id",
+          "location"
+        ],
         "properties": {
-          "source_id": {"type": "string"},
-          "location": {"type": "string"},
-          "citation": {"type": ["string", "null"]}
+          "source_id": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "citation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
         }
       }
     },
-    "uncertainties": {"type": "array", "items": {"type": "string"}},
-    "rights_notes": {"type": "array", "items": {"type": "string"}},
-    "framework_version": {"type": ["string", "null"]}
-  }
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rights_notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "framework_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/agents/consumer-answer.schema.json",
+  "schema_version": "1.0.0"
 }
