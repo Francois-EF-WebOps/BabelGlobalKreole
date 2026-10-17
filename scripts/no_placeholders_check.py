@@ -8,14 +8,14 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".md", ".json", ".jsonl", ".yaml", ".yml", ".py", ".txt", ".cff"}
-DRAFT_MARKERS = re.compile(r"\\b(?:TODO|TBD|FIXME)\\b", re.IGNORECASE)
+DRAFT_MARKERS = re.compile(r"\b(?:TODO|TBD|FIXME)\b", re.IGNORECASE)
 errors = []
 
 try:
     tracked = subprocess.run(
         ["git", "ls-files", "-z"], cwd=ROOT, check=True,
         capture_output=True, text=True
-    ).stdout.split("\\0")
+    ).stdout.split("\0")
 except Exception as exc:
     print(f"ERROR: cannot enumerate tracked files: {exc}")
     sys.exit(2)
@@ -68,6 +68,6 @@ for path in sorted((ROOT / "data").rglob("*.jsonl")):
 
 if errors:
     print("NO-PLACEHOLDERS CHECK FAILED")
-    print("\\n".join(errors))
+    print("\n".join(errors))
     sys.exit(1)
 print("NO-PLACEHOLDERS CHECK PASSED: tracked files are non-empty; no TODO/TBD/FIXME markers; data records have no empty arrays except source_ids on draft records.")
