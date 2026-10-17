@@ -24,7 +24,7 @@ Audit baseline: `main` at `f9ca6385cfa7682093672bef6bb774bf43c121b0` (2026-10-17
 | `applications/README.md` | stub | Application index links to complete tracks and defines consumer boundaries. |
 | `applications/education.md` | stub | Record type, rights/consent, labels, examples, and LLM-use rules are complete and tested. |
 | `applications/games.md` | stub | Record type, rights/consent, labels, examples, and LLM-use rules are complete and tested. |
-| `applications/music.md` | stub | Superseded/redirected to music-poetry track; rights, lyrics handling, and creative/evidence separation complete. |
+| `applications/music.md` | complete | Compatibility entry point links to music-poetry rules and preserves the framework/application boundary. |
 | `applications/research.md` | stub | Research claims, source locations, disputed claims, and citation workflows are specified with examples. |
 | `applications/speech-and-translation.md` | stub | Speech/translation rights, consent, model use, evaluation, and provenance rules are explicit and tested. |
 | `catalog.json` | stub | Generated from real repository records; counts, hashes, paths, schema versions, and generated/stale check are reproducible. |
@@ -121,3 +121,8 @@ Audit baseline: `main` at `f9ca6385cfa7682093672bef6bb774bf43c121b0` (2026-10-17
 - No seed lexical records were added under the strict link-first policy.
 - No release was created. CI for the catalog/status batch passed at [run 38988354673](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38988354673): `VALIDATION PASSED: 10 JSON Schemas checked; 68 JSONL records validated; 10 negative fixtures rejected; format checking enabled.` Any later commit requires its own CI verification.
 
+
+
+### Application track update — 2026-10-17
+
+Added substantive, rights-aware contracts for music/lyrics/poetry, film/series scripts, and programming/software localization. Updated the applications index and retained `applications/music.md` as a compatibility entry point. The creative-work schema now requires generation provenance: human, AI-assisted, or AI-generated; AI-assisted/generated work must name the tool and state whether terms were verified. No creative text or fake example record was added because the owner has not approved a specific work, license, or AI-use flags.
