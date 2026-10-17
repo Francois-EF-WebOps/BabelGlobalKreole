@@ -1,0 +1,45 @@
+name: Report a bad AI answer
+description: Report an AI answer that misused, misquoted, or overclaimed from Babel records.
+title: "[AI answer] "
+body:
+  - type: textarea
+    id: question
+    attributes:
+      label: Original question or task
+    validations:
+      required: true
+  - type: textarea
+    id: answer
+    attributes:
+      label: Problematic answer
+      description: Remove private or sensitive material before posting.
+    validations:
+      required: true
+  - type: textarea
+    id: cited_records
+    attributes:
+      label: Cited record IDs and source IDs
+      description: Include IDs and source locations if available.
+    validations:
+      required: true
+  - type: dropdown
+    id: failure_type
+    attributes:
+      label: Main failure
+      options:
+        - Fabricated or unsupported claim
+        - Wrong language or variety
+        - Missing or misrepresented citation
+        - Draft or unsourced record cited as evidence
+        - Creative coinage presented as attested usage
+        - Rights or consent ignored
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence or expected behaviour
+      description: Provide public source URLs and precise locations; do not upload protected source text.
+    validations:
+      required: true
