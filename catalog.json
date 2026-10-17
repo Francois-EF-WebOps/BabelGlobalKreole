@@ -5,10 +5,10 @@
   "status": "bootstrap",
   "record_counts": {
     "lexical_entries": 0,
-    "source_records": 2,
-    "language_records": 24,
-    "variety_records": 24,
-    "grammar_rules": 0,
+    "source_records": 33,
+    "language_records": 22,
+    "variety_records": 0,
+    "grammar_rules": 2,
     "resource_cards": 14,
     "evaluation_cases": 6
   },
@@ -22,11 +22,11 @@
     "evaluation_cases": "evaluation/test-cases/"
   },
   "record_file_hashes": {
-    "data/languages/languages.jsonl": "245664c03c4dda50ccef8ece836e66a94a076cdfc56f5065a17b8226ae6c5acf",
+    "data/languages/languages.jsonl": "9d33def1cabb5ebe045017f90ffb2ba51257d1681bc11398d4eeebbbacf21566",
     "data/resources/resources.jsonl": "01494faee534eecbf393d02797dc52e58efecf641d640180e58ea63ceb0f1d44",
-    "data/sources/sources.jsonl": "e78f1dfa6923ec8861e8aad2ea646e07a9d4eacc3fb156b28bee7c4668aa1b19",
-    "data/varieties/varieties.jsonl": "e1eb0ca8f1cc41fe33a69a7cc38140242fcf25e7d8aca8230d62d66ba4083bea",
-    "evaluation/test-cases/starter-cases.jsonl": "1fbe67c8e8d6d5299618cd052b91d2baca97353e0fb3f6cbd824103b0ad678e6"
+    "data/sources/sources.jsonl": "65770afe77a0cb5e3f436bfc94932248dbcd33afa671e6ff5b0e013cd58470d1",
+    "evaluation/test-cases/starter-cases.jsonl": "1fbe67c8e8d6d5299618cd052b91d2baca97353e0fb3f6cbd824103b0ad678e6",
+    "data/grammar/grammar.jsonl": "9bc94198e67d116344d744f89644072a73b2877fd6c39ee2fe02e1352f9a3804"
   },
   "schemas": [
     "agents/consumer-answer.schema.json",
