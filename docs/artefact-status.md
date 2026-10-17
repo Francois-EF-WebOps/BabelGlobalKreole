@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 95 tracked files on the default branch at this review point.  
-**Latest verified review point:** [CI run 38989972121](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38989972121), commit `9a88ef382c35b82f49868b5029289b95be9d2ed1`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 39 local Markdown links, nine unit tests, data-integrity checks, and catalog freshness. This verifies the state at that commit only; later changes require their own CI run.
+**Latest verified review point:** [validation CI run 38990067726](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990067726), commit `2f3dec49c25af093a9d1245956ed59436e4fff78`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 43 local Markdown links, nine unit tests, data-integrity checks, and catalog freshness. The paired [resource-link run 38990067682](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990067682) checked 14 URLs: 12 returned reachable responses and two were blocked/rate-limited. ISO 639-3 returned HTTP 200 in the runner but a browser fetch returned 403; keep its card unverified until the page content and terms are reviewed. Gallica and HathiTrust returned HTTP 403 in the runner. This verifies the state at that commit only; later changes require their own CI run.
 
 ## State meanings
 
