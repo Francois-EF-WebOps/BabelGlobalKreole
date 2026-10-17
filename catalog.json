@@ -23,7 +23,7 @@
   },
   "record_file_hashes": {
     "data/languages/languages.jsonl": "245664c03c4dda50ccef8ece836e66a94a076cdfc56f5065a17b8226ae6c5acf",
-    "data/resources/resources.jsonl": "6244eae8c318d82dbe1cb4b22239dc9cc35dd06b81be960aa4ed8d3e4ab4ac8d",
+    "data/resources/resources.jsonl": "52fa44b1ae6fb3fbebd8e5d1373d3f62c31317a35a11fa2c583b34688f4e2dc3",
     "data/sources/sources.jsonl": "e78f1dfa6923ec8861e8aad2ea646e07a9d4eacc3fb156b28bee7c4668aa1b19",
     "data/varieties/varieties.jsonl": "e1eb0ca8f1cc41fe33a69a7cc38140242fcf25e7d8aca8230d62d66ba4083bea",
     "evaluation/test-cases/starter-cases.jsonl": "1fbe67c8e8d6d5299618cd052b91d2baca97353e0fb3f6cbd824103b0ad678e6"
@@ -31,6 +31,7 @@
   "schemas": [
     "agents/consumer-answer.schema.json",
     "agents/task-contract.schema.json",
+    "schemas/concept.schema.json",
     "schemas/creative-work.schema.json",
     "schemas/evaluation-case.schema.json",
     "schemas/grammar-rule.schema.json",
