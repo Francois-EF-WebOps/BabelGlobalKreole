@@ -19,4 +19,4 @@ The workflow builds a preview artifact on every push. The deploy job remains ski
 python scripts/build_site.py --base-url https://your-configured-pages-url --output-dir site
 ```
 
-Use the exact URL shown in the repository's Pages settings. Do not copy the example URL from tests into a public sitemap.
+Use the exact URL shown in the repository's Pages settings. The preview artifact uses the repository URL only for validation; the deploy job rebuilds with the configured Pages URL. Do not publish the preview artifact.
