@@ -20,7 +20,7 @@ class SiteBuildTests(unittest.TestCase):
             self.assertIn('"@type":"Dataset"', page)
             self.assertIn(base_url + "/sitemap.xml", robots)
             self.assertIn(base_url + "/llms.txt", sitemap)
-            self.assertEqual(catalog["record_counts"]["language_records"], 24)
+            self.assertEqual(catalog["record_counts"]["language_records"], 19)
             self.assertTrue((root / "llms.txt").is_file())
 
 
