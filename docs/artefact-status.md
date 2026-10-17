@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 113 tracked files on the default branch at this review point.  
-**Latest verified validation run before this register refresh:** [CI run 38994680082](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994680082), commit `a87e3b0b388ec7524507a7fee65ae77b6e59be94`. It passed 11 schemas, 95 JSONL records, 11 negative fixtures, 21 tests, internal link checks, source-rights resolution, data-integrity checks, and catalog freshness.
+**Latest independently inspected validation run at this audit:** [CI run 38995043702](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38995043702), commit `88a3ec3c7ddd31ce9dacffbb3106796bb540a013`. The job log confirms 11 schemas, 95 JSONL records, 11 negative fixtures rejected, format checking enabled, 51 internal Markdown links resolved, and the no-placeholders check passed. This run is evidence for that exact commit only.
 
 ## State meanings
 
@@ -161,3 +161,35 @@
 - Resource reachability, source rights, AI-use permissions and community consent remain separate statuses.
 - Catalog counts and hashes are generated from real JSONL files and are checked for freshness in CI.
 - The final release gate is a green CI run on the exact release commit; earlier passing runs do not certify later changes.
+
+
+## Independent repository review — 2026-10-17
+
+### Verified repository snapshot
+
+- Default-branch tree SHA inspected: `88a3ec3c7ddd31ce9dacffbb3106796bb540a013`.
+- GitHub tree reports 113 tracked files and 11 JSON Schema files.
+- Generated `catalog.json` reports 19 language records, 1 variety, 50 source records, 1 lexical entry, 3 grammar rules, 1 concept, 14 resource cards and 6 evaluation cases. Its recorded file hashes are generated from the data files and the validator workflow checks catalog freshness.
+- `data/languages/languages.jsonl` and `docs/artefact-status.md` are present on the default branch. Earlier reports that these paths were missing are superseded by this direct inspection.
+- Language and source identifier patterns are present in the inspected language schema. The validation run also proves the current full schema set passes; it does not by itself prove that every possible malformed identifier is rejected unless a corresponding fixture exercises it.
+- Application entry points already exist for music/poetry, scripts and localization. Do not create duplicate directories. Review their contents and define the creative-work labelling and provenance contract before adding creative records.
+- Root-level `sitemap.xml` and `robots.txt` are not tracked files. The Pages workflow generates both into the build output and its preview job verifies the proposed base URL in canonical HTML, Dataset JSON-LD, sitemap and robots output.
+
+### Pages status — checked against the workflow
+
+[Pages workflow run 38995043820](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38995043820) succeeded for the preview job; its `deploy` job was **skipped**. The web verification tool could not fetch the proposed public Pages URLs, returning a tool-level access error rather than a verified HTTP status. Therefore public deployment remains **unverified**. Do not claim the site is live or indexed from a preview-only build. The repository owner must check the Pages configuration and `PAGES_ENABLED` variable, rerun the workflow, and verify the exact deployed URL.
+
+### Additional gaps for the next implementation pass
+
+1. **Source rights completeness:** the source schema and records distinguish retrieval, redistribution, training, speech generation, synthetic data and community consent. Audit all 50 records field-by-field; do not infer a blanket license or training permission from the resource's general availability.
+2. **Evidence precision:** one lexical entry is not a usable general-purpose lexicon. Expand only from inspected source locations and permitted data; keep entries narrow, attributed, and clearly separate attested evidence from creative coinage.
+3. **Language scope:** 19 records are a bounded catalogue, not comprehensive coverage of the five lexifier clusters. Continue with source-first candidates and keep disputed classifications in the coverage register until evidence and modelling decisions support a record.
+4. **Creative applications:** existing application tracks are lightweight documentation, not evidence that music, script or localization workflows are implemented. Define required fields, rights checks, provenance and validation before adding original work; no owner-history content is approved by this audit.
+5. **External link checking:** the scheduled resource-link workflow is report-only. A reachable URL is not proof of correct attribution, stable content, license terms or community consent.
+6. **Deployment metadata:** after a successful deployment, compare the exact live base URL with deployed canonical metadata, Dataset JSON-LD, sitemap, robots and copied `llms.txt`. Keep `CITATION.cff`'s `repository-code` and source-catalog identifiers pointed at the GitHub repository where appropriate; they are not all expected to equal the Pages URL.
+7. **Security follow-up:** sibling-repository security PRs and any required provider-key rotation remain owner-only decisions. No secret was inspected or rotated in this audit.
+8. **Release readiness:** the current version remains a draft. A passing CI run is necessary but does not substitute for live deployment verification, rights review, owner approval, or a release tag and release notes.
+
+### Audit boundary
+
+This review used the public GitHub tree, selected repository files, the recorded CI job logs, and attempts to open the proposed Pages URLs. It did not inspect private ChatGPT history, repository secrets, account settings, complete historical browser bundles, or every source record's legal terms. No private history or new lexical material was added.
