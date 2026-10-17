@@ -1,22 +1,88 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"Agent Task Contract",
-  "type":"object",
-  "additionalProperties":false,
-  "required":["task_id","objective","canonical_scope","allowed_paths","forbidden_actions","acceptance_tests","expected_outputs"],
-  "properties":{
-    "task_id":{"type":"string","pattern":"^[a-z0-9][a-z0-9._-]+$"},
-    "objective":{"type":"string","minLength":1},
-    "canonical_scope":{"type":"string","minLength":1},
-    "input_records":{"type":"array","items":{"type":"string"}},
-    "allowed_paths":{"type":"array","items":{"type":"string"}},
-    "forbidden_actions":{"type":"array","items":{"type":"string"}},
-    "evidence_required":{"type":"array","items":{"type":"string"}},
-    "rights_constraints":{"type":"array","items":{"type":"string"}},
-    "acceptance_tests":{"type":"array","minItems":1,"items":{"type":"string"}},
-    "uncertainties":{"type":"array","items":{"type":"string"}},
-    "expected_outputs":{"type":"array","minItems":1,"items":{"type":"string"}},
-    "review_required":{"type":"boolean","default":true},
-    "handover_summary":{"type":"string"}
-  }
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Agent Task Contract",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "task_id",
+    "objective",
+    "canonical_scope",
+    "allowed_paths",
+    "forbidden_actions",
+    "acceptance_tests",
+    "expected_outputs"
+  ],
+  "properties": {
+    "task_id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]+$"
+    },
+    "objective": {
+      "type": "string",
+      "minLength": 1
+    },
+    "canonical_scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "input_records": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "allowed_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "forbidden_actions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "evidence_required": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rights_constraints": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "acceptance_tests": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "uncertainties": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "expected_outputs": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_required": {
+      "type": "boolean",
+      "default": true
+    },
+    "handover_summary": {
+      "type": "string"
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/agents/task-contract.schema.json",
+  "schema_version": "1.0.0"
 }
