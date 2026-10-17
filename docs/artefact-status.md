@@ -66,7 +66,7 @@
 | `data/sources/README.md` | complete | Explains source-record provenance and rights fields. |
 | `data/sources/sources.jsonl` | partial | 44 source records cover catalogue identifiers and inspected APiCS resources; link-only sources do not imply permission for training or speech generation. |
 | `data/varieties/README.md` | complete | Explains variety records and retrieval status. |
-| `data/varieties/varieties.jsonl` | partial | One accepted, sourced Martinican Creole variety record; no unsourced 24-record placeholder set remains. |
+| `data/varieties/varieties.jsonl` | partial | One accepted, sourced Martinican Creole variety record; no unsourced 24-record duplicate set remains. |
 | `demo/retrieval/README.md` | complete | Documents local usage and limitations of the offline read-only demo. |
 | `demo/retrieval/demo.py` | complete | Searches local JSONL metadata, requires resolvable dated source locations for evidence, validates answers and abstains on unsupported matches. |
 | `docs/agent-handover.md` | complete | Explains safe handover and evidence boundaries. |
