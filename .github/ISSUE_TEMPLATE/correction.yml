@@ -1,0 +1,52 @@
+name: Correct a record or claim
+description: Propose a sourced correction to a framework record or document.
+title: "[Correction] "
+body:
+  - type: input
+    id: record_id
+    attributes:
+      label: Record ID or file path
+      placeholder: lng-..., var-..., src-..., or path
+    validations:
+      required: true
+  - type: textarea
+    id: current_claim
+    attributes:
+      label: Current wording or behaviour
+    validations:
+      required: true
+  - type: textarea
+    id: proposed_change
+    attributes:
+      label: Proposed correction
+      description: Separate observed evidence from interpretation or proposal.
+    validations:
+      required: true
+  - type: input
+    id: source_url
+    attributes:
+      label: Source URL
+      description: Use a stable URL without tracking parameters.
+    validations:
+      required: true
+  - type: input
+    id: source_location
+    attributes:
+      label: Precise source location
+      description: Page, section, line, table, dataset item, or timestamp.
+    validations:
+      required: true
+  - type: textarea
+    id: rights_consent
+    attributes:
+      label: Rights, access, and consent notes
+      description: State what is known and what remains unknown; do not infer permission.
+  - type: checkboxes
+    id: review
+    attributes:
+      label: Review acknowledgement
+      options:
+        - label: I have not included private data, credentials, or material I lack authority to share.
+          required: true
+        - label: I understand a citation does not itself grant reuse permission.
+          required: true
