@@ -38,3 +38,8 @@ Markdown for policy, YAML for registries, JSON for individual records, JSONL/CSV
 ## Compatibility
 
 Non-breaking changes add optional fields or clarify semantics without invalidating accepted records. Removing/renaming fields, changing requiredness or changing field meaning is breaking and requires a major schema version and migration instructions. Every schema must carry a stable `$id` and `schema_version`; schema versions are explicit data, not inferred from a filename.
+
+
+## Register labels
+
+A lexical entry may include an optional `register` free-text value. If present, it must include `register_source_ids` pointing to inspected source records that use or support that label for the specific language or variety. `basilect`, `mesolect` and `acrolect` are examples of scholarly/community terms, not a universal enum; omit the field when the label is not supported. Do not infer register from geography, social class or a fictional character type.
