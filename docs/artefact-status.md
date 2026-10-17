@@ -1,7 +1,7 @@
 # Artefact status and acceptance register
 
 **Audit date:** 2026-10-17  
-**Inventory:** 94 tracked files on the default branch at this review point.  
+**Inventory:** 95 tracked files on the default branch at this review point.  
 **Latest verified review point before the link-checker and contribution-guidance additions:** [CI run 38989618664](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38989618664), commit `5c6c91eb9e1a968fac7a6c128f81533c505fbb09`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, six retrieval tests, data-integrity checks, and catalog freshness. Documentation changes made after that commit require their own CI run before being called verified.
 
 ## State meanings
@@ -92,6 +92,7 @@
 | `schemas/resource-card.schema.json` | complete | Defines resource metadata and omits unknown license URLs instead of requiring null. |
 | `schemas/source-record.schema.json` | complete | Defines source metadata, rights, review and AI-use fields. |
 | `schemas/variety.schema.json` | complete | Defines scoped varieties and conditional verified identifiers; unknown optional values can be omitted. |
+| `scripts/check_internal_links.py` | complete | Checks local Markdown link targets and fails if none are detected. |
 | `scripts/check_resource_links.py` | complete | Checks resource URLs and writes a report without changing rights or verification status. |
 | `scripts/generate_catalog.py` | complete | Deterministically generates record counts and SHA-256 hashes from JSONL data; CI detects stale output. |
 | `scripts/no_placeholders_check.py` | complete | Rejects zero-byte tracked files, drafting markers, empty strings/nulls in data records and empty arrays except draft source_ids. |
@@ -126,8 +127,8 @@
 2. **Resource verification:** retry official ISO 639-3 and Gallica routes through accessible official pages or authoritative downloadable tables; preserve their unverified status until confirmed. Maintain a repeatable link-check report.
 3. **Data usefulness:** add small sourced lexical/grammar records only after source locations, exact reuse permissions and relevant consent are established. Strict link-first remains the default.
 4. **Private-history review:** after the owner supplies `conversations.json`, mine it only into git-ignored candidates; show batches for approval. Assistant-authored claims stay quarantined until independently sourced.
-5. **Discoverability:** GitHub Pages is not enabled. Missing deployment artefacts include `robots.txt`, `sitemap.xml`, a Dataset JSON-LD landing page, issue templates, `SECURITY.md`, `SUPPORT.md`, and `CODE_OF_CONDUCT.md`. Add and test these before enabling public Pages.
-6. **Automation:** the offline retrieval demo and report-only scheduled link checker are implemented. The link-check report has not yet been run from the new workflow. A read-only MCP server is not deployed; build it only after the demo's evidence/rights behaviour remains stable.
+5. **Discoverability:** GitHub Pages is not enabled. Remaining deployment work is `robots.txt`, `sitemap.xml`, a Dataset JSON-LD HTML landing page, enabling Pages, and setting repository topics. The README and `llms.txt` now link to security, support, conduct, resource cards, the retrieval demo and the datasheet draft.
+6. **Automation:** the offline retrieval demo and report-only scheduled link checker are implemented. The link-check report has not yet been run from the new workflow. The local Markdown link checker is part of CI. A read-only MCP server is not deployed; build it only after the demo's evidence/rights behaviour remains stable.
 7. **Sibling-repository security:** client-side Vite key substitution was observed in Applied-Creole-Linguistics and Refuge. This is a configuration exposure risk, not proof that a live key was published. Security remediation must go through PRs; do not rotate keys or publish secrets without owner direction.
 8. **Release:** the project remains `0.1.0-draft`. No release tag, GitHub Release or DOI exists. Create a release only after the current commit's CI is green and the release contents/metadata are reviewed.
 
