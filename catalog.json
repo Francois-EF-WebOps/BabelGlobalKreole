@@ -5,8 +5,8 @@
   "status": "bootstrap",
   "record_counts": {
     "lexical_entries": 1,
-    "source_records": 44,
     "concept_records": 1,
+    "source_records": 44,
     "language_records": 19,
     "variety_records": 1,
     "grammar_rules": 3,
@@ -15,8 +15,8 @@
   },
   "record_paths": {
     "lexical_entries": "data/lexicon/",
-    "source_records": "data/sources/",
     "concept_records": "data/concepts/",
+    "source_records": "data/sources/",
     "language_records": "data/languages/languages.jsonl",
     "variety_records": "data/varieties/varieties.jsonl",
     "grammar_rules": "data/grammar/",
