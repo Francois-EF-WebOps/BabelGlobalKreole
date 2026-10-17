@@ -24,6 +24,7 @@ BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowled
 - [Dataset datasheet draft](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/huggingface-datasheet.md): snapshot, provenance, intended uses and limitations.
 - [Resource cards](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/data/resources/resources.jsonl): external resource links and scoped rights/verification metadata.
 - [Offline retrieval demo](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/demo/retrieval/README.md): local-only, source-aware retrieval and abstention.
+- [Read-only MCP adapter](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/mcp_server/README.md): optional stdio tools with evidence, rights and abstention gates.
 
 ## Core rules
 - Similar forms do not prove common ancestry.
