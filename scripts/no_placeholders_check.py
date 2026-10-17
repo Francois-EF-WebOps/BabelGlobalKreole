@@ -5,10 +5,12 @@ import re
 import subprocess
 import sys
 from pathlib import Path
+from urllib.parse import parse_qsl, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".md", ".json", ".jsonl", ".yaml", ".yml", ".py", ".txt", ".cff", ".xml"}
 DRAFT_MARKERS = re.compile(r"\b(?:TODO|TBD|FIXME|PLACEHOLDER(?:S)?)\b", re.IGNORECASE)
+URL_PATTERN = re.compile(r"""https?://[^\s<>()"']+""")
 errors = []
 
 try:
@@ -36,6 +38,10 @@ for relative in filter(None, tracked):
         continue
     if DRAFT_MARKERS.search(content):
         errors.append(f"{relative}: contains a drafting marker")
+    for match in URL_PATTERN.finditer(content):
+        url = match.group(0).rstrip(".,;]")
+        if any(key.lower().startswith("utm_") for key, _ in parse_qsl(urlsplit(url).query, keep_blank_values=True)):
+            errors.append(f"{relative}: URL contains a tracking parameter: {url}")
 
 # Data records must omit unknown values instead of padding them with null or
 # empty strings. Empty arrays are rejected except draft source_ids, which are
