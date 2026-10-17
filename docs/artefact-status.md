@@ -64,7 +64,7 @@
 | `data/resources/README.md` | complete | Explains resource cards and the difference between reachability and reuse permission. |
 | `data/resources/resources.jsonl` | partial | 14 cards; ISO 639-3 and Gallica remain unverified; other statuses are scoped to checked pages/terms. |
 | `data/sources/README.md` | complete | Explains source-record provenance and rights fields. |
-| `data/sources/sources.jsonl` | partial | 44 source records cover catalogue identifiers and inspected APiCS resources; link-only sources do not imply permission for training or speech generation. |
+| `data/sources/sources.jsonl` | partial | 50 source records cover catalogue identifiers and inspected APiCS resources; link-only sources do not imply permission for training or speech generation. |
 | `data/varieties/README.md` | complete | Explains variety records and retrieval status. |
 | `data/varieties/varieties.jsonl` | partial | One accepted, sourced Martinican Creole variety record; no unsourced 24-record duplicate set remains. |
 | `demo/retrieval/README.md` | complete | Documents local usage and limitations of the offline read-only demo. |
@@ -100,7 +100,7 @@
 | `schemas/evaluation-case.schema.json` | complete | Defines evaluation cases with a versioned schema. |
 | `schemas/grammar-rule.schema.json` | complete | Defines sourced grammar claims with explicit AI-use permissions. |
 | `schemas/language.schema.json` | complete | Defines language records, evidence-linked lexifier claims and conditional identifier verification. |
-| `schemas/lexical-entry.schema.json` | complete | Defines lexical entries with provenance, rights and AI-use fields. |
+| `schemas/lexical-entry.schema.json` | complete | Defines lexical entries with provenance, rights and AI-use fields; register is optional source-backed free text, not an enum. |
 | `schemas/resource-card.schema.json` | complete | Defines resource metadata and omits unknown license URLs instead of requiring null. |
 | `schemas/source-record.schema.json` | complete | Defines source metadata, rights, review and AI-use fields. |
 | `schemas/variety.schema.json` | complete | Defines scoped varieties and conditional verified identifiers; unknown optional values can be omitted. |
@@ -138,7 +138,7 @@
 - Grammar claims: 3 across `data/grammar/grammar.jsonl` and `data/grammar/rules.jsonl`, including nominal plurality, preverbal tense/aspect/mood marking and the position of standard negation.
 - Concept records: 1 organizing concept for nominal plurality.
 - Resource cards: 14; unresolved reachability and rights limits remain recorded per resource.
-- The current catalog generator records 89 JSONL records across all data and evaluation files, including concept records. CI must verify the catalog hashes after every data change.
+- The current catalog generator should record 95 JSONL records across data and evaluation files after the latest six APiCS source records; CI must verify catalog counts and hashes on the final commit.
 - Creative work from owner history: none imported. No `conversations.json` was supplied for private mining or batch approval.
 
 ## Remaining work, in dependency order
