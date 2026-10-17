@@ -16,7 +16,7 @@ A skipped `deploy` job means this workflow did not publish the current build. Ch
 4. Run the **Build and deploy documentation site** workflow again.
 5. Confirm the run's `deploy` job succeeded and use the exact URL shown by the GitHub Pages environment/deployment.
 
-The build preview runs on pushes even when deployment is disabled. It now uses the proposed Pages base URL to exercise the generated canonical URL, Dataset JSON-LD, sitemap and robots rules. A green preview-only run verifies generated output, not public availability.
+The build preview runs on pushes even when deployment is disabled. It now uses the proposed Pages base URL and asserts that the HTML canonical URL, Dataset JSON-LD `url`, all three sitemap locations and the robots Sitemap directive match that base. A green preview-only run verifies generated output, not public availability. GitHub repository links in `llms.txt`, `CITATION.cff`'s `repository-code`, and the Dataset JSON-LD `identifier`/catalog `contentUrl` remain GitHub URLs intentionally: they point to the authoritative source repository and data, not the landing page.
 
 ## URL integrity checks after deployment
 
