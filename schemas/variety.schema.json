@@ -1,19 +1,340 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/variety.schema.json",
+  "schema_version": "1.1.0",
   "title": "Language Variety Record",
   "type": "object",
   "additionalProperties": false,
-  "required": ["variety_id", "language_id", "name", "relationship_status", "source_ids", "record_status"],
+  "required": [
+    "variety_id",
+    "language_id",
+    "name",
+    "relationship_status",
+    "source_ids",
+    "record_status"
+  ],
   "properties": {
-    "variety_id": {"type": "string", "pattern": "^var-[a-z0-9-]+$"},
-    "language_id": {"type": "string", "pattern": "^lng-[a-z0-9-]+$"},
-    "name": {"type": "string", "minLength": 1},
-    "autonyms": {"type": "array", "items": {"type": "string"}},
-    "scope": {"type": ["string", "null"]},
-    "relationship_status": {"enum": ["community-recognized", "scholarly-described", "provisional", "disputed", "undecided"]},
-    "external_identifiers": {"type": "array", "items": {"type": "object", "additionalProperties": false, "required": ["scheme", "value", "status", "source_ids"], "properties": {"scheme": {"enum": ["ISO-639-3", "BCP-47", "Glottolog", "Wikidata", "other"]}, "value": {"type": "string", "minLength": 1}, "status": {"enum": ["verified", "provisional", "disputed", "rejected"]}, "source_ids": {"type": "array", "items": {"type": "string", "pattern": "^src-[a-z0-9-]+$"}}, "checked_date": {"type": ["string", "null"], "format": "date"}, "notes": {"type": "string"}}}},
-    "source_ids": {"type": "array", "items": {"type": "string", "pattern": "^src-[a-z0-9-]+$"}},
-    "record_status": {"enum": ["draft", "proposed", "accepted", "deprecated", "retracted"]},
-    "notes": {"type": "string"}
+    "variety_id": {
+      "type": "string",
+      "pattern": "^var-[a-z0-9-]+$"
+    },
+    "language_id": {
+      "type": "string",
+      "pattern": "^lng-[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "autonyms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "countries_regions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "period": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "end": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "description": {
+          "type": "string"
+        }
+      }
+    },
+    "orthographies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "status",
+          "source_ids"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "attested",
+              "scholarly_analysis",
+              "proposed",
+              "disputed",
+              "undecided"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^src-[a-z0-9-]+$"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "speaker_estimate": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "year",
+        "source_id"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "integer",
+            "number",
+            "string"
+          ]
+        },
+        "year": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "source_id": {
+          "type": "string",
+          "pattern": "^src-[a-z0-9-]+$"
+        }
+      }
+    },
+    "parent_variety_id": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "pattern": "^var-[a-z0-9-]+$"
+    },
+    "lexifier": {
+      "type": [
+        "object",
+        "null"
+      ],
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "status",
+        "source_ids"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "attested",
+            "scholarly_analysis",
+            "comparative_observation",
+            "disputed",
+            "undecided"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+$"
+          }
+        },
+        "notes": {
+          "type": "string"
+        }
+      }
+    },
+    "contact_languages": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name",
+          "relationship",
+          "status",
+          "source_ids"
+        ],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "relationship": {
+            "enum": [
+              "substrate",
+              "adstrate",
+              "superstrate",
+              "lexifier",
+              "other",
+              "undetermined"
+            ]
+          },
+          "status": {
+            "enum": [
+              "attested",
+              "scholarly_analysis",
+              "comparative_observation",
+              "disputed",
+              "undecided"
+            ]
+          },
+          "source_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string",
+              "pattern": "^src-[a-z0-9-]+$"
+            }
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "relationship_status": {
+      "enum": [
+        "community-recognized",
+        "scholarly-described",
+        "provisional",
+        "disputed",
+        "undecided"
+      ]
+    },
+    "external_identifiers": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/external-identifier"
+      }
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^src-[a-z0-9-]+$"
+      }
+    },
+    "record_status": {
+      "enum": [
+        "draft",
+        "proposed",
+        "accepted",
+        "deprecated",
+        "retracted"
+      ]
+    },
+    "scope": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "external-identifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scheme",
+        "value",
+        "status",
+        "source_ids"
+      ],
+      "properties": {
+        "scheme": {
+          "enum": [
+            "ISO-639-3",
+            "BCP-47",
+            "Glottolog",
+            "Wikidata",
+            "other"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "verified",
+            "provisional",
+            "disputed",
+            "rejected"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+$"
+          }
+        },
+        "checked_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "verified"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "checked_date",
+              "source_ids"
+            ],
+            "properties": {
+              "source_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }
