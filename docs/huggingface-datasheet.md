@@ -22,7 +22,7 @@ Counts are repository snapshot values; consult `catalog.json` for generated coun
 
 ## Data provenance and inclusion
 
-Language claims require source records and precise source locations. Candidate labels without evidence remain drafts and must not be treated as established classifications. Third-party source text is not copied under the link-first policy. No private ChatGPT history has been incorporated.
+Language claims require source records and precise source locations. Candidates that lack a distinct, sourced catalogue record are listed in `docs/language-coverage.md` rather than being represented as data. Third-party source text is not mirrored under the link-first policy. The single lexical entry and grammar claims are short, attributed paraphrases/metadata from APiCS material licensed CC BY 4.0; AI training, speech generation and synthetic-data permissions remain unknown. No private ChatGPT history has been incorporated.
 
 ## Rights and consent
 
