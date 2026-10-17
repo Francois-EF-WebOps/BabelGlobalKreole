@@ -1,19 +1,66 @@
 {
-  "$schema":"https://json-schema.org/draft/2020-12/schema",
-  "title":"Evaluation Case",
-  "type":"object",
-  "additionalProperties":false,
-  "required":["case_id","test_type","input","expected_property","severity"],
-  "properties":{
-    "case_id":{"type":"string","pattern":"^evl-[a-z0-9-]+$"},
-    "test_type":{"enum":["schema","provenance","semantic","orthography","grammar","translation","pronunciation","rights","privacy","regression","application-contract"]},
-    "input":{"type":"object"},
-    "expected_property":{"type":"string"},
-    "expected_output":{},
-    "source_ids":{"type":"array","items":{"type":"string"}},
-    "severity":{"enum":["blocker","high","medium","low"]},
-    "automatable":{"type":"boolean"},
-    "human_review_required":{"type":"boolean"},
-    "notes":{"type":"string"}
-  }
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Evaluation Case",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "case_id",
+    "test_type",
+    "input",
+    "expected_property",
+    "severity"
+  ],
+  "properties": {
+    "case_id": {
+      "type": "string",
+      "pattern": "^evl-[a-z0-9-]+$"
+    },
+    "test_type": {
+      "enum": [
+        "schema",
+        "provenance",
+        "semantic",
+        "orthography",
+        "grammar",
+        "translation",
+        "pronunciation",
+        "rights",
+        "privacy",
+        "regression",
+        "application-contract"
+      ]
+    },
+    "input": {
+      "type": "object"
+    },
+    "expected_property": {
+      "type": "string"
+    },
+    "expected_output": {},
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "severity": {
+      "enum": [
+        "blocker",
+        "high",
+        "medium",
+        "low"
+      ]
+    },
+    "automatable": {
+      "type": "boolean"
+    },
+    "human_review_required": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/evaluation-case.schema.json",
+  "schema_version": "1.1.0"
 }
