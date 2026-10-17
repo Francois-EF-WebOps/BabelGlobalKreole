@@ -17,7 +17,7 @@ jobs:
           python-version: "3.x"
       - name: Build and verify site output
         run: |
-          python scripts/build_site.py --base-url https://example.invalid/BabelGlobalKreole --output-dir site-preview
+          python scripts/build_site.py --base-url https://github.com/Francois-EF-WebOps/BabelGlobalKreole --output-dir site-preview
           test -s site-preview/index.html
           test -s site-preview/robots.txt
           test -s site-preview/sitemap.xml
