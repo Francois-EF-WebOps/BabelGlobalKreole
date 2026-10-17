@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 113 tracked files on the default branch at this review point.  
-**Latest verified validation run before this register update:** [CI run 38991049514](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38991049514), commit `6061517afb8919278d076f6fbb3d112561126a36`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 44 local Markdown links, 20 tests, data-integrity checks, and catalog freshness.
+**Latest verified validation run before this register refresh:** [CI run 38994355948](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994355948), commit `956f3f3359f159fa4c9b131c19d698b8df713e03`. It passed 11 schemas, 95 JSONL records, 11 negative fixtures, 21 tests, source-rights resolution, data-integrity checks, and catalog freshness.
 
 ## State meanings
 
@@ -80,7 +80,7 @@
 | `docs/language-relationships.md` | partial | Defines cautious relationship modelling; actual relationships require sourced claims. |
 | `docs/language-coverage.md` | partial | Records unresolved candidates and scope extensions outside machine-readable accepted data. |
 | `docs/repository-audit.md` | partial | Records sibling-repository findings and open security PRs; full build/runtime audit remains open. |
-| `docs/site-deployment.md` | partial | Records the observed skipped deployment and defines post-deploy URL checks; site availability remains unverified. |
+| `docs/site-deployment.md` | partial | Records the latest skipped deployment, the proposed URL verification failure mode, and the exact post-deploy URL checks; the site is not verified live. |
 | `docs/standards-interoperability.md` | partial | Maps standards and possible adapters; implemented exports and conformance tests remain incomplete. |
 | `docs/terminology.md` | complete | Defines project terms and separates real-language evidence from creative canon. |
 | `docs/vision-and-scope.md` | complete | Contains verbatim intent and boundaries. |
