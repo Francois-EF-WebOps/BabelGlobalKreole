@@ -7,10 +7,11 @@
   "record_counts": {
     "lexical_entries": 0,
     "source_records": 0,
-    "language_records": 0,
-    "variety_records": 0,
+    "language_records": 24,
+    "variety_records": 24,
     "grammar_rules": 0,
-    "evaluation_cases": 6
+    "evaluation_cases": 6,
+    "resource_cards": 14
   },
   "record_paths": {
     "lexical_entries": "data/lexicon/",
@@ -18,7 +19,8 @@
     "language_records": "data/languages/",
     "variety_records": "data/varieties/",
     "grammar_rules": "data/grammar/",
-    "evaluation_cases": "evaluation/test-cases/"
+    "evaluation_cases": "evaluation/test-cases/",
+    "resource_cards": "data/resources/resources.jsonl"
   },
   "schemas": [
     "schemas/lexical-entry.schema.json",
@@ -28,5 +30,5 @@
     "schemas/language.schema.json",
     "schemas/variety.schema.json"
   ],
-  "note": "Counts are a manually maintained bootstrap inventory until a catalog generator is implemented. They describe repository records, not global language coverage."
+  "note": "Counts were refreshed from the current JSONL record files on 2026-10-17. The catalog remains manually maintained; deterministic generation and stale-catalog CI enforcement are still outstanding."
 }
