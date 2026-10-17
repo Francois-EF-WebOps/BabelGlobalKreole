@@ -5,6 +5,7 @@ import sys
 from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
+from scripts.record_integrity import register_record_id
 
 ROOT = Path(__file__).resolve().parents[1]
 errors = []
@@ -36,7 +37,6 @@ record_schema_by_parent = {
 records_checked = 0
 accepted_records = []
 seen_record_ids = {}
-record_id_keys = ("variety_id", "language_id", "source_id", "entry_id", "lex_id", "rule_id", "case_id", "concept_id", "work_id", "id")
 record_paths = sorted((ROOT / "data").rglob("*.jsonl")) + sorted((ROOT / "evaluation" / "test-cases").glob("*.jsonl"))
 for path in record_paths:
     schema_name = record_schema_by_parent.get(path.parent.name)
@@ -57,13 +57,11 @@ for path in record_paths:
             errors.append(f"{path.relative_to(ROOT)}:{line_no}: invalid JSON: {exc}")
             continue
         records_checked += 1
-        record_id = next((item.get(key) for key in record_id_keys if isinstance(item.get(key), str)), None)
-        if record_id:
-            if record_id in seen_record_ids:
-                previous_path, previous_line = seen_record_ids[record_id]
-                errors.append(f"{path.relative_to(ROOT)}:{line_no}: duplicate record ID {record_id}; first seen at {previous_path}:{previous_line}")
-            else:
-                seen_record_ids[record_id] = (path.relative_to(ROOT).as_posix(), line_no)
+        duplicate_location = register_record_id(item, seen_record_ids, path.relative_to(ROOT).as_posix(), line_no)
+        if duplicate_location:
+            previous_path, previous_line = duplicate_location
+            record_id = next((item.get(key) for key in ("variety_id", "language_id", "source_id", "entry_id", "lex_id", "rule_id", "case_id", "concept_id", "work_id", "id") if isinstance(item.get(key), str)), None)
+            errors.append(f"{path.relative_to(ROOT)}:{line_no}: duplicate record ID {record_id}; first seen at {previous_path}:{previous_line}")
         if item.get("record_status") == "accepted":
             if not item.get("source_ids"):
                 errors.append(f"{path.relative_to(ROOT)}:{line_no}: accepted record must have at least one source_id")
