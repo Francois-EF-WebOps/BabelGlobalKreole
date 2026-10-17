@@ -1,128 +1,132 @@
 # Artefact status and acceptance register
 
-Audit baseline: `main` at `f9ca6385cfa7682093672bef6bb774bf43c121b0` (2026-10-17 UTC). This register distinguishes files that exist from requirements that are actually satisfied. "Complete" is scoped to the stated artefact, not the entire framework release.
+**Audit date:** 2026-10-17  
+**Inventory:** 84 tracked files on the default branch at this review point.  
+**Latest verified baseline before the current review fixes:** [CI run 38988947531](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38988947531), commit `c7a41156bbbefa7021e98be7032ce8dea9a6272d). That run passed 10 schemas, 70 JSONL records, 10 negative fixtures, three retrieval tests, the data-integrity check and catalog freshness. Changes made after that commit require their own CI run before being called verified.
 
-| Path / artefact | State | Done criteria |
+## State meanings
+
+- **complete** means the file meets its stated, bounded purpose; it does not mean the whole framework is complete.
+- **partial** means the file contains real usable content but depends on evidence, deployment, review or implementation that is not yet available.
+- **planned** means no file is being kept merely to represent future work; the work is recorded below.
+- No record is promoted to accepted solely to make the catalog look complete.
+
+## File-by-file status
+
+| Path | State | Done criteria / current truth |
 |---|---|---|
-| `.github/workflows/validate.yml` | stub | CI validates all schemas, positive and negative fixtures, record files, catalog freshness, link checks, and offline demo tests; required checks pass. |
-| `.gitignore` | complete | Excludes local secrets, build outputs, caches, and temporary files without hiding required source artefacts. |
-| `AGENTS.md` | stub | Root instructions state safe editing, evidence, rights, validation, source-injection handling, and stop conditions. |
-| `CHANGELOG.md` | stub | Every release records user-visible changes and limitations accurately. |
-| `CITATION.cff` | stub | Valid citation metadata matches canonical project, version, repository URL, and release. |
-| `CONTRIBUTING.md` | stub | A mobile-accessible contributor can propose, source, validate, and submit a correction with rights and evidence. |
-| `DATA-LICENSE.md` | stub | Code, framework documentation, data, and third-party material have distinct explicit rights and AI-use rules. |
-| `GOVERNANCE.md` | stub | Decision authority, review, appeals, consent, disputed claims, and maintenance succession are explicit and workable for a solo maintainer. |
-| `LICENSE` | complete | Repository code/documentation license file exists; scope exclusions and third-party/data exceptions are explained elsewhere. |
-| `README.md` | stub | Required verbatim intent is present; audience-based entry points, accurate status, working links, contribution path, and no unsupported claims. |
-| `VERSION` | stub | Version is consistent with schemas, changelog, catalog, and release tag. |
-| `adapters/README.md` | stub | Each supported interchange format has an implemented adapter, tests, examples, and known limitations; future adapters are clearly marked. |
-| `agents/consumer-agent-contract.md` | stub | Consumers retrieve only relevant records, cite IDs/sources, respect rights, treat source text as untrusted, and abstain on missing evidence. |
-| `agents/consumer-answer.schema.json` | stub | Versioned schema is complete and validated against positive and negative answer fixtures. |
-| `agents/instructions.md` | stub | Agent task protocol is bounded, testable, provenance-aware, and never authorizes silent merges or rights decisions. |
-| `agents/review-checklist.md` | stub | Review covers factual support, identifiers, rights, consent, schema compatibility, tests, and downstream impact. |
-| `agents/task-contract.schema.json` | stub | Task contract has schema metadata, negative tests, and a documented execution/review lifecycle. |
-| `applications/README.md` | stub | Application index links to complete tracks and defines consumer boundaries. |
-| `applications/education.md` | stub | Record type, rights/consent, labels, examples, and LLM-use rules are complete and tested. |
-| `applications/games.md` | stub | Record type, rights/consent, labels, examples, and LLM-use rules are complete and tested. |
-| `applications/music.md` | complete | Compatibility entry point links to music-poetry rules and preserves the framework/application boundary. |
-| `applications/research.md` | stub | Research claims, source locations, disputed claims, and citation workflows are specified with examples. |
-| `applications/speech-and-translation.md` | stub | Speech/translation rights, consent, model use, evaluation, and provenance rules are explicit and tested. |
-| `catalog.json` | stub | Generated from real repository records; counts, hashes, paths, schema versions, and generated/stale check are reproducible. |
-| `data/README.md` | stub | Dataset layout, licensing, formats, versions, exports, and non-ingestion rules match implementation. |
-| `data/concepts/README.md` | stub | Concept schema, stable IDs, source/translation rules, and validated record locations are defined. |
-| `data/grammar/README.md` | stub | Grammar records and source locations validate under the versioned grammar schema. |
-| `data/lexicon/README.md` | stub | Every lexical entry has source ID and precise location plus checked rights; no unsourced entries. |
-| `data/sources/README.md` | stub | Source records include verified metadata, source locations, rights, AI permissions, and review state. |
-| `data/varieties/README.md` | stub | Language/variety record layout and identifier mapping rules are complete; no unsupported identifiers. |
-| `docs/agent-handover.md` | stub | A new agent can continue safely from exact repository state, commands, tests, limitations, and stop conditions. |
-| `docs/change-propagation.md` | stub | Dependencies and downstream impacts are represented and propagation is testable. |
-| `docs/data-model.md` | stub | ID prefixes include lng-, var-, src-, lex-, grm-, evl-, con- and match actual schemas, constraints, and examples. |
-| `docs/decisions/0001-framework-boundary.md` | complete | Framework/app boundary is recorded, rationale is clear, and changes require a superseding decision. |
-| `docs/evidence-policy.md` | stub | Evidence labels, source-location requirements, rights, consent, disagreement, and retraction handling are operational. |
-| `docs/framework-brief.md` | stub | Required verbatim intent appears; brief accurately describes current capabilities and limits. |
-| `docs/language-relationships.md` | stub | Classification/lexifier/contact claims have sources and disputed positions remain explicit. |
-| `docs/repository-audit.md` | stub | Audit covers every linked repository's files, security, rights, builds, provenance, and unresolved gaps with evidence. |
-| `docs/standards-interoperability.md` | stub | Mappings to external standards are verified, versioned, scoped, and tested. |
-| `docs/terminology.md` | stub | Terms distinguish real languages, varieties, classifications, convergence proposals, and fictional canon. |
-| `docs/vision-and-scope.md` | stub | Required verbatim intent appears and scope, non-goals, and success criteria are aligned with actual implementation. |
-| `evaluation/scoring-policy.md` | stub | Evaluation criteria, thresholds, abstention, held-out cases, rights, and release gates are testable. |
-| `evaluation/test-cases/starter-cases.jsonl` | stub | Positive, negative, ambiguity, conflict, rights, and abstention cases are schema-validated and meaningful. |
-| `llms.txt` | stub | Required verbatim intent appears; links are absolute, tracking-free, current, and useful to external agents. |
-| `registry/projects.yaml` | stub | Each related project has verified canonical URL, role, relationship, audit status, and rights-aware reuse path. |
-| `releases/release-process.md` | stub | Reproducible release process checks CI, versions, hashes, tag, release notes, and optional DOI approval. |
-| `requirements-dev.txt` | complete | Validator dependencies are declared and CI installs them reproducibly enough for current checks. |
-| `schemas/evaluation-case.schema.json` | stub | Has `$id`, schema version, format checking, complete fields, and passing positive/failing negative fixtures. |
-| `schemas/grammar-rule.schema.json` | stub | Has `$id`, schema version, precise ID/reference constraints, source locations, and negative tests. |
-| `schemas/language.schema.json` | stub | Has `$id`, schema version, kind, sourced substrate/adstrate and lexifier claims, conditional verified-ID requirements, and negative tests. |
-| `schemas/lexical-entry.schema.json` | stub | Has `$id`, schema version, strict source ID/location and rights requirements, format validation, and negative tests. |
-| `schemas/source-record.schema.json` | stub | Has `$id`, schema version, rights/AI permissions, URL/date format validation, and negative tests. |
-| `schemas/variety.schema.json` | stub | Has `$id`, schema version, requested geographic/temporal/orthographic/speaker/parent/contact fields, conditional verified-ID requirements, and negative tests. |
-| `scripts/validate_records.py` | stub | Validates every schema and record family, format constraints, negative fixtures, cross-record references, registry, catalog freshness, and demo tests with actionable errors. |
-| `registry/resources.yaml` | planned | Contains only opened/verified resource cards with rights/AI-operation boundaries and tracking-free canonical URLs. |
-| `data/resources/` | planned | Resource cards or normalized records validate against the resource-card schema; no copied third-party content without permission. |
-| `schemas/resource-card.schema.json` | planned | Versioned schema covers resource identity, access, rights, AI operations, use mode, verification and contribution route. |
-| `schemas/creative-work.schema.json` | planned | Versioned creative-work schema enforces work type, author/license, AI flags, language/variety, linked records, label and status. |
-| `schemas/negative-tests/` | planned | Each schema has at least one intentionally invalid fixture; CI asserts each fixture is rejected. |
-| `data/languages/` | planned | Candidate language records use provisional status unless sourced and reviewed; disputed classifications are marked and identifiers verified. |
-| `data/varieties/*.jsonl` | planned | Candidate variety records have sourced classification, region, period, orthography, parent and contact claims; no unsupported estimates. |
-| `applications/music-poetry/` | planned | README, creative-work schema use, rights, labelling, LLM-feed rules, and clearly owned example work are complete. |
-| `applications/scripts/` | planned | README, record type, rights, labelling, LLM-feed rules, and permitted examples are complete. |
-| `applications/localization/` | planned | README, record type, rights, labelling, LLM-feed rules, and localization evaluation are complete. |
-| `SECURITY.md` | planned | Responsible vulnerability reporting and secret-exposure response are documented. |
-| `SUPPORT.md` | planned | Public support routes and realistic maintainer capacity are stated. |
-| `CODE_OF_CONDUCT.md` | planned | Enforceable respectful participation and reporting process is present. |
-| `.github/ISSUE_TEMPLATE/resource-suggestion.yml` | planned | Structured resource proposal requests URL, coverage, terms, AI permissions and verification evidence. |
-| `.github/ISSUE_TEMPLATE/correction.yml` | planned | Correction report captures record ID, source location, proposed fix and confidence. |
-| `.github/ISSUE_TEMPLATE/bad-ai-answer.yml` | planned | Report captures query, answer, cited IDs, failure type and reproducible evidence without requiring private data. |
-| `.github/PULL_REQUEST_TEMPLATE.md` | planned | Pull requests disclose evidence, rights, validation, impact and human-review requirements. |
-| `docs/datasheet-draft.md` | planned | Hugging Face-ready datasheet documents scope, collection, provenance, licensing, consent, limitations and maintenance; not published externally. |
-| `docs/sitemap.xml` | planned | Valid sitemap lists only deployed, canonical public pages. |
-| `docs/robots.txt` | planned | Robots policy matches actual Pages deployment and does not claim controls it cannot enforce. |
-| `docs/dataset-jsonld.html` | planned | Valid schema.org Dataset JSON-LD uses accurate metadata and absolute canonical URLs. |
-| `scripts/generate_catalog.py` | planned | Deterministically generates counts and content hashes from validated records and fails CI on stale catalog. |
-| `scripts/check_resource_links.py` | planned | Checks registry URLs on a schedule, records status/time, handles rate limits, and never rewrites verified metadata silently. |
-| `exports/` JSONL export | planned | Reproducible rights-filtered JSONL exports include schema version, provenance and hashes. |
-| `demo/retrieval/` | planned | Offline retrieval cites record/source IDs and abstains when evidence is insufficient; tests validate answers against consumer-answer schema. |
-| Read-only MCP server | planned | Only implemented after offline demo passes; read-only, rights-aware, documented, and tested. |
-| GitHub Pages deployment | planned | Public site builds from reviewed content with canonical URLs, sitemap and discoverability metadata. |
-| Repository topics/description | stub | Description and topics accurately identify Creole languages, linguistic data, interoperability, provenance, and responsible AI. |
-| Release tag and GitHub Release | planned | Versioned tag/release exists only after all release gates pass and published artifacts match validated commit. |
-| Zenodo DOI | planned | Created only after explicit owner approval; DOI metadata and version match the tagged release. |
+| `.github/workflows/validate.yml` | complete | Runs schema/record validation, negative fixtures, drafting-marker checks, retrieval tests and catalog freshness on push and pull request. |
+| `.gitignore` | complete | Excludes secrets and private history-mining inputs/outputs from version control. |
+| `AGENTS.md` | complete | Provides the agent entry point and links to detailed evidence, rights and review contracts. |
+| `CHANGELOG.md` | partial | Records changes for draft 0.1.0; update before any release. |
+| `CITATION.cff` | partial | Provides citation metadata; align version/date with an approved release before formal release. |
+| `CONTRIBUTING.md` | complete | Explains evidence, rights, validation, review and contribution workflow. |
+| `DATA-LICENSE.md` | complete | Separates repository code licensing from data/source rights and AI-use permissions. |
+| `GOVERNANCE.md` | partial | States maintainer-led status and safeguards; community review and succession are not established. |
+| `LICENSE` | complete | Provides repository code/documentation license; does not override source-specific rights. |
+| `README.md` | partial | Contains verbatim intent and entry points; deployment and broader coverage remain incomplete. |
+| `VERSION` | partial | Identifies the public draft version; not a tagged release. |
+| `adapters/README.md` | partial | Documents adapter direction; no executable interchange adapters are implemented. |
+| `agents/consumer-agent-contract.md` | complete | Defines citation, abstention, evidence-scope and rights behaviour for consuming agents. |
+| `agents/consumer-answer.schema.json` | complete | Versioned machine-readable answer contract; covered by negative fixture and demo validation. |
+| `agents/instructions.md` | complete | Defines repository editing and evidence safety constraints. |
+| `agents/review-checklist.md` | complete | Provides human review checks for evidence, rights and schema changes. |
+| `agents/task-contract.schema.json` | complete | Defines machine-readable agent task contract; negative fixture is checked. |
+| `applications/README.md` | complete | Indexes application tracks and states that contracts are not operational integrations. |
+| `applications/education.md` | partial | Describes a possible education consumer; no deployed integration. |
+| `applications/games.md` | partial | Describes a possible game consumer; no deployed integration. |
+| `applications/localization/README.md` | complete | Defines localization track, record types, rights, labelling and LLM limits. |
+| `applications/music-poetry/README.md` | complete | Defines music/lyrics/poetry track, rights, labelling and LLM limits; no owner work published. |
+| `applications/music.md` | complete | Compatibility entry point to the music application track. |
+| `applications/research.md` | partial | Describes a research consumer; no deployed integration. |
+| `applications/scripts/README.md` | complete | Defines script track, rights, labelling and LLM limits; no third-party script text included. |
+| `applications/speech-and-translation.md` | partial | Defines a possible speech/translation consumer; no speech corpus or live service. |
+| `catalog.json` | complete | Generated from JSONL files with counts and SHA-256 hashes; CI checks freshness. |
+| `data/README.md` | complete | Explains data layout and provenance principles. |
+| `data/concepts/README.md` | partial | Documents concept schema and evidence gate; no concept records yet. |
+| `data/grammar/README.md` | partial | Documents grammar record requirements; no grammar records yet. |
+| `data/languages/README.md` | complete | Explains language records, draft status and sourced identifiers. |
+| `data/languages/languages.jsonl` | partial | 24 candidates are drafts; only Mauritian Creole currently has sourced metadata and a verified Glottocode. |
+| `data/lexicon/README.md` | partial | Documents lexical record requirements; no lexical entries yet. |
+| `data/resources/README.md` | complete | Explains resource cards and the difference between reachability and reuse permission. |
+| `data/resources/resources.jsonl` | partial | 14 cards; ISO 639-3 and Gallica remain unverified; other statuses are scoped to checked pages/terms. |
+| `data/sources/README.md` | complete | Explains source-record provenance and rights fields. |
+| `data/sources/sources.jsonl` | partial | Two inspected source records for Mauritian Creole; no broad language coverage yet. |
+| `data/varieties/README.md` | complete | Explains variety records and retrieval status. |
+| `data/varieties/varieties.jsonl` | partial | 24 draft, non-retrievable records are explicit candidates duplicating language-level labels until a source describes a distinct variety. |
+| `demo/retrieval/README.md` | complete | Documents local usage and limitations of the offline read-only demo. |
+| `demo/retrieval/demo.py` | complete | Searches local JSONL metadata, requires resolvable dated source locations for evidence, validates answers and abstains on unsupported matches. |
+| `docs/agent-handover.md` | complete | Explains safe handover and evidence boundaries. |
+| `docs/artefact-status.md` | partial | This register tracks every current file and remaining dependencies; refresh after material changes. |
+| `docs/change-propagation.md` | complete | Describes downstream impact and change propagation. |
+| `docs/data-model.md` | complete | Defines stable IDs and now lists language, variety, source, lexical, grammar, evaluation, concept, resource and creative-work prefixes. |
+| `docs/decisions/0001-framework-boundary.md` | complete | Records the framework/application boundary decision. |
+| `docs/evidence-policy.md` | complete | Defines evidence labels, provenance and claim limits. |
+| `docs/framework-brief.md` | partial | Contains verbatim intent and framework boundaries; full interoperability and coverage remain incomplete. |
+| `docs/language-relationships.md` | partial | Defines cautious relationship modelling; actual relationships require sourced claims. |
+| `docs/repository-audit.md` | partial | Records initial sibling-repository security findings; remediation PRs and full runtime audit remain open. |
+| `docs/standards-interoperability.md` | partial | Maps standards and possible adapters; implemented exports and conformance tests remain incomplete. |
+| `docs/terminology.md` | complete | Defines project terms and separates real-language evidence from creative canon. |
+| `docs/vision-and-scope.md` | complete | Contains verbatim intent and boundaries. |
+| `evaluation/scoring-policy.md` | complete | Defines evaluation dimensions and scoring cautions. |
+| `evaluation/test-cases/starter-cases.jsonl` | partial | Six starter evaluation cases; coverage and held-out regression tests remain limited. |
+| `llms.txt` | partial | Contains verbatim intent and absolute canonical links; no deployed Pages endpoint yet. |
+| `registry/projects.yaml` | partial | Links known projects; several project locations remain explicitly unverified and are omitted rather than represented by null URLs. |
+| `registry/resources.yaml` | complete | Indexes all 14 canonical resource cards in the JSONL registry. |
+| `releases/release-process.md` | complete | Defines release steps; no tagged GitHub release or DOI has been created. |
+| `requirements-dev.txt` | complete | Pins the JSON Schema validator dependency range used by CI. |
+| `schemas/concept.schema.json` | complete | Adds the missing concept-record schema with stable IDs and version metadata. |
+| `schemas/creative-work.schema.json` | complete | Defines labelled creative works and generation provenance; unknown optional fields can be omitted. |
+| `schemas/evaluation-case.schema.json` | complete | Defines evaluation cases with a versioned schema. |
+| `schemas/grammar-rule.schema.json` | complete | Defines sourced grammar rules; no grammar data published. |
+| `schemas/language.schema.json` | complete | Defines language records, evidence-linked lexifier claims and conditional identifier verification. |
+| `schemas/lexical-entry.schema.json` | complete | Defines lexical entries with provenance, rights and AI-use fields. |
+| `schemas/resource-card.schema.json` | complete | Defines resource metadata and omits unknown license URLs instead of requiring null. |
+| `schemas/source-record.schema.json` | complete | Defines source metadata, rights, review and AI-use fields. |
+| `schemas/variety.schema.json` | complete | Defines scoped varieties and conditional verified identifiers; unknown optional values can be omitted. |
+| `scripts/generate_catalog.py` | complete | Deterministically generates record counts and SHA-256 hashes from JSONL data; CI detects stale output. |
+| `scripts/no_placeholders_check.py` | complete | Rejects zero-byte tracked files, drafting markers, empty strings/nulls in data records and empty arrays except draft source_ids. |
+| `scripts/validate_records.py` | complete | Checks all schemas, JSONL records, format constraints, negative fixtures and accepted-record source resolution. |
+| `tests/negative/concept.schema.json.invalid.json` | complete | Intentionally invalid concept instance must be rejected. |
+| `tests/negative/consumer-answer.schema.json.invalid.json` | complete | Intentionally invalid consumer answer must be rejected. |
+| `tests/negative/creative-work.schema.json.invalid.json` | complete | Intentionally invalid creative-work instance must be rejected. |
+| `tests/negative/evaluation-case.schema.json.invalid.json` | complete | Intentionally invalid evaluation case must be rejected. |
+| `tests/negative/grammar-rule.schema.json.invalid.json` | complete | Intentionally invalid grammar-rule instance must be rejected. |
+| `tests/negative/language.schema.json.invalid.json` | complete | Intentionally invalid language instance must be rejected. |
+| `tests/negative/lexical-entry.schema.json.invalid.json` | complete | Intentionally invalid lexical-entry instance must be rejected. |
+| `tests/negative/resource-card.schema.json.invalid.json` | complete | Intentionally invalid resource-card instance must be rejected. |
+| `tests/negative/source-record.schema.json.invalid.json` | complete | Intentionally invalid source-record instance must be rejected. |
+| `tests/negative/task-contract.schema.json.invalid.json` | complete | Intentionally invalid task-contract instance must be rejected. |
+| `tests/negative/variety.schema.json.invalid.json` | complete | Intentionally invalid variety instance must be rejected. |
+| `tests/retrieval/test_demo.py` | complete | Tests supported citation, abstention for draft/unsourced data, unknown queries and variety-ID resolution. |
 
-## Audit findings
+## Verified data snapshot
 
-- Latest observed workflow run: [38984185914](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38984185914), conclusion `success`, commit `f9ca6385cfa7682093672bef6bb774bf43c121b0`.
-- Exact validator output from that run: `VALIDATION PASSED: 8 JSON Schemas checked; 6 JSONL records validated.`
-- This is a baseline result, not proof that all requested acceptance criteria pass. The current validator does not validate resource cards, language/variety data, negative fixtures, catalog freshness, or cross-record references.
-- Current schema files lack `$id` and `schema_version` fields. Language and variety schemas do not yet contain all requested fields or conditional verified-identifier requirements.
-- No language or variety data records, external resource registry, creative-work schema, negative fixtures, offline retrieval demo, generated catalog, Pages deployment, or release tag were present in the baseline tree.
-- The repository's default branch is `main`; the repository is public. GitHub Pages is not enabled at baseline.
-- Security risk identified in sibling repositories remains open: client-side Vite substitutions for `GEMINI_API_KEY`/ `API_KEY` were observed in `Applied-Creole-Linguistics` and `Refuge`. This does not prove a real key was published. The owner should rotate any real key that may have been bundled into public client assets.
+- Language candidates: 24, all `draft`.
+- Variety candidates: 24, all `draft` and `non-retrievable` because they duplicate language-level labels until sources establish distinct varieties.
+- Source records: 2, for Glottolog's Morisyen entry and APiCS's Mauritian Creole dataset.
+- Verified external identifiers: Glottocode `mori1278` for the Mauritian Creole candidate. No ISO 639-3 identifier is recorded as verified in Babel yet.
+- Resource cards: 14. ISO 639-3 and Gallica remain `unverified` after HTTP 403 responses. CARE's official page was reachable, but reachability does not grant reuse or AI permissions.
+- Lexical entries: 0. Grammar rules: 0. Concept records: 0. No third-party lyrics, scripts or dictionary contents were copied.
+- Creative work from owner history: none imported. No `conversations.json` was supplied for private mining or batch approval.
 
-## Maintainer batch report — 2026-10-17
+## Remaining work, in dependency order
 
-### Completed and verified in this batch
+1. **Evidence coverage:** source and verify the remaining language candidates; only create a variety when a fetched source describes a distinct variety. Include Rodriguan, Agalega and Chagossian claims only when supported by sources.
+2. **Resource verification:** retry official ISO 639-3 and Gallica routes through accessible official pages or authoritative downloadable tables; preserve their unverified status until confirmed. Maintain a repeatable link-check report.
+3. **Data usefulness:** add small sourced lexical/grammar records only after source locations, exact reuse permissions and relevant consent are established. Strict link-first remains the default.
+4. **Private-history review:** after the owner supplies `conversations.json`, mine it only into git-ignored candidates; show batches for approval. Assistant-authored claims stay quarantined until independently sourced.
+5. **Discoverability:** GitHub Pages is not enabled. Missing deployment artefacts include `robots.txt`, `sitemap.xml`, a Dataset JSON-LD landing page, issue templates, `SECURITY.md`, `SUPPORT.md`, and `CODE_OF_CONDUCT.md`. Add and test these before enabling public Pages.
+6. **Automation:** the offline retrieval demo is tested; a scheduled link checker and read-only MCP server are not deployed. Build the MCP server only after the demo's evidence/rights behaviour remains stable.
+7. **Sibling-repository security:** client-side Vite key substitution was observed in Applied-Creole-Linguistics and Refuge. This is a configuration exposure risk, not proof that a live key was published. Security remediation must go through PRs; do not rotate keys or publish secrets without owner direction.
+8. **Release:** the project remains `0.1.0-draft`. No release tag, GitHub Release or DOI exists. Create a release only after the current commit's CI is green and the release contents/metadata are reviewed.
 
-- Canonical intent paragraph inserted verbatim into `README.md`, `docs/vision-and-scope.md`, `llms.txt`, and `docs/framework-brief.md`.
-- All 24 candidate language records are `record_status: draft`; no language identifiers, lexifier claims, substrate/adstrate claims, or lexical content were added from memory.
-- All 24 variety candidates are `record_status: draft` and `retrieval_status: non-retrievable` because each duplicates its language-level label and has no source record. This status is explicit in `schemas/variety.schema.json` version 1.2.0.
-- Added user-requested candidate labels for Rodriguan Creole, Agalega Creole, and Chagossian Creole at language and variety level; all remain draft and non-retrievable pending evidence.
-- Validator now rejects any JSONL record marked `accepted` when `source_ids` is missing or empty.
-- Consumer-agent contract explicitly prohibits citing records with missing or empty `source_ids` as evidence.
-- Retried the official ISO 639-3 code-table URL and Gallica homepage. Both returned HTTP 403 in this browser and remain `unverified`; no codes or lexical material were imported.
-- Opened the official GIDA CARE Principles page at `https://www.gida-global.org/careprinciples`. The resource card now uses that canonical URL and is marked `verified` for reachability/content only; site-wide reuse and AI permissions remain unknown. The official principles PDF identifies CC BY-NC-ND 4.0, which is not treated as blanket permission for adaptation or AI use.
-- Refreshed `catalog.json` counts to 24 language records, 24 variety records, 14 resource cards, and the existing verified evaluation count. Catalog generation is still manual; deterministic generation and stale-catalog CI are not yet implemented.
+## Hard acceptance gates
 
-### Not yet complete
-
-- Language/variety labels have not been promoted to accepted linguistic records. Every classification and external identifier still requires a fetched, cited source record.
-- The ISO 639-3 and Gallica URLs remain unverified due to HTTP 403; use only alternate official resources if their authority and contents can be verified.
-- History mining has not run: the owner has not supplied `conversations.json`. No private conversation content has been committed.
-- No seed lexical records were added under the strict link-first policy.
-- No release was created. CI for the catalog/status batch passed at [run 38988354673](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38988354673): `VALIDATION PASSED: 10 JSON Schemas checked; 68 JSONL records validated; 10 negative fixtures rejected; format checking enabled.` Any later commit requires its own CI verification.
-
-
-
-### Application track update — 2026-10-17
-
-Added substantive, rights-aware contracts for music/lyrics/poetry, film/series scripts, and programming/software localization. Updated the applications index and retained `applications/music.md` as a compatibility entry point. The creative-work schema now requires generation provenance: human, AI-assisted, or AI-generated; AI-assisted/generated work must name the tool and state whether terms were verified. No creative text or fake example record was added because the owner has not approved a specific work, license, or AI-use flags.
+- Every schema has a stable HTTPS `$id`, `schema_version`, and a negative fixture that CI proves invalid.
+- Every accepted record has at least one source ID resolving to a source record with a canonical URL, access date and precise source location.
+- Every non-draft data record with a `source_ids` field has a non-empty list; unknown optional values are omitted rather than padded.
+- Consumer agents never cite records with empty/missing/unresolved source IDs as evidence and abstain when evidence is missing.
+- Resource reachability, source rights, AI-use permissions and community consent remain separate statuses.
+- Catalog counts and hashes are generated from real JSONL files and are checked for freshness in CI.
+- The final release gate is a green CI run on the exact release commit; earlier passing runs do not certify later changes.
