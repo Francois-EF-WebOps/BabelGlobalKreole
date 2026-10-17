@@ -10,6 +10,7 @@ record_files = sorted({p for base in RECORD_ROOTS if base.exists() for p in base
 counts = {
     "lexical_entries": 0,
     "source_records": 0,
+    "concept_records": 0,
     "language_records": 0,
     "variety_records": 0,
     "grammar_rules": 0,
@@ -23,6 +24,8 @@ for path in record_files:
         counts["lexical_entries"] += count
     elif rel.startswith("data/sources/"):
         counts["source_records"] += count
+    elif rel.startswith("data/concepts/"):
+        counts["concept_records"] += count
     elif rel.startswith("data/languages/"):
         counts["language_records"] += count
     elif rel.startswith("data/varieties/"):
@@ -52,6 +55,7 @@ catalog = {
     "record_paths": {
         "lexical_entries": "data/lexicon/",
         "source_records": "data/sources/",
+        "concept_records": "data/concepts/",
         "language_records": "data/languages/languages.jsonl",
         "variety_records": "data/varieties/varieties.jsonl",
         "grammar_rules": "data/grammar/",
