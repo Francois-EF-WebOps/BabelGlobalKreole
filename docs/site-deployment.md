@@ -4,7 +4,9 @@ The site builder generates a static landing page, Schema.org Dataset JSON-LD, an
 
 ## Observed deployment state
 
-As of the latest checked run, [Pages workflow run 38994178661](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994178661), the preview build succeeded but the `deploy` job was skipped. Therefore the site is **not yet verified live**, even if Pages settings have since been changed. The deployment URL and generated absolute URLs must be checked after a successful deploy run.
+The latest checked run is [Pages workflow run 38994355957](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994355957), commit `956f3f3359f159fa4c9b131c19d698b8df713e03`. Its preview build succeeded, but the `deploy` job was skipped. The proposed site address is `https://francois-ef-webops.github.io/BabelGlobalKreole/`; it is not verified as live. The web verifier reported `DisabledError` while attempting to fetch the page and generated files, which is not an HTTP 404 and does not independently establish their HTTP status.
+
+A skipped `deploy` job means this workflow did not publish the current build. Check the repository variable `PAGES_ENABLED` and Pages configuration; do not infer that a successful preview means deployment succeeded.
 
 ## Owner-only settings
 
@@ -18,7 +20,7 @@ The build preview runs on pushes even when deployment is disabled. A green previ
 
 ## URL integrity checks after deployment
 
-Compare the exact configured base URL against the deployed `sitemap.xml`, `robots.txt`, `llms.txt`, `CITATION.cff`, and Dataset JSON-LD. The sitemap and robots files are generated into the site artifact by `scripts/build_site.py`; they are not necessarily tracked at repository root. Do not add a live-site link to the README or claim that URLs are verified until the deployment URL loads and the generated files agree.
+After a successful deployment, compare the exact configured base URL against site-referencing URLs in the deployed `sitemap.xml`, `robots.txt`, copied `llms.txt`, and Dataset JSON-LD. In `CITATION.cff`, keep `repository-code` pointing to the GitHub repository; only site URL fields, if present, should match the live site. External license and repository links must not be rewritten to the site address. The sitemap and robots files are generated into the site artifact by `scripts/build_site.py`; they are not necessarily tracked at repository root. Do not add a live-site link to the README or claim that URLs are verified until the deployment URL loads and the generated files agree.
 
 ## Local build
 
