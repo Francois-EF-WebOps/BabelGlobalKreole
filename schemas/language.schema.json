@@ -1,32 +1,204 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/language.schema.json",
+  "schema_version": "1.1.0",
   "title": "Language Record",
   "type": "object",
   "additionalProperties": false,
-  "required": ["language_id", "name", "identity_status", "source_ids", "record_status"],
+  "required": [
+    "language_id",
+    "name",
+    "identity_status",
+    "source_ids",
+    "record_status",
+    "kind"
+  ],
   "properties": {
-    "language_id": {"type": "string", "pattern": "^lng-[a-z0-9-]+$"},
-    "name": {"type": "string", "minLength": 1},
-    "autonyms": {"type": "array", "items": {"type": "string"}},
-    "identity_status": {"enum": ["community_designation", "scholarly_designation", "catalogue_label", "provisional", "disputed", "undecided"]},
+    "language_id": {
+      "type": "string",
+      "pattern": "^lng-[a-z0-9-]+$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1
+    },
+    "autonyms": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "kind": {
+      "enum": [
+        "creole",
+        "pidgin",
+        "mixed",
+        "other",
+        "undecided"
+      ]
+    },
+    "identity_status": {
+      "enum": [
+        "community_designation",
+        "scholarly_designation",
+        "catalogue_label",
+        "provisional",
+        "disputed",
+        "undecided"
+      ]
+    },
+    "lexifier_languages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourced-language-claim"
+      }
+    },
+    "substrate_languages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourced-language-claim"
+      }
+    },
+    "adstrate_languages": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/sourced-language-claim"
+      }
+    },
     "external_identifiers": {
       "type": "array",
       "items": {
-        "type": "object",
-        "additionalProperties": false,
-        "required": ["scheme", "value", "status", "source_ids"],
-        "properties": {
-          "scheme": {"enum": ["ISO-639-3", "BCP-47", "Glottolog", "Wikidata", "other"]},
-          "value": {"type": "string", "minLength": 1},
-          "status": {"enum": ["verified", "provisional", "disputed", "rejected"]},
-          "source_ids": {"type": "array", "items": {"type": "string", "pattern": "^src-[a-z0-9-]+$"}},
-          "checked_date": {"type": ["string", "null"], "format": "date"},
-          "notes": {"type": "string"}
+        "$ref": "#/$defs/external-identifier"
+      }
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^src-[a-z0-9-]+$"
+      }
+    },
+    "record_status": {
+      "enum": [
+        "draft",
+        "proposed",
+        "accepted",
+        "deprecated",
+        "retracted"
+      ]
+    },
+    "notes": {
+      "type": "string"
+    }
+  },
+  "$defs": {
+    "sourced-language-claim": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name",
+        "status",
+        "source_ids"
+      ],
+      "properties": {
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "attested",
+            "scholarly_analysis",
+            "comparative_observation",
+            "proposed_convergence",
+            "disputed",
+            "undecided"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+$"
+          }
+        },
+        "notes": {
+          "type": "string"
         }
       }
     },
-    "source_ids": {"type": "array", "items": {"type": "string", "pattern": "^src-[a-z0-9-]+$"}},
-    "record_status": {"enum": ["draft", "proposed", "accepted", "deprecated", "retracted"]},
-    "notes": {"type": "string"}
+    "external-identifier": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "scheme",
+        "value",
+        "status",
+        "source_ids"
+      ],
+      "properties": {
+        "scheme": {
+          "enum": [
+            "ISO-639-3",
+            "BCP-47",
+            "Glottolog",
+            "Wikidata",
+            "other"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "minLength": 1
+        },
+        "status": {
+          "enum": [
+            "verified",
+            "provisional",
+            "disputed",
+            "rejected"
+          ]
+        },
+        "source_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^src-[a-z0-9-]+$"
+          }
+        },
+        "checked_date": {
+          "type": "string",
+          "format": "date"
+        },
+        "notes": {
+          "type": "string"
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "status": {
+                "const": "verified"
+              }
+            },
+            "required": [
+              "status"
+            ]
+          },
+          "then": {
+            "required": [
+              "checked_date",
+              "source_ids"
+            ],
+            "properties": {
+              "source_ids": {
+                "minItems": 1
+              }
+            }
+          }
+        }
+      ]
+    }
   }
 }
