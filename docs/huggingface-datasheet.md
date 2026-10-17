@@ -11,12 +11,12 @@ Provide a transparent description for any future dataset package derived from Ba
 
 ## Current contents
 
-- 24 draft language candidate records.
-- 24 draft variety candidate records explicitly marked non-retrievable.
-- 2 source metadata records.
+- 19 accepted catalogue-level language records with inspected Glottolog identifiers and source records; APiCS records are linked where their pages were inspected.
+- 1 accepted, sourced variety record (Martinican Creole); the 24 unsourced duplicate variety placeholders were removed.
+- 50 source metadata records, including Glottolog and APiCS pages; a source link does not imply permission for training or speech generation.
 - 14 external resource cards with per-resource verification and rights notes.
 - 6 evaluation cases.
-- 0 lexical entries, 0 grammar rules, and 0 concept records.
+- 1 sourced lexical entry, 3 sourced grammar claims, and 1 organizing concept record.
 
 Counts are repository snapshot values; consult `catalog.json` for generated counts and record-file hashes.
 
@@ -37,7 +37,7 @@ Do not train, fine-tune, generate speech, redistribute source content, or create
 ## Known limitations
 
 - Coverage is highly incomplete and mostly provisional.
-- Only the Mauritian Creole candidate has sourced metadata and a verified Glottocode in the repository.
+- 19 catalogue-level records have verified Glottocodes and ISO 639-3 identifiers from inspected Glottolog pages; these identifiers do not validate every possible lexifier, substrate, variety or community-preference claim.
 - ISO 639-3 and Gallica resource pages were not accessible during the latest check and remain unverified.
 - No held-out benchmark, human validation study, production API, or MCP server is claimed.
 - This draft must be reviewed against a pinned release before any dataset package is published.
