@@ -16,7 +16,7 @@ A skipped `deploy` job means this workflow did not publish the current build. Ch
 4. Run the **Build and deploy documentation site** workflow again.
 5. Confirm the run's `deploy` job succeeded and use the exact URL shown by the GitHub Pages environment/deployment.
 
-The build preview runs on pushes even when deployment is disabled. A green preview-only run is not evidence that the site is published.
+The build preview runs on pushes even when deployment is disabled. It now uses the proposed Pages base URL to exercise the generated canonical URL, Dataset JSON-LD, sitemap and robots rules. A green preview-only run verifies generated output, not public availability.
 
 ## URL integrity checks after deployment
 
@@ -28,4 +28,4 @@ After a successful deployment, compare the exact configured base URL against sit
 python scripts/build_site.py --base-url https://your-configured-pages-url --output-dir site
 ```
 
-Use the exact URL shown in repository Pages settings. The preview artifact uses the repository URL only for validation; the deploy job rebuilds with the configured Pages URL. Do not publish the preview artifact.
+Use the exact URL shown in repository Pages settings. The preview artifact is built against the proposed Pages URL only for URL-integrity validation; the deploy job rebuilds with the configured Pages URL. Do not publish the preview artifact.
