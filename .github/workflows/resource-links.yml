@@ -1,5 +1,10 @@
 name: Check external resource links
 on:
+  push:
+    paths:
+      - 'data/resources/resources.jsonl'
+      - 'scripts/check_resource_links.py'
+      - '.github/workflows/resource-links.yml'
   workflow_dispatch:
   schedule:
     - cron: "23 5 * * 1"
