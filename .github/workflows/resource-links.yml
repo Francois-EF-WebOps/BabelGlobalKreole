@@ -1,0 +1,24 @@
+name: Check external resource links
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * 1"
+permissions:
+  contents: read
+jobs:
+  check-links:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Check registered URLs
+        run: python scripts/check_resource_links.py --output resource-link-check-report.json
+      - name: Publish link-check report as workflow artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: resource-link-check-report
+          path: resource-link-check-report.json
+          if-no-files-found: error
+          retention-days: 30
