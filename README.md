@@ -67,6 +67,7 @@ Preserve source repositories and their histories; distinguish evidence from infe
 - [Code of conduct](CODE_OF_CONDUCT.md): participation, privacy and community-consent expectations.
 - [Dataset datasheet draft](docs/huggingface-datasheet.md): current coverage, provenance and limits; not a published dataset.
 - [Documentation site deployment](docs/site-deployment.md): site output and the one-time Pages setting.
+- [Read-only MCP adapter](mcp_server/README.md): optional local stdio tools for agent discovery.
 
 ## Contribute
 Open an issue with scope and acceptance criteria, add provenance and rights information, use the relevant schema, add regression cases, run `python scripts/validate_records.py`, `python scripts/check_internal_links.py`, and `python scripts/no_placeholders_check.py`, and request review. See [CONTRIBUTING.md](CONTRIBUTING.md).
