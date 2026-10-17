@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 113 tracked files on the default branch at this review point.  
-**Latest independently inspected validation run at this audit:** [CI run 38995043702](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38995043702), commit `88a3ec3c7ddd31ce9dacffbb3106796bb540a013`. The job log confirms 11 schemas, 95 JSONL records, 11 negative fixtures rejected, format checking enabled, 51 internal Markdown links resolved, and the tracked-file and draft-marker check passed. This run is evidence for that exact commit only.
+**Latest independently inspected validation run at this audit:** [CI run 38997304911](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38997304911), commit `93f7cb35ab5f2809bb56f43d12a4548acf35fa39`. The validation job completed successfully on that exact commit. The previous detailed job-log assertions remain tied to run 38995043702 and commit `88a3ec3c7ddd31ce9dacffbb3106796bb540a013`; they are not re-attributed to the newer run.
 
 ## State meanings
 
@@ -167,7 +167,7 @@
 
 ### Verified repository snapshot
 
-- Default-branch tree SHA inspected: `88a3ec3c7ddd31ce9dacffbb3106796bb540a013`.
+- Default-branch HEAD inspected for this register refresh: `93f7cb35ab5f2809bb56f43d12a4548acf35fa39` (the register-only commit below advances HEAD).
 - GitHub tree reports 113 tracked files and 11 JSON Schema files.
 - Generated `catalog.json` reports 19 language records, 1 variety, 50 source records, 1 lexical entry, 3 grammar rules, 1 concept, 14 resource cards and 6 evaluation cases. Its recorded file hashes are generated from the data files and the validator workflow checks catalog freshness.
 - `data/languages/languages.jsonl` and `docs/artefact-status.md` are present on the default branch. Earlier reports that these paths were missing are superseded by this direct inspection.
@@ -177,7 +177,7 @@
 
 ### Pages status — checked against the workflow
 
-[Pages workflow run 38995043820](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38995043820) succeeded for the preview job; its `deploy` job was **skipped**. The web verification tool could not fetch the proposed public Pages URLs, returning a tool-level access error rather than a verified HTTP status. Therefore public deployment remains **unverified**. Do not claim the site is live or indexed from a preview-only build. The repository owner must check the Pages configuration and `PAGES_ENABLED` variable, rerun the workflow, and verify the exact deployed URL.
+[Pages workflow run 38997929687](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38997929687) succeeded for the preview job on commit `93f7cb35ab5f2809bb56f43d12a4548acf35fa39`; its `deploy` job was **skipped**. The web verification tool could not fetch the proposed public Pages URLs, returning a tool-level access error rather than a verified HTTP status. Therefore public deployment remains **unverified**. Do not claim the site is live or indexed from a preview-only build. The repository owner must check the Pages configuration and `PAGES_ENABLED` variable, rerun the workflow, and verify the exact deployed URL.
 
 ### Additional gaps for the next implementation pass
 
@@ -193,3 +193,11 @@
 ### Audit boundary
 
 This review used the public GitHub tree, selected repository files, the recorded CI job logs, and attempts to open the proposed Pages URLs. It did not inspect private ChatGPT history, repository secrets, account settings, complete historical browser bundles, or every source record's legal terms. No private history or new lexical material was added.
+
+
+### Register refresh note — 2026-10-17
+
+- Updated the audit pointer to the successful validation run on HEAD `93f7cb35ab5f2809bb56f43d12a4548acf35fa39` and the matching Pages preview run. The register-only commit that records this note will itself trigger fresh validation; its run must be checked separately.
+- Counts remain the generated catalogue snapshot: 19 languages, 1 variety, 50 source records, 1 lexical entry, 3 grammar rules, 1 concept, 14 resource cards and 6 evaluation cases (95 records total). These are record counts, not proof that every claim has been independently re-fetched.
+- Source review found one record, `src-papiamento-lexifier-debate-20261017`, whose own notes say “Bibliographic link only” and whose license is not stated. Its `rights_status` and AI-use flags are `unknown`; until the paper itself and rights terms are inspected, do not treat it as cleared for reuse. The record's `review_status: inspected` should be downgraded to `referenced` in a subsequent data change with catalog regeneration and CI.
+- Existing schema ID patterns are already present in the inspected language, variety, source, lexical-entry and grammar-rule schemas; do not add duplicate patterns without checking the remaining schemas and fixtures.
