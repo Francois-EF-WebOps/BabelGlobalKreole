@@ -11,3 +11,4 @@ conversations.json
 candidates.jsonl
 private-history/
 review-batches/
+resource-link-check-report.json
