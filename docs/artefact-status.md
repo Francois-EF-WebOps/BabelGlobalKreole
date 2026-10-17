@@ -1,7 +1,7 @@
 # Artefact status and acceptance register
 
 **Audit date:** 2026-10-17  
-**Inventory:** 95 tracked files on the default branch at this review point.  
+**Inventory:** 99 tracked files on the default branch at this review point.  
 **Latest verified review point:** [validation CI run 38990067726](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990067726), commit `2f3dec49c25af093a9d1245956ed59436e4fff78`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 43 local Markdown links, nine unit tests, data-integrity checks, and catalog freshness. The paired [resource-link run 38990067682](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990067682) checked 14 URLs: 12 returned reachable responses and two were blocked/rate-limited. ISO 639-3 returned HTTP 200 in the runner but a browser fetch returned 403; keep its card unverified until the page content and terms are reviewed. Gallica and HathiTrust returned HTTP 403 in the runner. This verifies the state at that commit only; later changes require their own CI run.
 
 ## State meanings
@@ -18,6 +18,7 @@
 | `.github/ISSUE_TEMPLATE/bad-ai-answer.yml` | complete | Collects the question, problematic answer, cited IDs, failure type and evidence without requesting private material. |
 | `.github/ISSUE_TEMPLATE/correction.yml` | complete | Collects a record/path, proposed correction, source URL, precise location and rights acknowledgement. |
 | `.github/ISSUE_TEMPLATE/resource-suggestion.yml` | complete | Collects canonical resource URL, coverage, license/AI-use evidence and intended use. |
+| `.github/workflows/pages.yml` | partial | Builds a site preview on push; deployment is gated until the owner enables Pages and sets `PAGES_ENABLED=true`. |
 | `.github/workflows/resource-links.yml` | complete | Runs a weekly/manual report-only link check and uploads its report; it does not rewrite registry verification. |
 | `.github/workflows/validate.yml` | complete | Runs schema/record validation, negative fixtures, data-integrity checks, retrieval tests and catalog freshness on push and pull request. |
 | `.gitignore` | complete | Excludes secrets and private history-mining inputs/outputs from version control. |
@@ -73,6 +74,7 @@
 | `docs/framework-brief.md` | partial | Contains verbatim intent and framework boundaries; full interoperability and coverage remain incomplete. |
 | `docs/language-relationships.md` | partial | Defines cautious relationship modelling; actual relationships require sourced claims. |
 | `docs/repository-audit.md` | partial | Records initial sibling-repository security findings; remediation PRs and full runtime audit remain open. |
+| `docs/site-deployment.md` | complete | Documents the exact one-time Pages settings needed; the site is not yet public. |
 | `docs/standards-interoperability.md` | partial | Maps standards and possible adapters; implemented exports and conformance tests remain incomplete. |
 | `docs/terminology.md` | complete | Defines project terms and separates real-language evidence from creative canon. |
 | `docs/vision-and-scope.md` | complete | Contains verbatim intent and boundaries. |
@@ -92,6 +94,7 @@
 | `schemas/resource-card.schema.json` | complete | Defines resource metadata and omits unknown license URLs instead of requiring null. |
 | `schemas/source-record.schema.json` | complete | Defines source metadata, rights, review and AI-use fields. |
 | `schemas/variety.schema.json` | complete | Defines scoped varieties and conditional verified identifiers; unknown optional values can be omitted. |
+| `scripts/build_site.py` | complete | Generates a static landing page, Dataset JSON-LD, absolute sitemap, robots.txt, catalog and llms.txt from real repository metadata. |
 | `scripts/check_internal_links.py` | complete | Checks local Markdown link targets and fails if none are detected. |
 | `scripts/check_resource_links.py` | complete | Checks resource URLs and writes a report without changing rights or verification status. |
 | `scripts/generate_catalog.py` | complete | Deterministically generates record counts and SHA-256 hashes from JSONL data; CI detects stale output. |
@@ -109,7 +112,8 @@
 | `tests/negative/task-contract.schema.json.invalid.json` | complete | Intentionally invalid task-contract instance must be rejected. |
 | `tests/negative/variety.schema.json.invalid.json` | complete | Intentionally invalid variety instance must be rejected. |
 | `tests/retrieval/test_demo.py` | complete | Tests supported citation, abstention for draft/unsourced data, unknown queries and variety-ID resolution. |
-| `tests/retrieval/test_resource_links.py` | complete | Tests that URL tracking parameters are removed and stable URL parts are preserved. | Tests supported citation, abstention for draft/unsourced records and missing source locations, unknown queries, variety-ID resolution, and lexical-entry ID lookup. |
+| `tests/retrieval/test_resource_links.py` | complete | Tests that URL tracking parameters are removed and stable URL parts are preserved. |
+| `tests/retrieval/test_site_build.py` | complete | Tests generated Dataset JSON-LD, absolute sitemap, robots rules and catalog values. Tests that URL tracking parameters are removed and stable URL parts are preserved. | Tests supported citation, abstention for draft/unsourced records and missing source locations, unknown queries, variety-ID resolution, and lexical-entry ID lookup. |
 
 ## Verified data snapshot
 
@@ -124,11 +128,11 @@
 ## Remaining work, in dependency order
 
 1. **Evidence coverage:** source and verify the remaining language candidates; only create a variety when a fetched source describes a distinct variety. Include Rodriguan, Agalega and Chagossian claims only when supported by sources.
-2. **Resource verification:** retry official ISO 639-3 and Gallica routes through accessible official pages or authoritative downloadable tables; preserve their unverified status until confirmed. Maintain a repeatable link-check report.
+2. **Resource verification:** ISO 639-3 returned HTTP 200 from the automated runner but HTTP 403 in browser retrieval; its content and terms remain unverified, so the card stays unverified. Gallica returned HTTP 403 in both checks and remains unverified. CARE's official page returned HTTP 200 and was inspected; its link does not grant reuse or AI permission.
 3. **Data usefulness:** add small sourced lexical/grammar records only after source locations, exact reuse permissions and relevant consent are established. Strict link-first remains the default.
 4. **Private-history review:** after the owner supplies `conversations.json`, mine it only into git-ignored candidates; show batches for approval. Assistant-authored claims stay quarantined until independently sourced.
-5. **Discoverability:** GitHub Pages is not enabled. Remaining deployment work is `robots.txt`, `sitemap.xml`, a Dataset JSON-LD HTML landing page, enabling Pages, and setting repository topics. The README and `llms.txt` now link to security, support, conduct, resource cards, the retrieval demo and the datasheet draft.
-6. **Automation:** the offline retrieval demo and report-only scheduled link checker are implemented. The link-check report has not yet been run from the new workflow. The local Markdown link checker is part of CI. A read-only MCP server is not deployed; build it only after the demo's evidence/rights behaviour remains stable.
+5. **Discoverability:** a static landing-page builder now generates `robots.txt`, `sitemap.xml`, and Schema.org Dataset JSON-LD. The preview workflow passes. GitHub Pages is not live because the available GitHub connection cannot change repository settings or supply the non-default token required to enable Pages. The owner must select **Settings → Pages → GitHub Actions** and set repository variable `PAGES_ENABLED=true`. Repository topics also remain unset because the connection exposes no topic-edit operation.
+6. **Automation:** the offline retrieval demo, catalog freshness check, local Markdown link checker, no-empty-data check, and report-only scheduled link checker are implemented. [Resource-link run 38990223532](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990223532) checked all 14 URLs: 12 returned HTTP 200 from the runner; Gallica and HathiTrust returned HTTP 403 to the automated request. HathiTrust was reachable through browser retrieval, so this is not treated as proof that the resource is offline. The link report does not change rights or verification claims. A read-only MCP server is not deployed.
 7. **Sibling-repository security:** client-side Vite key substitution was observed in Applied-Creole-Linguistics and Refuge. This is a configuration exposure risk, not proof that a live key was published. Security remediation must go through PRs; do not rotate keys or publish secrets without owner direction.
 8. **Release:** the project remains `0.1.0-draft`. No release tag, GitHub Release or DOI exists. Create a release only after the current commit's CI is green and the release contents/metadata are reviewed.
 
