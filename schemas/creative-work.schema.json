@@ -1,7 +1,7 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/creative-work.schema.json",
-  "schema_version": "1.1.0",
+  "schema_version": "1.2.0",
   "title": "Creative Work",
   "type": "object",
   "additionalProperties": false,
@@ -12,9 +12,6 @@
     "license",
     "ai_use",
     "language_id",
-    "variety_id",
-    "orthography",
-    "uses_record_ids",
     "label",
     "status",
     "generation_method"
@@ -86,31 +83,23 @@
       }
     },
     "language_id": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "pattern": "^lng-[a-z0-9-]+$"
     },
     "variety_id": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "pattern": "^var-[a-z0-9-]+$"
     },
     "orthography": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "uses_record_ids": {
       "type": "array",
       "items": {
         "type": "string",
         "pattern": "^(lng|var|src|lex|grm|evl|con|wrk|res)-[a-z0-9-]+$"
-      }
+      },
+      "minItems": 1
     },
     "label": {
       "enum": [
@@ -132,10 +121,7 @@
       "type": "string"
     },
     "created_date": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "format": "date"
     },
     "source_ids": {
