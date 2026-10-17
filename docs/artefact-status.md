@@ -1,8 +1,8 @@
 # Artefact status and acceptance register
 
 **Audit date:** 2026-10-17  
-**Inventory:** 99 tracked files on the default branch at this review point.  
-**Latest verified validation run before this register update:** [CI run 38990331840](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990331840), commit `fdc9652be3599785d93995a0893777e62670fd5e`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 44 local Markdown links, 10 tests, data-integrity checks, and catalog freshness.
+**Inventory:** 101 tracked files on the default branch at this review point.  
+**Latest verified validation run before this register update:** [CI run 38990501282](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990501282), commit `c12ff4abbbef2f8aae6920e07b855e977426a043`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 44 local Markdown links, 13 tests, data-integrity checks, and catalog freshness.
 
 ## State meanings
 
@@ -99,6 +99,7 @@
 | `scripts/check_resource_links.py` | complete | Checks resource URLs and writes a report without changing rights or verification status. |
 | `scripts/generate_catalog.py` | complete | Deterministically generates record counts and SHA-256 hashes from JSONL data; CI detects stale output. |
 | `scripts/no_placeholders_check.py` | complete | Rejects zero-byte tracked files, drafting markers, empty strings/nulls in data records and empty arrays except draft source_ids. |
+| `scripts/record_integrity.py` | complete | Provides tested canonical-ID extraction and duplicate-ID detection, prioritizing each record's own ID over parent references. |
 | `scripts/validate_records.py` | complete | Checks all schemas, JSONL records, format constraints, negative fixtures and accepted-record source resolution. |
 | `tests/negative/concept.schema.json.invalid.json` | complete | Intentionally invalid concept instance must be rejected. |
 | `tests/negative/consumer-answer.schema.json.invalid.json` | complete | Intentionally invalid consumer answer must be rejected. |
@@ -113,6 +114,7 @@
 | `tests/negative/variety.schema.json.invalid.json` | complete | Intentionally invalid variety instance must be rejected. |
 | `tests/retrieval/test_demo.py` | complete | Tests supported citation, abstention for draft/unsourced data, unknown queries and variety-ID resolution. |
 | `tests/retrieval/test_resource_links.py` | complete | Tests that URL tracking parameters are removed and stable URL parts are preserved. |
+| `tests/retrieval/test_record_integrity.py` | complete | Tests canonical ID selection and duplicate-ID detection. |
 | `tests/retrieval/test_site_build.py` | complete | Tests generated Dataset JSON-LD, absolute sitemap, robots rules and catalog values. Tests that URL tracking parameters are removed and stable URL parts are preserved. | Tests supported citation, abstention for draft/unsourced records and missing source locations, unknown queries, variety-ID resolution, and lexical-entry ID lookup. |
 
 ## Verified data snapshot
@@ -139,7 +141,7 @@
 ## Hard acceptance gates
 
 - Every schema has a stable HTTPS `$id`, `schema_version`, and a negative fixture that CI proves invalid.
-- Every accepted record has at least one source ID resolving to a source record with a canonical URL, access date and precise source location.
+- Every accepted record has at least one source ID resolving to a source record with a canonical URL, access date and precise source location; duplicate record IDs fail validation.
 - Every non-draft data record with a `source_ids` field has a non-empty list; unknown optional values are omitted rather than padded.
 - Consumer agents never cite records with empty/missing/unresolved source IDs as evidence and abstain when evidence is missing.
 - Resource reachability, source rights, AI-use permissions and community consent remain separate statuses.
