@@ -17,6 +17,8 @@ jobs:
       - run: python scripts/validate_records.py
       - name: no_placeholders
         run: python scripts/no_placeholders_check.py
+      - name: test offline retrieval demo
+        run: python -m unittest discover -s tests/retrieval -v
       - name: verify catalog is current
         run: |
           python scripts/generate_catalog.py
