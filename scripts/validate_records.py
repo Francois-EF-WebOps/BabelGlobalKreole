@@ -25,6 +25,7 @@ for path in schema_paths:
 
 record_schema_by_parent = {
     "lexicon": "lexical-entry.schema.json",
+    "concepts": "concept.schema.json",
     "sources": "source-record.schema.json",
     "languages": "language.schema.json",
     "varieties": "variety.schema.json",
