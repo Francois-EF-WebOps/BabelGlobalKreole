@@ -13,9 +13,9 @@ errors = []
 
 try:
     tracked = subprocess.run(
-        ["git", "ls-files", "-z"], cwd=ROOT, check=True,
+        ["git", "ls-files"], cwd=ROOT, check=True,
         capture_output=True, text=True
-    ).stdout.split("\0")
+    ).stdout.splitlines()
 except Exception as exc:
     print(f"ERROR: cannot enumerate tracked files: {exc}")
     sys.exit(2)
