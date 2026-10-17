@@ -30,10 +30,7 @@
       "pattern": "^lng-[a-z0-9-]+$"
     },
     "variety_id": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "pattern": "^var-[a-z0-9-]+$"
     },
     "form": {
@@ -41,22 +38,13 @@
       "minLength": 1
     },
     "pronunciation": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "pronunciation_system": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "part_of_speech": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "definition": {
       "type": "string",
@@ -120,16 +108,10 @@
       ]
     },
     "confidence_rationale": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "decision_ref": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "ai_use": {
       "type": "object",
@@ -218,15 +200,12 @@
             "minLength": 1
           },
           "quote_or_locator": {
-            "type": [
-              "string",
-              "null"
-            ]
+            "type": "string"
           }
         }
       }
     }
   },
   "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/lexical-entry.schema.json",
-  "schema_version": "1.1.0"
+  "schema_version": "1.2.0"
 }
