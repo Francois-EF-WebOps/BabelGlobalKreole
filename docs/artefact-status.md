@@ -2,7 +2,7 @@
 
 **Audit date:** 2026-10-17  
 **Inventory:** 95 tracked files on the default branch at this review point.  
-**Latest verified review point before the link-checker and contribution-guidance additions:** [CI run 38989618664](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38989618664), commit `5c6c91eb9e1a968fac7a6c128f81533c505fbb09`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, six retrieval tests, data-integrity checks, and catalog freshness. Documentation changes made after that commit require their own CI run before being called verified.
+**Latest verified review point:** [CI run 38989972121](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38989972121), commit `9a88ef382c35b82f49868b5029289b95be9d2ed1`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 39 local Markdown links, nine unit tests, data-integrity checks, and catalog freshness. This verifies the state at that commit only; later changes require their own CI run.
 
 ## State meanings
 
