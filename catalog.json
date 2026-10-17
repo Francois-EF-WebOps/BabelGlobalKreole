@@ -6,7 +6,7 @@
   "record_counts": {
     "lexical_entries": 1,
     "concept_records": 1,
-    "source_records": 44,
+    "source_records": 50,
     "language_records": 19,
     "variety_records": 1,
     "grammar_rules": 3,
@@ -27,10 +27,10 @@
     "data/concepts/concepts.jsonl": "5508406c08f3936eca39489c6f039def3ab872e9fa51f6a0daf7b4dfbd7e6a85",
     "data/grammar/grammar.jsonl": "9bc94198e67d116344d744f89644072a73b2877fd6c39ee2fe02e1352f9a3804",
     "data/grammar/rules.jsonl": "45c3fd357b16e3a75ce11a24987b4a025d275cbbf92464ae29794ec13167c244",
-    "data/languages/languages.jsonl": "e19ed76b63aff47e3186995250e091ea54aa529e6f5768388403e685f646a944",
+    "data/languages/languages.jsonl": "47a58014a2d9a4f08b61e4aa7e67646ecf0ae9674cc2ac01426e08c85da208f8",
     "data/lexicon/entries.jsonl": "2133178584dd06279632f41f2f66c9c41fca3df5d6a5dbc9c8b515891d52ef10",
     "data/resources/resources.jsonl": "01494faee534eecbf393d02797dc52e58efecf641d640180e58ea63ceb0f1d44",
-    "data/sources/sources.jsonl": "b98ac195b3c5cea76db42cadc689bbde9266a97b94c0df5e7755584d6adb2112",
+    "data/sources/sources.jsonl": "6bf11d8d1f693dacae6b18d9463255b1a79263701a8ad831abafde1e45109233",
     "data/varieties/varieties.jsonl": "c2c093ab31d65af42044b02763b60b09ffe86e09bdd33ba33e6bda7f21aae778",
     "evaluation/test-cases/starter-cases.jsonl": "1fbe67c8e8d6d5299618cd052b91d2baca97353e0fb3f6cbd824103b0ad678e6"
   },
