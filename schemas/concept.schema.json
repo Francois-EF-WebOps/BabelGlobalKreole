@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/concept.schema.json",
+  "schema_version": "1.0.0",
+  "title": "Concept Record",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "concept_id",
+    "label",
+    "record_status",
+    "source_ids"
+  ],
+  "properties": {
+    "concept_id": {
+      "type": "string",
+      "pattern": "^con-[a-z0-9-]+$"
+    },
+    "label": {
+      "type": "string",
+      "minLength": 1
+    },
+    "definition": {
+      "type": "string",
+      "minLength": 1
+    },
+    "concept_type": {
+      "enum": [
+        "semantic_concept",
+        "grammatical_concept",
+        "research_topic",
+        "application_concept"
+      ]
+    },
+    "scope": {
+      "type": "string",
+      "minLength": 1
+    },
+    "related_concept_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^con-[a-z0-9-]+$"
+      }
+    },
+    "source_ids": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^src-[a-z0-9-]+$"
+      }
+    },
+    "record_status": {
+      "enum": [
+        "draft",
+        "proposed",
+        "accepted",
+        "deprecated",
+        "retracted"
+      ]
+    },
+    "notes": {
+      "type": "string",
+      "minLength": 1
+    }
+  }
+}
