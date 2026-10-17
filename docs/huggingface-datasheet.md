@@ -38,6 +38,6 @@ Do not train, fine-tune, generate speech, redistribute source content, or create
 
 - Coverage is highly incomplete and mostly provisional.
 - 19 catalogue-level records have verified Glottocodes and ISO 639-3 identifiers from inspected Glottolog pages; these identifiers do not validate every possible lexifier, substrate, variety or community-preference claim.
-- ISO 639-3 and Gallica resource pages were not accessible during the latest check and remain unverified.
+- The ISO 639-3 resource landing page and Gallica resource page remain unverified as external resource cards because the pages were not accessible during the latest check. This does not invalidate ISO codes read from the inspected Glottolog pages and recorded as verified on the 19 core language entries.
 - No held-out benchmark, human validation study, production API, or MCP server is claimed.
 - This draft must be reviewed against a pinned release before any dataset package is published.
