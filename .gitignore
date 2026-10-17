@@ -5,3 +5,9 @@
 node_modules/
 __pycache__/
 *.pyc
+
+# Private history-mining inputs and review outputs (never commit)
+conversations.json
+candidates.jsonl
+private-history/
+review-batches/
