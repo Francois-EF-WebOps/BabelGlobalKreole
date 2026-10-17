@@ -116,6 +116,7 @@ def get_record(record_id, records=None):
     for record in records:
         if extract_record_id(record) == record_id:
             return {
+                "found": True,
                 "record_id": record_id,
                 "path": record.get("_repository_path"),
                 "line": record.get("_line"),
