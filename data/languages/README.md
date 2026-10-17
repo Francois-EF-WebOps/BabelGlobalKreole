@@ -1,7 +1,5 @@
 # Language records
 
-`languages.jsonl` is a draft inventory of candidate language labels, not a sourced classification catalogue.
+`languages.jsonl` contains sourced catalogue-level language records, not a comprehensive list of every Creole language. Each accepted record has a fetched Glottolog source record with the Glottocode and ISO 639-3 value displayed on that page. APiCS source records are included where the corresponding page was inspected in this pass.
 
-Each candidate remains `record_status: draft`. Where a record has no source IDs, external identifiers, or sourced classification claims, it must not be cited as evidence that the classification is established. The candidate names reflect the owner's requested scope and are not an assertion that each label is a separate language.
-
-To accept or enrich a record, add source records and precise source locations for each claim. Preserve conflicting scholarly classifications as disputed only when the disagreement itself is sourced. Add Glottocodes or ISO 639-3 codes only after verification against the relevant official registry. Do not add lexical entries from memory.
+Candidates without a verified, distinct catalogue entry belong in [the language coverage register](../../docs/language-coverage.md), not as unsourced JSONL placeholders. A sourced identifier does not prove every classification, lexifier, substrate or community-preferred name; those claims need their own source IDs. Unknown optional fields are omitted.
