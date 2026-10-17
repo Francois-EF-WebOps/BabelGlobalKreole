@@ -18,6 +18,12 @@ BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowled
 - [Evaluation](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/tree/main/evaluation): evaluation policy and starter cases.
 - [Registry](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/registry/projects.yaml): related project relationships.
 - [Catalog](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/catalog.json): current declared dataset inventory and counts.
+- [Security policy](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/SECURITY.md): safe vulnerability reporting and credential handling.
+- [Support](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/SUPPORT.md): maintainer capacity and help routes.
+- [Code of conduct](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/CODE_OF_CONDUCT.md): respectful participation, privacy and consent.
+- [Dataset datasheet draft](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/huggingface-datasheet.md): snapshot, provenance, intended uses and limitations.
+- [Resource cards](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/data/resources/resources.jsonl): external resource links and scoped rights/verification metadata.
+- [Offline retrieval demo](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/demo/retrieval/README.md): local-only, source-aware retrieval and abstention.
 
 ## Core rules
 - Similar forms do not prove common ancestry.
