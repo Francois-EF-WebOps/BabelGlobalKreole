@@ -8,7 +8,7 @@ from scripts.build_site import build
 
 class SiteBuildTests(unittest.TestCase):
     def test_site_contains_jsonld_absolute_sitemap_and_robot_rules(self):
-        base_url = "https://example.invalid/BabelGlobalKreole"
+        base_url = "https://github.com/Francois-EF-WebOps/BabelGlobalKreole"
         with tempfile.TemporaryDirectory() as temp:
             build(base_url, temp)
             root = Path(temp)
