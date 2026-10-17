@@ -35,6 +35,15 @@ class RetrievalDemoTests(unittest.TestCase):
         self.assertEqual(answer["claims"], [])
         self.assertEqual(answer["sources"], [])
 
+    def test_lexical_entry_id_uses_schema_field_entry_id(self):
+        records = [
+            {"entry_id": "lex-test", "lemma": "test-form", "record_status": "draft", "source_ids": []}
+        ]
+        answer = build_answer("lex-test", records, "test-version")
+        self.assertEqual(answer["answer_status"], "abstained")
+        self.assertIn("test-form", answer["answer"])
+        self.assertEqual(answer["claims"], [])
+
     def test_variety_id_is_not_shadowed_by_parent_language_id(self):
         records = [
             {"variety_id": "var-test", "language_id": "lng-test", "name": "Test Variety", "record_status": "draft", "source_ids": [], "retrieval_status": "non-retrievable"}
