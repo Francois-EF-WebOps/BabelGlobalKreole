@@ -53,6 +53,8 @@ for path in record_paths:
             errors.append(f"{path.relative_to(ROOT)}:{line_no}: invalid JSON: {exc}")
             continue
         records_checked += 1
+        if item.get("record_status") == "accepted" and not item.get("source_ids"):
+            errors.append(f"{path.relative_to(ROOT)}:{line_no}: accepted record must have at least one source_id")
         for issue in validator.iter_errors(item):
             location = ".".join(str(p) for p in issue.absolute_path) or "<root>"
             errors.append(f"{path.relative_to(ROOT)}:{line_no}:{location}: {issue.message}")
