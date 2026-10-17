@@ -73,7 +73,7 @@
 | `docs/huggingface-datasheet.md` | partial | Describes current snapshot and limits for review; not a published dataset card. |
 | `docs/framework-brief.md` | partial | Contains verbatim intent and framework boundaries; full interoperability and coverage remain incomplete. |
 | `docs/language-relationships.md` | partial | Defines cautious relationship modelling; actual relationships require sourced claims. |
-| `docs/repository-audit.md` | partial | Records initial sibling-repository security findings; remediation PRs and full runtime audit remain open. |
+| `docs/repository-audit.md` | partial | Records sibling-repository findings and open security PRs; full build/runtime audit remains open. |
 | `docs/site-deployment.md` | complete | Documents the exact one-time Pages settings needed; the site is not yet public. |
 | `docs/standards-interoperability.md` | partial | Maps standards and possible adapters; implemented exports and conformance tests remain incomplete. |
 | `docs/terminology.md` | complete | Defines project terms and separates real-language evidence from creative canon. |
@@ -135,7 +135,7 @@
 4. **Private-history review:** after the owner supplies `conversations.json`, mine it only into git-ignored candidates; show batches for approval. Assistant-authored claims stay quarantined until independently sourced.
 5. **Discoverability:** a static landing-page builder now generates `robots.txt`, `sitemap.xml`, and Schema.org Dataset JSON-LD. The preview workflow passes. GitHub Pages is not live because the available GitHub connection cannot change repository settings or supply the non-default token required to enable Pages. The owner must select **Settings → Pages → GitHub Actions** and set repository variable `PAGES_ENABLED=true`. Repository topics also remain unset because the connection exposes no topic-edit operation.
 6. **Automation:** the offline retrieval demo, catalog freshness check, local Markdown link checker, no-empty-data check, and report-only scheduled link checker are implemented. [Resource-link run 38990223532](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990223532) checked all 14 URLs: 12 returned HTTP 200 from the runner; Gallica and HathiTrust returned HTTP 403 to the automated request. HathiTrust was reachable through browser retrieval, so this is not treated as proof that the resource is offline. The link report does not change rights or verification claims. A read-only MCP server is not deployed.
-7. **Sibling-repository security:** client-side Vite key substitution was observed in Applied-Creole-Linguistics and Refuge. This is a configuration exposure risk, not proof that a live key was published. Security remediation must go through PRs; do not rotate keys or publish secrets without owner direction.
+7. **Sibling-repository security:** [Applied-Creole-Linguistics PR #2](https://github.com/Francois-EF-WebOps/Applied-Creole-Linguistics/pull/2) removes unused key injection; [Refuge PR #2](https://github.com/Francois-EF-WebOps/Refuge/pull/2) disables browser-side Gemini calls until a proxy exists. Both remain open and unmerged; neither repo has CI. No key was rotated. If a real key was ever built into a public bundle, the owner should rotate it directly in the provider console.
 8. **Release:** the project remains `0.1.0-draft`. No release tag, GitHub Release or DOI exists. Create a release only after the current commit's CI is green and the release contents/metadata are reviewed.
 
 ## Hard acceptance gates
