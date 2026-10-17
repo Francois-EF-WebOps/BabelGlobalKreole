@@ -1,0 +1,35 @@
+import json
+import unittest
+
+from demo.retrieval.demo import build_answer
+
+
+class RetrievalDemoTests(unittest.TestCase):
+    def test_draft_without_sources_abstains_and_cites_nothing(self):
+        records = [
+            {"language_id": "lng-test", "name": "Test Language", "record_status": "draft", "source_ids": []}
+        ]
+        answer = build_answer("Test Language", records, "test-version")
+        self.assertEqual(answer["answer_status"], "abstained")
+        self.assertEqual(answer["claims"], [])
+        self.assertEqual(answer["sources"], [])
+
+    def test_accepted_record_cites_resolved_source_metadata(self):
+        records = [
+            {"language_id": "lng-test", "name": "Test Language", "record_status": "accepted", "source_ids": ["src-test"], "evidence_status": "scholarly_analysis"},
+            {"source_id": "src-test", "title": "Test source", "canonical_url": "https://example.org/source", "relevant_location": "section 2"},
+        ]
+        answer = build_answer("lng-test", records, "test-version")
+        self.assertEqual(answer["answer_status"], "partial")
+        self.assertEqual(answer["claims"][0]["record_ids"], ["lng-test"])
+        self.assertEqual(answer["sources"][0]["source_id"], "src-test")
+        self.assertEqual(answer["sources"][0]["location"], "section 2")
+
+    def test_unknown_query_abstains(self):
+        answer = build_answer("no-such-record", [], "test-version")
+        self.assertEqual(answer["answer_status"], "abstained")
+        self.assertEqual(answer["claims"], [])
+
+
+if __name__ == "__main__":
+    unittest.main()
