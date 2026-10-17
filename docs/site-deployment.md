@@ -4,7 +4,7 @@ The site builder generates a static landing page, Schema.org Dataset JSON-LD, an
 
 ## Observed deployment state
 
-As of the latest checked run, [Pages workflow run 38993917493](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38993917493), the preview build succeeded but the `deploy` job was skipped. Therefore the site is **not yet verified live**, even if Pages settings have since been changed. The deployment URL and generated absolute URLs must be checked after a successful deploy run.
+As of the latest checked run, [Pages workflow run 38994178661](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38994178661), the preview build succeeded but the `deploy` job was skipped. Therefore the site is **not yet verified live**, even if Pages settings have since been changed. The deployment URL and generated absolute URLs must be checked after a successful deploy run.
 
 ## Owner-only settings
 
