@@ -8,7 +8,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".md", ".json", ".jsonl", ".yaml", ".yml", ".py", ".txt", ".cff", ".xml"}
-DRAFT_MARKERS = re.compile(r"\\b(?:TODO|TBD|FIXME|PLACEHOLDER(?:S)?)\\b", re.IGNORECASE)
+DRAFT_MARKERS = re.compile(r"\b(?:TODO|TBD|FIXME|PLACEHOLDER(?:S)?)\b", re.IGNORECASE)
 errors = []
 
 try:
@@ -75,6 +75,6 @@ for path in sorted((ROOT / "data").rglob("*.jsonl")):
 
 if errors:
     print("NO-PLACEHOLDERS CHECK FAILED")
-    print("\\n".join(errors))
+    print("\n".join(errors))
     sys.exit(1)
 print("NO-PLACEHOLDERS CHECK PASSED: tracked files are non-empty; no drafting markers; data records omit null/empty values and contain no empty arrays except source_ids on draft records.")
