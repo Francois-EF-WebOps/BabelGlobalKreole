@@ -1,8 +1,8 @@
 # Artefact status and acceptance register
 
 **Audit date:** 2026-10-17  
-**Inventory:** 101 tracked files on the default branch at this review point.  
-**Latest verified validation run before this register update:** [CI run 38990501282](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990501282), commit `c12ff4abbbef2f8aae6920e07b855e977426a043`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 44 local Markdown links, 13 tests, data-integrity checks, and catalog freshness.
+**Inventory:** 108 tracked files on the default branch at this review point.  
+**Latest verified validation run before this register update:** [CI run 38990985804](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990985804), commit `d330722b70be1c22187c3966eac35e87e3f21c79`. That run passed 11 schemas, 70 JSONL records, 11 negative fixtures, 44 local Markdown links, 20 tests, data-integrity checks, and catalog freshness.
 
 ## State meanings
 
@@ -18,6 +18,7 @@
 | `.github/ISSUE_TEMPLATE/bad-ai-answer.yml` | complete | Collects the question, problematic answer, cited IDs, failure type and evidence without requesting private material. |
 | `.github/ISSUE_TEMPLATE/correction.yml` | complete | Collects a record/path, proposed correction, source URL, precise location and rights acknowledgement. |
 | `.github/ISSUE_TEMPLATE/resource-suggestion.yml` | complete | Collects canonical resource URL, coverage, license/AI-use evidence and intended use. |
+| `.github/workflows/mcp.yml` | complete | Installs the optional MCP SDK and tests evidence/rights gates plus the stdio tool handshake. |
 | `.github/workflows/pages.yml` | partial | Builds a site preview on push; deployment is gated until the owner enables Pages and sets `PAGES_ENABLED=true`. |
 | `.github/workflows/resource-links.yml` | complete | Runs a weekly/manual report-only link check and uploads its report; it does not rewrite registry verification. |
 | `.github/workflows/validate.yml` | complete | Runs schema/record validation, negative fixtures, data-integrity checks, retrieval tests and catalog freshness on push and pull request. |
@@ -84,11 +85,15 @@
 | `registry/projects.yaml` | partial | Links known projects; several project locations remain explicitly unverified and are omitted rather than represented by null URLs. |
 | `registry/resources.yaml` | complete | Indexes all 14 canonical resource cards in the JSONL registry. |
 | `releases/release-process.md` | complete | Defines release steps; no tagged GitHub release or DOI has been created. |
+| `mcp_server/README.md` | complete | Documents local stdio setup, read-only tools, evidence gates and current limitations. |
+| `mcp_server/registry.py` | complete | Implements local search/get/catalog, source resolution, abstention and retrieval-rights filtering. |
+| `mcp_server/server.py` | complete | Exposes three read-only MCP tools; no write or network-fetch tools. |
 | `requirements-dev.txt` | complete | Pins the JSON Schema validator dependency range used by CI. |
+| `requirements-mcp.txt` | complete | Keeps the official MCP SDK optional for users who want the stdio adapter. |
 | `schemas/concept.schema.json` | complete | Adds the missing concept-record schema with stable IDs and version metadata. |
 | `schemas/creative-work.schema.json` | complete | Defines labelled creative works and generation provenance; unknown optional fields can be omitted. |
 | `schemas/evaluation-case.schema.json` | complete | Defines evaluation cases with a versioned schema. |
-| `schemas/grammar-rule.schema.json` | complete | Defines sourced grammar rules; no grammar data published. |
+| `schemas/grammar-rule.schema.json` | complete | Defines sourced grammar rules with explicit AI-use permissions; no grammar data published. |
 | `schemas/language.schema.json` | complete | Defines language records, evidence-linked lexifier claims and conditional identifier verification. |
 | `schemas/lexical-entry.schema.json` | complete | Defines lexical entries with provenance, rights and AI-use fields. |
 | `schemas/resource-card.schema.json` | complete | Defines resource metadata and omits unknown license URLs instead of requiring null. |
@@ -100,7 +105,7 @@
 | `scripts/generate_catalog.py` | complete | Deterministically generates record counts and SHA-256 hashes from JSONL data; CI detects stale output. |
 | `scripts/no_placeholders_check.py` | complete | Rejects zero-byte tracked files, drafting markers, empty strings/nulls in data records and empty arrays except draft source_ids. |
 | `scripts/record_integrity.py` | complete | Provides tested canonical-ID extraction and duplicate-ID detection, prioritizing each record's own ID over parent references. |
-| `scripts/validate_records.py` | complete | Checks all schemas, JSONL records, format constraints, negative fixtures and accepted-record source resolution. |
+| `scripts/validate_records.py` | complete | Checks all schemas, JSONL records, format constraints, negative fixtures, duplicate IDs and accepted-record source resolution. |
 | `tests/negative/concept.schema.json.invalid.json` | complete | Intentionally invalid concept instance must be rejected. |
 | `tests/negative/consumer-answer.schema.json.invalid.json` | complete | Intentionally invalid consumer answer must be rejected. |
 | `tests/negative/creative-work.schema.json.invalid.json` | complete | Intentionally invalid creative-work instance must be rejected. |
@@ -114,7 +119,9 @@
 | `tests/negative/variety.schema.json.invalid.json` | complete | Intentionally invalid variety instance must be rejected. |
 | `tests/retrieval/test_demo.py` | complete | Tests supported citation, abstention for draft/unsourced data, unknown queries and variety-ID resolution. |
 | `tests/retrieval/test_resource_links.py` | complete | Tests that URL tracking parameters are removed and stable URL parts are preserved. |
+| `tests/retrieval/test_mcp_registry.py` | complete | Tests MCP abstention, source resolution, retrieval permission filtering and evidence ranking. |
 | `tests/retrieval/test_record_integrity.py` | complete | Tests canonical ID selection and duplicate-ID detection. |
+| `tests/mcp/test_mcp_server.py` | complete | Launches the MCP server over stdio and verifies only the three read-only tools are exposed. |
 | `tests/retrieval/test_site_build.py` | complete | Tests generated Dataset JSON-LD, absolute sitemap, robots rules and catalog values. Tests that URL tracking parameters are removed and stable URL parts are preserved. | Tests supported citation, abstention for draft/unsourced records and missing source locations, unknown queries, variety-ID resolution, and lexical-entry ID lookup. |
 
 ## Verified data snapshot
@@ -134,7 +141,7 @@
 3. **Data usefulness:** add small sourced lexical/grammar records only after source locations, exact reuse permissions and relevant consent are established. Strict link-first remains the default.
 4. **Private-history review:** after the owner supplies `conversations.json`, mine it only into git-ignored candidates; show batches for approval. Assistant-authored claims stay quarantined until independently sourced.
 5. **Discoverability:** a static landing-page builder now generates `robots.txt`, `sitemap.xml`, and Schema.org Dataset JSON-LD. The preview workflow passes. GitHub Pages is not live because the available GitHub connection cannot change repository settings or supply the non-default token required to enable Pages. The owner must select **Settings → Pages → GitHub Actions** and set repository variable `PAGES_ENABLED=true`. Repository topics also remain unset because the connection exposes no topic-edit operation.
-6. **Automation:** the offline retrieval demo, catalog freshness check, local Markdown link checker, no-empty-data check, and report-only scheduled link checker are implemented. [Resource-link run 38990223532](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990223532) checked all 14 URLs: 12 returned HTTP 200 from the runner; Gallica and HathiTrust returned HTTP 403 to the automated request. HathiTrust was reachable through browser retrieval, so this is not treated as proof that the resource is offline. The link report does not change rights or verification claims. A read-only MCP server is not deployed.
+6. **Automation:** the offline retrieval demo, catalog freshness check, local Markdown link checker, no-empty-data check, and report-only scheduled link checker are implemented. [Resource-link run 38990223532](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/actions/runs/38990223532) checked all 14 URLs: 12 returned HTTP 200 from the runner; Gallica and HathiTrust returned HTTP 403 to the automated request. HathiTrust was reachable through browser retrieval, so this is not treated as proof that the resource is offline. The link report does not change rights or verification claims. A read-only local stdio MCP adapter is implemented and smoke-tested; it is not deployed as a network service.
 7. **Sibling-repository security:** [Applied-Creole-Linguistics PR #2](https://github.com/Francois-EF-WebOps/Applied-Creole-Linguistics/pull/2) removes unused key injection; [Refuge PR #2](https://github.com/Francois-EF-WebOps/Refuge/pull/2) disables browser-side Gemini calls until a proxy exists. Both remain open and unmerged; neither repo has CI. No key was rotated. If a real key was ever built into a public bundle, the owner should rotate it directly in the provider console.
 8. **Release:** the project remains `0.1.0-draft`. No release tag, GitHub Release or DOI exists. Create a release only after the current commit's CI is green and the release contents/metadata are reviewed.
 
