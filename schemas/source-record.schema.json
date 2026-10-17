@@ -21,47 +21,26 @@
       "minLength": 1
     },
     "creator": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "publisher": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "canonical_url": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "format": "uri"
     },
     "persistent_identifier": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "publication_date": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "version": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "accessed_date": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "format": "date"
     },
     "source_type": {
@@ -86,22 +65,13 @@
       }
     },
     "relevant_location": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "licence_name": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "licence_url": {
-      "type": [
-        "string",
-        "null"
-      ],
+      "type": "string",
       "format": "uri"
     },
     "rights_status": {
@@ -126,10 +96,7 @@
       }
     },
     "integrity_hash": {
-      "type": [
-        "string",
-        "null"
-      ]
+      "type": "string"
     },
     "review_status": {
       "enum": [
@@ -214,5 +181,5 @@
     }
   },
   "$id": "https://raw.githubusercontent.com/Francois-EF-WebOps/BabelGlobalKreole/main/schemas/source-record.schema.json",
-  "schema_version": "1.1.0"
+  "schema_version": "1.2.0"
 }
