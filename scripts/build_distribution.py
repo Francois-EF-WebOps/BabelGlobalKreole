@@ -103,7 +103,13 @@ def markdown_to_html(markdown: str) -> str:
 def inline_markup(text: str) -> str:
     escaped = html.escape(text, quote=True)
     escaped = re.sub(r"\*\*(.+?)\*\*", r"<strong>\1</strong>", escaped)
-    escaped = re.sub(r"\[([^\]]+)\]\((https://[^\s)]+)\)", r'<a href="\2" rel="noopener noreferrer">\1</a>', escaped)
+    def link_replacement(match):
+        label, target = match.group(1), match.group(2)
+        parsed = urlparse(html.unescape(target))
+        if parsed.scheme != "https" or not parsed.netloc:
+            return label
+        return f'<a href="{html.escape(target, quote=True)}" rel="noopener noreferrer">{label}</a>'
+    escaped = re.sub(r"\[([^\]]+)\]\(([^)\s]+)\)", link_replacement, escaped)
     return escaped
 
 
