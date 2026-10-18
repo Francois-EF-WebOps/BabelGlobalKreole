@@ -1,0 +1,36 @@
+{
+  "id": "BGK-DIST-001",
+  "slug": "what-this-framework-does-and-does-not-claim",
+  "title": "What BabelGlobalKreole does — and does not — claim",
+  "summary": "A concise introduction to BabelGlobalKreole as an evidence-grounded framework for documenting and responsibly applying knowledge about Creole languages, with clear boundaries between attested evidence and creative proposals.",
+  "audience": "Readers, language communities, researchers, educators, and application builders",
+  "language": "English",
+  "jurisdiction": "International; project scope statement, not legal or linguistic advice",
+  "created_at": "2026-10-18",
+  "status": "approved_for_publication",
+  "rights_status": "owner_authored_summary_of_this_repository",
+  "canonical_source": "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/README.md",
+  "body_markdown": "# What BabelGlobalKreole does — and does not — claim\n\nBabelGlobalKreole is a public, evidence-grounded framework for documenting, comparing, and responsibly applying knowledge about Creole languages and related language-design work. It is designed to link to existing scholarly and community resources rather than silently replace them.\n\n## What it aims to do\n\n- Make language-related records more findable, comparable, and reusable.\n- Keep source provenance, uncertainty, rights, and consent visible.\n- Help applications and tools consume versioned, machine-readable information.\n- Support education, research, localization, creative work, and other applications without letting any one application redefine the framework.\n\n## What it does not claim\n\n- It does not claim that all Creoles are one language.\n- It does not replace language communities, speakers, or existing scholarly resources.\n- It does not present proposed or fictional language material as evidence about real languages.\n- It is not a complete comparative corpus, exhaustive lexicon, finished grammar, or validated universal language.\n- Listing a source does not itself grant permission to reproduce its contents.\n\n## How to use it responsibly\n\nCheck the evidence policy and the record's source locations before reusing a claim. Preserve distinctions between verified facts, source-reported claims, interpretation, hypotheses, and creative proposals. When evidence or rights are unclear, record the uncertainty rather than filling the gap with a guess.\n\n## Next steps\n\nStart with the [project README](https://github.com/Francois-EF-WebOps/BabelGlobalKreole#start-here), [evidence policy](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md), and [contributing guide](https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/CONTRIBUTING.md). Corrections and sourced resource suggestions are welcome through the repository's issue templates.\n\n## Sources and status\n\nThis is an owner-authored summary of the project's own scope statements, not an independent linguistic assessment. The project remains a framework bootstrap and its contents have varying evidence and maturity levels. Review this page when the project scope or evidence policy changes.\n",
+  "sources": [
+    {
+      "label": "BabelGlobalKreole README — purpose, scope, and current limits",
+      "url": "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/README.md"
+    },
+    {
+      "label": "Vision and scope",
+      "url": "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/vision-and-scope.md"
+    },
+    {
+      "label": "Evidence policy",
+      "url": "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md"
+    }
+  ],
+  "review_trigger": "Review when README scope, evidence policy, or project status changes",
+  "distribution": {
+    "website": true,
+    "rss": true,
+    "json": true,
+    "social_copy": true,
+    "newsletter_copy": true
+  }
+}

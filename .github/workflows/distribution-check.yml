@@ -1,0 +1,45 @@
+name: Distribution lane checks
+
+on:
+  pull_request:
+    paths:
+      - "distribution/**"
+      - "scripts/build_distribution.py"
+      - "scripts/test_distribution.py"
+      - "docs/AUTONOMOUS_DISTRIBUTION_LANE.md"
+      - ".github/workflows/distribution-check.yml"
+      - ".github/workflows/pages.yml"
+  push:
+    branches: [main]
+    paths:
+      - "distribution/**"
+      - "scripts/build_distribution.py"
+      - "scripts/test_distribution.py"
+      - "docs/AUTONOMOUS_DISTRIBUTION_LANE.md"
+      - ".github/workflows/distribution-check.yml"
+      - ".github/workflows/pages.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-distribution:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Run acceptance tests
+        run: python scripts/test_distribution.py
+      - name: Build outputs against a test URL
+        run: |
+          python scripts/build_distribution.py --base-url https://example.test/BabelGlobalKreole --output-dir /tmp/distribution-preview
+          test -s /tmp/distribution-preview/distribution/index.html
+          test -s /tmp/distribution-preview/feed.xml
+          test -s /tmp/distribution-preview/distribution/source.json
+          test -s /tmp/distribution-preview/distribution/social-post.txt
+          test -s /tmp/distribution-preview/distribution/newsletter.txt
+          grep -Fq 'https://example.test/BabelGlobalKreole/distribution/' /tmp/distribution-preview/feed.xml
+          grep -Fq 'https://example.test/BabelGlobalKreole/feed.xml' /tmp/distribution-preview/distribution/index.html
