@@ -18,16 +18,26 @@ jobs:
       - name: Build and verify site output
         run: |
           python scripts/build_site.py --base-url https://francois-ef-webops.github.io/BabelGlobalKreole --output-dir site-preview
+          python scripts/test_distribution.py
+          python scripts/build_distribution.py --base-url https://francois-ef-webops.github.io/BabelGlobalKreole --output-dir site-preview
           test -s site-preview/index.html
           test -s site-preview/robots.txt
           test -s site-preview/sitemap.xml
+          test -s site-preview/distribution/index.html
+          test -s site-preview/distribution/source.json
+          test -s site-preview/distribution/social-post.txt
+          test -s site-preview/distribution/newsletter.txt
+          test -s site-preview/distribution/manifest.json
+          test -s site-preview/feed.xml
           grep -Fq '<link rel="canonical" href="https://francois-ef-webops.github.io/BabelGlobalKreole/">' site-preview/index.html
           grep -Fq '"url":"https://francois-ef-webops.github.io/BabelGlobalKreole/"' site-preview/index.html
           grep -Fq '<loc>https://francois-ef-webops.github.io/BabelGlobalKreole/</loc>' site-preview/sitemap.xml
           grep -Fq '<loc>https://francois-ef-webops.github.io/BabelGlobalKreole/llms.txt</loc>' site-preview/sitemap.xml
           grep -Fq '<loc>https://francois-ef-webops.github.io/BabelGlobalKreole/catalog.json</loc>' site-preview/sitemap.xml
+          grep -Fq '<loc>https://francois-ef-webops.github.io/BabelGlobalKreole/distribution/</loc>' site-preview/sitemap.xml
+          grep -Fq '<loc>https://francois-ef-webops.github.io/BabelGlobalKreole/feed.xml</loc>' site-preview/sitemap.xml
           grep -Fq 'Sitemap: https://francois-ef-webops.github.io/BabelGlobalKreole/sitemap.xml' site-preview/robots.txt
-          echo "PAGES BASE URL CHECKS PASSED: canonical URL, Dataset JSON-LD, sitemap and robots use the proposed Pages base."
+          echo "PAGES AND DISTRIBUTION CHECKS PASSED: canonical URLs, page, RSS, JSON, sitemap and robots."
       - uses: actions/upload-artifact@v4
         with:
           name: documentation-site-preview
@@ -39,7 +49,7 @@ jobs:
     runs-on: ubuntu-latest
     environment:
       name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+      url: \${{ steps.deployment.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -48,7 +58,9 @@ jobs:
       - uses: actions/configure-pages@v5
         id: pages
       - name: Build site with configured Pages URL
-        run: python scripts/build_site.py --base-url "${{ steps.pages.outputs.base_url }}" --output-dir site
+        run: |
+          python scripts/build_site.py --base-url "\${{ steps.pages.outputs.base_url }}" --output-dir site
+          python scripts/build_distribution.py --base-url "\${{ steps.pages.outputs.base_url }}" --output-dir site
       - uses: actions/upload-pages-artifact@v3
         with:
           path: site/
