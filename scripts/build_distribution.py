@@ -233,6 +233,7 @@ a{{overflow-wrap:anywhere}}li{{margin:.35rem 0}}.meta{{color:#555;font-size:.92r
     if sitemap.exists():
         tree = ET.parse(sitemap)
         root = tree.getroot()
+        ET.register_namespace("", "http://www.sitemaps.org/schemas/sitemap/0.9")
         namespace = "{http://www.sitemaps.org/schemas/sitemap/0.9}"
         existing_locs = {el.text for el in root.findall(f"{namespace}url/{namespace}loc")}
         for url in (article_url, base + "/feed.xml"):
