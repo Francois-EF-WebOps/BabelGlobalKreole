@@ -3,7 +3,7 @@
 **Status:** Framework bootstrap — proposal, not a completed language standard  
 **Version:** 0.1.0-draft
 
-BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowledge and interoperability layer for Creole languages. It starts from Mauritian Creole (Kreol Morisien), expands to French-lexifier Creoles of the Caribbean and Indian Ocean, then to Creoles with other European lexifiers, recording non-European contributions where documented. It links to existing scholarly and community resources instead of duplicating them. Creative applications (first music, lyrics, poetry; then scripts; then programming/localization) consume the framework and never define it. Creative output is always labelled separately from attested evidence.
+BabelGlobalKreole is a public, permanently maintained, evidence-grounded knowledge and interoperability layer intended to support Creole languages globally, regardless of lexifier or family classification. Mauritian Creole (Kreol Morisien) is an initial operational starting point, not a hierarchy or boundary; expansion priorities depend on evidence, available resources and collaboration. The framework links to existing scholarly and community resources instead of duplicating them. Creative applications (music, lyrics, poetry, scripts, programming/localization and more) consume the framework and never define its linguistic scope. Creative output is always labelled separately from attested evidence.
 
 Babel / Global (K)Creole is an evidence-led, machine-readable framework for documenting, comparing, designing, evaluating and responsibly applying Creole-related language knowledge. It is not a claim that all Creoles are one language, a replacement for existing Creoles, or a finished universal language.
 
