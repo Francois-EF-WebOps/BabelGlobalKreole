@@ -1,25 +1,25 @@
 registry_version: 1
 framework: BabelGlobalKreole
-review_date: 2026-10-17
+review_date: 2026-10-20
 entries:
   - id: project-babel-global-kcreole
     name: Babel / Global (K)Creole
     role: canonical-framework
     url: https://github.com/Francois-EF-WebOps/BabelGlobalKreole
     status: initial-publication
-    relationship: Owns framework policies, schemas, governance, evaluation and adapter contracts.
+    relationship: Owns framework policies, schemas, governance, evaluation and adapter contracts, including the proposed bridge-first Convergent Creole Tree Architecture.
   - id: project-mkc
     name: Mascarene Knowledge Commons
     role: coordination-and-discovery
     url: https://github.com/Francois-EF-WebOps/mascarene-knowledge-commons
     status: existing
-    relationship: Coordinates and links related work; avoids duplicating canonical data.
+    relationship: Coordinates and links related work; the Convergent Creole Discovery Journey is the reader-facing layer and avoids duplicating canonical data.
   - id: project-applied-creole-linguistics
     name: Applied Creole Linguistics
-    role: existing-prototype-and-source
+    role: research-and-validation-prototype
     url: https://github.com/Francois-EF-WebOps/Applied-Creole-Linguistics
-    status: existing-repository-needs-full-audit
-    relationship: Preserve source/history; inspect before reuse or migration.
+    status: research-plan-documented; application-and-speaker-validation-unverified
+    relationship: Owns research protocols, comparative experiments and speaker evaluation; the existing AI Studio scaffold must be audited before implementation claims.
   - id: project-refuge
     name: Refuge
     role: related-prototype
