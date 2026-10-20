@@ -1,3 +1,7 @@
+<!-- Portfolio operating model -->
+
+See [Product Management and Technical Writing Operating Model](docs/product-management-and-technical-writing-operating-model.md) for the shared product delivery, documentation, acceptance and cross-project responsibilities.
+
 # Babel / Global (K)Creole
 
 **Status:** Framework bootstrap — proposal, not a completed language standard  
