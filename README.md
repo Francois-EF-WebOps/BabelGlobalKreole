@@ -21,6 +21,7 @@ The Pages preview workflow passes, but the latest observed deployment job was sk
 ### Researchers
 - [Evidence policy](docs/evidence-policy.md): provenance, uncertainty, source locations, consent and rights.
 - [Language relationships](docs/language-relationships.md): comparison boundaries and classification cautions.
+- [Convergent Creole Tree Architecture](docs/convergent-creole-tree-architecture.md): bridge-first strategy, convergence workflow, speaker evaluation and governance.
 - [Standards interoperability](docs/standards-interoperability.md): mappings and format strategy.
 - [Data model](docs/data-model.md): record families, identifiers and invariants.
 - [Machine-readable catalog](catalog.json): current record counts, paths and file hashes.
