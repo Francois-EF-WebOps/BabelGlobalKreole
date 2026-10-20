@@ -181,6 +181,6 @@ These are candidate resources to inspect and cite for specific uses; their exist
 - CreoleVal: https://github.com/hclent/creoleval
 - APiCS Online: https://apics-online.info/
 - CLDF APiCS dataset: https://github.com/cldf-datasets/apics
-- Creole NLP: https://github.com/creole-nlp/creole-nlp
+- COLING 2025 tutorial on lower-resource NLP, including Creoles: https://github.com/surrey-nlp/COLING-Tutorial-LowResScene-2025
 
 Before importing records, verify current scope, licence, provenance, version, and any third-party dataset terms.
