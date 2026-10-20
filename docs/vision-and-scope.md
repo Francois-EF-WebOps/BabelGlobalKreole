@@ -16,5 +16,9 @@ Language/variety metadata; sourced claims and comparative evidence; lexical, gra
 ## Out of scope
 Declaring all Creoles one language; replacing community institutions; publishing restricted datasets; treating fictional language as evidence about real languages; defining the project through one application; claiming autonomous execution without a verified runner, permissions, credentials and monitoring.
 
+## Convergent Creole tree direction
+
+The intended end state has two horizons: (1) a practical bridge that helps speakers understand and compare distinct Creoles, and (2) the possibility of a shared convergent language developed through documented commonalities, deliberate design where justified, speaker validation and voluntary use. The bridge is useful independently; the shared language is a proposal until evidence and adoption support stronger claims. Existing language identities, varieties, rights and community authority remain intact. See [Convergent Creole Tree Architecture](convergent-creole-tree-architecture.md) for the operating model and evaluation gates.
+
 ## Success indicators
 Contributors can find the right scope quickly; records validate locally; factual claims carry provenance; schema changes identify affected consumers; applications consume versioned snapshots without proprietary models; external reuse and corrections are recorded honestly.
