@@ -77,3 +77,8 @@ Preserve source repositories and their histories; distinguish evidence from infe
 
 ## Contribute
 Open an issue with scope and acceptance criteria, add provenance and rights information, use the relevant schema, add regression cases, run `python scripts/validate_records.py`, `python scripts/check_internal_links.py`, and `python scripts/no_placeholders_check.py`, and request review. See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+
+## Printable product candidates
+
+- [Creole Word Detective](products/creole-word-detective/README.md) — four-page source-backed language research worksheet. It contains no pre-filled vocabulary or translations; source rights and speaker review remain required before publishing completed content.
