@@ -6,7 +6,10 @@ on:
       - "distribution/**"
       - "scripts/build_distribution.py"
       - "scripts/test_distribution.py"
+      - "scripts/build_post_queue.py"
+      - "scripts/test_post_queue.py"
       - "docs/AUTONOMOUS_DISTRIBUTION_LANE.md"
+      - "docs/SEVEN_POST_APPROVAL_QUEUE.md"
       - ".github/workflows/distribution-check.yml"
       - ".github/workflows/pages.yml"
   push:
@@ -15,7 +18,10 @@ on:
       - "distribution/**"
       - "scripts/build_distribution.py"
       - "scripts/test_distribution.py"
+      - "scripts/build_post_queue.py"
+      - "scripts/test_post_queue.py"
       - "docs/AUTONOMOUS_DISTRIBUTION_LANE.md"
+      - "docs/SEVEN_POST_APPROVAL_QUEUE.md"
       - ".github/workflows/distribution-check.yml"
       - ".github/workflows/pages.yml"
   workflow_dispatch:
@@ -31,9 +37,11 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.x"
-      - name: Run acceptance tests
+      - name: Run existing distribution acceptance tests
         run: python scripts/test_distribution.py
-      - name: Build outputs against a test URL
+      - name: Run seven-post approval queue tests
+        run: python scripts/test_post_queue.py
+      - name: Build approved single-source distribution against a test URL
         run: |
           python scripts/build_distribution.py --base-url https://example.test/BabelGlobalKreole --output-dir /tmp/distribution-preview
           test -s /tmp/distribution-preview/distribution/index.html
@@ -43,3 +51,16 @@ jobs:
           test -s /tmp/distribution-preview/distribution/newsletter.txt
           grep -Fq 'https://example.test/BabelGlobalKreole/distribution/' /tmp/distribution-preview/feed.xml
           grep -Fq 'https://example.test/BabelGlobalKreole/feed.xml' /tmp/distribution-preview/distribution/index.html
+      - name: Build phone-readable approval queue and delivery receipts
+        run: |
+          python scripts/build_post_queue.py --output-dir /tmp/post-approval-queue
+          test -s /tmp/post-approval-queue/approval-queue.md
+          test -s /tmp/post-approval-queue/approval-queue.json
+          test -s /tmp/post-approval-queue/receipts.json
+          grep -Fq 'not_sent' /tmp/post-approval-queue/receipts.json
+          grep -Fq 'awaiting_human_approval' /tmp/post-approval-queue/approval-queue.md
+      - uses: actions/upload-artifact@v4
+        with:
+          name: babelglobalkreole-seven-post-approval-queue
+          path: /tmp/post-approval-queue/
+          retention-days: 14
