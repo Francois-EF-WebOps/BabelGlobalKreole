@@ -1,0 +1,94 @@
+{
+  "batch_id": "BGK-SOCIAL-2026-10-29-001",
+  "title": "BabelGlobalKreole evidence-led social batch 001",
+  "language": "en",
+  "status": "awaiting_human_approval",
+  "approval_policy": "No item may be published by this workflow. Human review is required for every post.",
+  "posts": [
+    {
+      "id": "BGK-POST-001",
+      "title": "A language framework needs an evidence boundary",
+      "hook": "A framework about Creole languages should be clear about what it does not claim.",
+      "body": "BabelGlobalKreole is a developing, evidence-grounded framework for documenting and comparing Creole-related language knowledge. It does not claim that all Creoles are one language, that it replaces speakers or existing scholarship, or that it is a finished universal language. Clear boundaries make the useful work easier to evaluate.",
+      "cta": "Read the project scope and decide whether the boundaries are clear: https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/README.md",
+      "source_urls": [
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/README.md",
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/vision-and-scope.md"
+      ],
+      "status": "awaiting_human_approval"
+    },
+    {
+      "id": "BGK-POST-002",
+      "title": "A public link is not a licence",
+      "hook": "Finding a language resource online does not automatically give us permission to reuse its contents.",
+      "body": "BabelGlobalKreole's evidence policy separates source discovery from reuse rights. A URL can help readers find a source, but redistribution, training, speech generation and other uses may have different conditions. When rights are unknown, the rule is not to fill the gap with an assumption.",
+      "cta": "Read the rights and provenance rules: https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md",
+      "source_urls": [
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md",
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/DATA-LICENSE.md"
+      ],
+      "status": "awaiting_human_approval"
+    },
+    {
+      "id": "BGK-POST-003",
+      "title": "Evidence, analysis and invention are different things",
+      "hook": "A good language knowledge system should not make a proposed form look like an attested one.",
+      "body": "BabelGlobalKreole uses distinct labels for evidence types, including attested material, scholarly analysis, comparative observation, proposed convergence, creative coinage, disputed claims and undecided questions. These labels are not decoration: they help downstream tools preserve the difference between a source-backed description and a design proposal.",
+      "cta": "Inspect the evidence labels and tell us what needs clarification: https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md",
+      "source_urls": [
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md",
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/terminology.md"
+      ],
+      "status": "awaiting_human_approval"
+    },
+    {
+      "id": "BGK-POST-004",
+      "title": "Uncertainty belongs in the record",
+      "hook": "When evidence is incomplete, a responsible system should show the gap—not hide it.",
+      "body": "The framework's policy says confidence does not replace evidence. It distinguishes disputed and undecided claims, and it calls for corrections to retain the prior claim, the corrected claim, the reason, supporting evidence, date and reviewer. That makes uncertainty and revision part of the record rather than something silently erased.",
+      "cta": "Read the correction and uncertainty policy: https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md",
+      "source_urls": [
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md",
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/CONTRIBUTING.md"
+      ],
+      "status": "awaiting_human_approval"
+    },
+    {
+      "id": "BGK-POST-005",
+      "title": "A source record needs more than a URL",
+      "hook": "A bare link is difficult to audit. Provenance needs enough detail for someone else to check the claim.",
+      "body": "The repository's provenance minimum includes a stable URL or identifier, source title and creator where known, publication/version and access dates, a precise page or section, source language, licence or terms, permitted operations and review status. A source record describes where information came from; it does not grant permission to reuse the underlying content.",
+      "cta": "See the source ledger and provenance policy: https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/data/sources/README.md",
+      "source_urls": [
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/data/sources/README.md",
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md"
+      ],
+      "status": "awaiting_human_approval"
+    },
+    {
+      "id": "BGK-POST-006",
+      "title": "Why link to existing language resources?",
+      "hook": "A knowledge framework should help people find and compare existing work—not quietly pretend to replace it.",
+      "body": "BabelGlobalKreole is designed to link to scholarly and community resources instead of silently duplicating them. Its records make provenance, uncertainty and rights visible, while the project remains explicit that its current catalogue is not exhaustive. Discoverability is useful only when the limits of the catalogue are visible too.",
+      "cta": "Start with the README and current machine-readable catalogue: https://github.com/Francois-EF-WebOps/BabelGlobalKreole",
+      "source_urls": [
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/README.md",
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/catalog.json"
+      ],
+      "status": "awaiting_human_approval"
+    },
+    {
+      "id": "BGK-POST-007",
+      "title": "Creative work and linguistic evidence need separate lanes",
+      "hook": "A fictional word, a design proposal and an attested form can all be useful—but they are not interchangeable.",
+      "body": "BabelGlobalKreole treats creative applications as consumers of the framework, not as authorities that redefine real-language evidence. Its project principles require creative output to be labelled separately from attested evidence. This lets educational, music, localization and other applications develop without turning invention into an unsupported linguistic claim.",
+      "cta": "Read the framework boundary and application tracks: https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/README.md",
+      "source_urls": [
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/README.md",
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/applications/README.md",
+        "https://github.com/Francois-EF-WebOps/BabelGlobalKreole/blob/main/docs/evidence-policy.md"
+      ],
+      "status": "awaiting_human_approval"
+    }
+  ]
+}
