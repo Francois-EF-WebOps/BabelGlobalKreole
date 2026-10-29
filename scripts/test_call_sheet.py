@@ -50,7 +50,9 @@ def test_valid_call_sheet_builds_markdown():
     result = MODULE.validate_and_build(*bundle, day="2026-10-29")
     assert "# Manual posting call sheet — 2026-10-29" in result
     assert "| CUT-1-1 |" in result
-    assert "no content was published" in result.lower() or "does not publish" in result.lower()
+    assert "@f.i.n.l.e.y.1" in result
+    assert "@the.husband.protocol" not in result
+    assert "does not publish" in result.lower()
 
 
 def test_daily_load_exceeded():
@@ -103,6 +105,15 @@ def test_overlapping_attention_ranges_in_same_season_are_rejected():
     with pytest.raises(ValueError, match="overlaps"):
         MODULE.validate_and_build(*bundle, day="2026-10-29")
 
+
+
+def test_mock_fixture_has_fifteen_cuts_across_three_channels():
+    fixture = json.loads((ROOT / "tests/fixtures/mock_cuts.json").read_text(encoding="utf-8"))
+    cuts = fixture["cuts"]
+    assert len(cuts) == 15
+    assert {cut["channel_id"] for cut in cuts} == {"f.i.n.l.e.y.1", "memyy454", "thiirak7"}
+    assert any(cut["hook_visual"] == "INTENTIONALLY INVALID wrong language" for cut in cuts)
+    assert len(cuts) > 12  # the synthetic approved batch intentionally exceeds the daily operator cap
 
 def test_unapproved_cuts_are_not_scheduled():
     bundle = sample_bundle(count=1)
