@@ -27,6 +27,8 @@ on:
       - "scripts/test_publish.py"
       - "scripts/tiktok_adapter.py"
       - "scripts/test_tiktok_adapter.py"
+      - "scripts/tiktok_inbox_publish.py"
+      - "scripts/test_tiktok_inbox_publish.py"
       - "scripts/build_call_sheet.py"
       - "scripts/dedup.py"
       - "data/channels.json"
