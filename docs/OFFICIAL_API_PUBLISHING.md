@@ -26,6 +26,20 @@ YouTube uploads use a different OAuth scope and resumable upload protocol; they 
 implemented by sending the TikTok request shape. Meta/Instagram publishing has separate
 account eligibility, permissions, container creation, and publish/status steps.
 
+## TikTok first adapter (inbox/draft only)
+
+`scripts/tiktok_adapter.py` implements a small, mock-tested client for TikTok's official
+Content Posting API inbox-upload initialization and status lookup. It uses
+`video.upload` and `PULL_FROM_URL`; it does **not** call Direct Post and does not claim
+that an upload is published. The creator must open the TikTok inbox notification and
+finish the post in the TikTok app. The media URL must use a domain/prefix verified with
+TikTok. The adapter is not wired into the live publisher yet; live publishing remains
+fail-closed until account OAuth, UX/consent, verified media hosting, and reconciliation are
+reviewed. An ambiguous network failure during initialization is surfaced as an unknown
+outcome and is never blindly retried.
+
+Official reference: https://developers.tiktok.com/docs/en/content-posting-api-reference-upload-video
+
 ## Current behavior
 
 - `python scripts/publish.py --dry-run`: runs existing call-sheet validation, requires every
