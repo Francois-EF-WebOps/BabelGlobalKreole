@@ -10,6 +10,8 @@ on:
       - "scripts/test_tiktok_adapter.py"
       - "scripts/tiktok_inbox_publish.py"
       - "scripts/test_tiktok_inbox_publish.py"
+      - "scripts/tiktok_direct_post_adapter.py"
+      - "scripts/test_tiktok_direct_post_adapter.py"
       - "scripts/build_call_sheet.py"
       - "scripts/dedup.py"
       - "data/channels.json"
@@ -65,6 +67,8 @@ jobs:
         run: pytest -q scripts/test_tiktok_adapter.py
       - name: Run TikTok inbox CLI safety tests
         run: pytest -q scripts/test_tiktok_inbox_publish.py
+      - name: Run TikTok Direct Post adapter tests
+        run: pytest -q scripts/test_tiktok_direct_post_adapter.py
       - name: Build dry-run plan (no platform credentials or network access)
         run: |
           python scripts/publish.py --dry-run > /tmp/publish-plan.json
