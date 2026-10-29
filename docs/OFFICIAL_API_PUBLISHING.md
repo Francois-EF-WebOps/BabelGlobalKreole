@@ -95,3 +95,23 @@ response means only that inbox upload was initialized, not that a video was publ
 Check a returned ID with `python scripts/tiktok_inbox_publish.py --status PUBLISH_ID`.
 Status checks require the same authorized token. Status output and the upload response should
 be retained for reconciliation; no real account or token has been used in CI.
+
+## TikTok Direct Post adapter
+
+`scripts/tiktok_direct_post_adapter.py` implements the official Direct Post initialization flow:
+it queries current creator info first, checks the selected privacy level against the returned
+options, requires explicit consent from the caller, then initializes a single post from a
+public HTTPS video URL. It returns a `publish_id`; that ID must be reconciled through the
+status endpoint before recording a post as completed.
+
+The adapter is deliberately not wired to scheduled publishing yet. A successful init is not
+proof of a completed post, and an ambiguous network outcome must not be retried blindly.
+TikTok requires the app to have the `video.publish` scope approved and authorized. Until the
+app has passed TikTok's audit, direct-post content is restricted to private viewing. TikTok's
+Direct Post guidance also requires creator information to be displayed and explicit consent
+to be collected in the publishing UX; an unattended job alone does not satisfy that UX
+requirement. See:
+- https://developers.tiktok.com/docs/en/content-posting-api-reference-direct-post
+- https://developers.tiktok.com/docs/en/content-posting-api-get-started
+
+CI tests use mocked responses only. No real account, token, video URL, or post is used.
