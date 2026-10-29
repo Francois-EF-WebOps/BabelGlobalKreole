@@ -76,9 +76,10 @@ def test_wrong_affiliate():
 
 
 def test_high_extraction_ratio():
-    bundle = sample_bundle(count=12)
+    bundle = sample_bundle(count=3)
     for cut in bundle[3]["cuts"]:
-        cut["runtime_seconds"] = 25
+        cut["runtime_seconds"] = 90
+    # Three cuts are within the per-channel cap, but 270/540 seconds is 50%.
     with pytest.raises(ValueError, match="extraction ratio"):
         MODULE.validate_and_build(*bundle, day="2026-10-29")
 
