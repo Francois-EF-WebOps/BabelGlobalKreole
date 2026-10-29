@@ -5,7 +5,7 @@ on:
     branches: [main]
     paths:
       - "scripts/publish.py"
-      - "scripts/test_publish.py"
+      - "scripts/test_publish.py"\n      - "scripts/tiktok_adapter.py"\n      - "scripts/test_tiktok_adapter.py"
       - "scripts/build_call_sheet.py"
       - "scripts/dedup.py"
       - "data/channels.json"
@@ -53,7 +53,7 @@ jobs:
         run: pytest -q scripts/test_call_sheet.py
       - name: Run publisher foundation tests
         run: pytest -q scripts/test_publish.py
-      - name: Build dry-run plan (no platform credentials or network access)
+      - name: Run TikTok adapter mock tests\n        run: pytest -q scripts/test_tiktok_adapter.py\n      - name: Build dry-run plan (no platform credentials or network access)
         run: |
           python scripts/publish.py --dry-run > /tmp/publish-plan.json
           python -m json.tool /tmp/publish-plan.json
