@@ -87,7 +87,7 @@ def test_429_retry_uses_retry_after_and_retries():
         if calls["count"] == 1:
             raise HTTPError(request.full_url, 429, "rate limit", headers, None)
         return Response()
-    result = MODULE.request_with_backoff(object(), opener=opener, sleep=sleeps.append, retries=2)
+    from urllib.request import Request\n    result = MODULE.request_with_backoff(Request("https://example.test/"), opener=opener, sleep=sleeps.append, retries=2)
     assert result.status == 200
     assert calls["count"] == 2
     assert sleeps == [3.0]
