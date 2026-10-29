@@ -32,7 +32,7 @@ No master assets or season assets were supplied, so channel `master_id` and seas
 - The cut `product_id` must match the channel affiliate program key.
 - Per-channel daily cap is 3; global operator cap is 12.
 - A season can yield at most 12 approved cuts, and their combined runtime cannot exceed 45% of the season runtime.
-- The generated hourly times are operator placeholders for sequencing only, starting at the configured time. They are not audience-optimised recommendations and no content is published.
+- The generated hourly times are provisional operator slots for sequencing only, starting at the configured time. They are not audience-optimised recommendations and no content is published.
 - The call sheet's post URL column is completed only after the operator manually posts.
 
 ## Run
