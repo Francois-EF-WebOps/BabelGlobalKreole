@@ -68,3 +68,30 @@ Official reference: https://developers.tiktok.com/docs/en/content-posting-api-re
 
 The repository's current policy remains stricter than a platform maximum: at most three
 approved cuts per channel and twelve total approved cuts per operator day.
+
+## Explicit single-item TikTok inbox command
+
+`scripts/tiktok_inbox_publish.py` is a separate, single-item entry point for an explicitly
+authorized draft upload. It requires all of the following environment values:
+- `TIKTOK_ACCESS_TOKEN`: token from the creator's authorized TikTok account.
+- `PUBLISHING_ENABLED=true`.
+- `TIKTOK_INBOX_UPLOAD_ENABLED=true`.
+- `TIKTOK_VERIFIED_VIDEO_HOSTS`: comma-separated exact hostnames verified with TikTok.
+
+Example (only after app authorization and hostname verification):
+
+```sh
+export TIKTOK_ACCESS_TOKEN='…'
+export PUBLISHING_ENABLED=true
+export TIKTOK_INBOX_UPLOAD_ENABLED=true
+export TIKTOK_VERIFIED_VIDEO_HOSTS='media.example.com'
+python scripts/tiktok_inbox_publish.py --video-url 'https://media.example.com/approved-cut.mp4'
+```
+
+The example hostname is illustrative and must be replaced with a real verified hostname.
+Never commit tokens or put them in command-line arguments. The command handles one URL per
+invocation; it does not schedule or bulk-upload the 11 configured channels. A successful
+response means only that inbox upload was initialized, not that a video was published.
+Check a returned ID with `python scripts/tiktok_inbox_publish.py --status PUBLISH_ID`.
+Status checks require the same authorized token. Status output and the upload response should
+be retained for reconciliation; no real account or token has been used in CI.
