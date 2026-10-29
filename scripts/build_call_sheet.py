@@ -6,6 +6,7 @@ import argparse
 import json
 import sys
 from datetime import date, datetime, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 
 from dedup import validate_no_overlaps
@@ -99,7 +100,11 @@ def validate_and_build(channels_doc: dict, affiliates_doc: dict, seasons_doc: di
                 f"{season_id}: extraction ratio {ratio:.3f} exceeds {max_ratio:.0%}"
             )
 
-    today = day or date.today().isoformat()
+    timezone_name = str(policy.get("operator_timezone", "UTC"))
+    try:
+        today = day or datetime.now(ZoneInfo(timezone_name)).date().isoformat()
+    except Exception as exc:
+        raise ValueError(f"invalid operator_timezone: {timezone_name}") from exc
     try:
         date.fromisoformat(today)
     except ValueError as exc:
