@@ -8,8 +8,6 @@ on:
       - "scripts/test_publish.py"
       - "scripts/tiktok_adapter.py"
       - "scripts/test_tiktok_adapter.py"
-      - "scripts/tiktok_adapter.py"
-      - "scripts/test_tiktok_adapter.py"
       - "scripts/build_call_sheet.py"
       - "scripts/dedup.py"
       - "data/channels.json"
@@ -59,8 +57,6 @@ jobs:
         run: pytest -q scripts/test_call_sheet.py
       - name: Run publisher foundation tests
         run: pytest -q scripts/test_publish.py
-      - name: Run TikTok adapter mock tests
-        run: pytest -q scripts/test_tiktok_adapter.py
       - name: Run TikTok adapter mock tests
         run: pytest -q scripts/test_tiktok_adapter.py
       - name: Build dry-run plan (no platform credentials or network access)
