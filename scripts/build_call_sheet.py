@@ -122,7 +122,7 @@ def validate_and_build(channels_doc: dict, affiliates_doc: dict, seasons_doc: di
         hook = cut["hook_visual"].replace("|", "\\|").replace("\n", " ")
         product = str(cut["product_id"]).replace("|", "\\|")
         lines.append(
-            f"| [ ] | {scheduled.strftime('%H:%M')} | @{channel.get('brand_handle') or channel['channel_id']} "
+            f"| [ ] | {scheduled.strftime('%H:%M')} | @{channel['channel_id']} "
             f"| {cut['cut_id']} | {hook} | {product} | Add actual post URL after manual publication |"
         )
     if not approved:
