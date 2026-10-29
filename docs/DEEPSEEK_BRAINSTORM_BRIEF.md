@@ -17,7 +17,7 @@ Find the smallest reliable, free, Android-friendly path from existing BabelGloba
 ## Constraints
 - Zero budget; prefer GitHub Actions and standard-library Python.
 - Android-only maintainer workflow; review must be possible from a phone.
-- Preserve existing files and behaviour. No rewrite, second distribution system, boilerplate scaffolding, placeholders, or unverified claims.
+- Preserve existing files and behaviour. No rewrite, second distribution system, boilerplate scaffolding, or unverified claims.
 - No social credentials or automatic public posting in the first implementation.
 - Keep evidence, provenance, licensing, and human review for linguistic claims.
 - Never treat generated drafts, queue builds, or workflow success as proof of publication, reach, accuracy, or revenue.
