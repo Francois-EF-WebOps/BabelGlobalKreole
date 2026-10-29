@@ -1,0 +1,23 @@
+{
+  "policy": {
+    "daily_operator_load_cap": 12,
+    "per_channel_cap": 3,
+    "max_cuts_per_season": 12,
+    "max_extraction_ratio": 0.45,
+    "default_first_post_time": "09:00",
+    "minutes_between_posts": 60
+  },
+  "channels": [
+    {"channel_id":"f.i.n.l.e.y.1","platform":"tiktok","brand_handle":"the.husband.protocol","niche":"husbandhood","primary_language":"en","affiliate_program_id":"everyman","master_id":null,"daily_cap":3},
+    {"channel_id":"frenchy.thefifth","platform":"tiktok","brand_handle":"papa.moderne","niche":"fatherhood","primary_language":"fr","affiliate_program_id":"mama_natural","master_id":null,"daily_cap":3},
+    {"channel_id":"Essaie","platform":"tiktok","brand_handle":"bebe.pov.fr","niche":"baby_pov","primary_language":"fr","affiliate_program_id":"mooshie","master_id":null,"daily_cap":3},
+    {"channel_id":"foxy.vibes8","platform":"tiktok","brand_handle":"foxhole.homestead","niche":"gardening","primary_language":"en","affiliate_program_id":"birdfy","master_id":null,"daily_cap":3},
+    {"channel_id":"e.z.i.e.1","platform":"tiktok","brand_handle":"the.daily.rep","niche":"fitness","primary_language":"en","affiliate_program_id":"merach","master_id":null,"daily_cap":3},
+    {"channel_id":"yessai009","platform":"tiktok","brand_handle":"offgrid.oasis","niche":"self_sufficiency","primary_language":"en","affiliate_program_id":"thrive","master_id":null,"daily_cap":3},
+    {"channel_id":"thiirak7","platform":"tiktok","brand_handle":"motherhood.unscripted","niche":"motherhood","primary_language":"en","affiliate_program_id":"evergreen","master_id":null,"daily_cap":3},
+    {"channel_id":"memyy454","platform":"tiktok","brand_handle":"le.cercle.masculin","niche":"brotherhood","primary_language":"fr","affiliate_program_id":"systeme_io","master_id":null,"daily_cap":3},
+    {"channel_id":"nation.badger","platform":"tiktok","brand_handle":"stoic.brotherhood","niche":"brotherhood","primary_language":"en","affiliate_program_id":"mens_collective","master_id":null,"daily_cap":3},
+    {"channel_id":"minxxxiee","platform":"tiktok","brand_handle":"the.wife.life","niche":"wifehood","primary_language":"en","affiliate_program_id":"revealtogether","master_id":null,"daily_cap":3},
+    {"channel_id":"0francois8","platform":"tiktok","brand_handle":"forme.et.focus","niche":"fitness","primary_language":"fr","affiliate_program_id":"transparent_labs","master_id":null,"daily_cap":3}
+  ]
+}
