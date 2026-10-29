@@ -1,0 +1,47 @@
+name: Manual call-sheet backend checks
+
+on:
+  push:
+    branches:
+      - feat/seven-post-approval-queue
+    paths:
+      - "data/**"
+      - "scripts/dedup.py"
+      - "scripts/build_call_sheet.py"
+      - "scripts/test_call_sheet.py"
+      - "tests/fixtures/**"
+      - "docs/CHANNEL_CALL_SHEET_BACKEND.md"
+      - ".github/workflows/call-sheet-check.yml"
+  pull_request:
+    branches:
+      - feat/seven-post-approval-queue
+    paths:
+      - "data/**"
+      - "scripts/dedup.py"
+      - "scripts/build_call_sheet.py"
+      - "scripts/test_call_sheet.py"
+      - "tests/fixtures/**"
+      - "docs/CHANNEL_CALL_SHEET_BACKEND.md"
+      - ".github/workflows/call-sheet-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  call-sheet:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install test runner
+        run: python -m pip install pytest
+      - name: Run call-sheet acceptance tests
+        run: pytest -q scripts/test_call_sheet.py
+      - name: Build empty-safe manual call sheet
+        run: |
+          python scripts/build_call_sheet.py --day 2026-10-29 --output /tmp/today.md
+          test -s /tmp/today.md
+          grep -Fq "manual only" /tmp/today.md
