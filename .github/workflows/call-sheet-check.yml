@@ -4,25 +4,12 @@ on:
   push:
     branches:
       - feat/seven-post-approval-queue
-    paths:
-      - "data/**"
-      - "scripts/dedup.py"
-      - "scripts/build_call_sheet.py"
-      - "scripts/test_call_sheet.py"
-      - "tests/fixtures/**"
-      - "docs/CHANNEL_CALL_SHEET_BACKEND.md"
-      - ".github/workflows/call-sheet-check.yml"
+      - main
   pull_request:
     branches:
-      - feat/seven-post-approval-queue
-    paths:
-      - "data/**"
-      - "scripts/dedup.py"
-      - "scripts/build_call_sheet.py"
-      - "scripts/test_call_sheet.py"
-      - "tests/fixtures/**"
-      - "docs/CHANNEL_CALL_SHEET_BACKEND.md"
-      - ".github/workflows/call-sheet-check.yml"
+      - main
+  schedule:
+    - cron: "0 2 * * *"
   workflow_dispatch:
 
 permissions:
@@ -40,8 +27,14 @@ jobs:
         run: python -m pip install pytest
       - name: Run call-sheet acceptance tests
         run: pytest -q scripts/test_call_sheet.py
-      - name: Build empty-safe manual call sheet
+      - name: Build operator-local daily call sheet
         run: |
-          python scripts/build_call_sheet.py --day 2026-10-29 --output /tmp/today.md
+          python scripts/build_call_sheet.py --output /tmp/today.md
           test -s /tmp/today.md
           grep -Fq "manual only" /tmp/today.md
+      - name: Upload daily call sheet for phone review
+        uses: actions/upload-artifact@v4
+        with:
+          name: manual-call-sheet
+          path: /tmp/today.md
+          retention-days: 7
