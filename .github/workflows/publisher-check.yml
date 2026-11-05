@@ -1,0 +1,66 @@
+name: Official API publisher validation
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "scripts/publish.py"
+      - "scripts/test_publish.py"
+      - "scripts/build_call_sheet.py"
+      - "scripts/dedup.py"
+      - "data/channels.json"
+      - "data/affiliates.json"
+      - "data/seasons.json"
+      - "data/cuts.json"
+      - "data/receipts.json"
+      - "docs/OFFICIAL_API_PUBLISHING.md"
+      - ".github/workflows/publisher-check.yml"
+  push:
+    branches:
+      - feat/official-api-publisher-foundation
+    paths:
+      - "scripts/publish.py"
+      - "scripts/test_publish.py"
+      - "scripts/build_call_sheet.py"
+      - "scripts/dedup.py"
+      - "data/channels.json"
+      - "data/affiliates.json"
+      - "data/seasons.json"
+      - "data/cuts.json"
+      - "data/receipts.json"
+      - "docs/OFFICIAL_API_PUBLISHING.md"
+      - ".github/workflows/publisher-check.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate-and-plan:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+      - name: Install test runner
+        run: python -m pip install pytest
+      - name: Run existing distribution acceptance tests
+        run: python scripts/test_distribution.py
+      - name: Run existing seven-post approval queue tests
+        run: python scripts/test_post_queue.py
+      - name: Run manual call-sheet acceptance tests
+        run: pytest -q scripts/test_call_sheet.py
+      - name: Run publisher foundation tests
+        run: pytest -q scripts/test_publish.py
+      - name: Build dry-run plan (no platform credentials or network access)
+        run: |
+          python scripts/publish.py --dry-run > /tmp/publish-plan.json
+          python -m json.tool /tmp/publish-plan.json
+          grep -Fq '"network_calls": 0' /tmp/publish-plan.json
+          grep -Fq '"posts_sent": 0' /tmp/publish-plan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: official-api-publish-dry-run
+          path: /tmp/publish-plan.json
+          retention-days: 7

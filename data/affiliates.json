@@ -1,0 +1,15 @@
+{
+  "affiliates": [
+    {"program_id":"everyman","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"mama_natural","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"mooshie","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"birdfy","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"merach","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"thrive","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"evergreen","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"systeme_io","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"mens_collective","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"revealtogether","payout_minimum":null,"approval_mode":"unknown"},
+    {"program_id":"transparent_labs","payout_minimum":null,"approval_mode":"unknown"}
+  ]
+}
