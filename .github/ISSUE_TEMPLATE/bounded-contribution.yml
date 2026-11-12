@@ -1,0 +1,55 @@
+name: Bounded contribution
+description: Propose one reviewable task with clear acceptance criteria
+title: "[Task]: "
+labels: ["triage"]
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Intended outcome
+      description: Describe one problem and the result needed.
+      placeholder: One task, one outcome.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and context
+      description: Link relevant files, sources, prior decisions or user evidence.
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: List observable conditions that prove completion.
+      placeholder: "- [ ] ..."
+    validations:
+      required: true
+  - type: dropdown
+    id: contribution
+    attributes:
+      label: Contribution type
+      options:
+        - Documentation
+        - Research / evidence
+        - Code / tests
+        - Visual / media asset
+        - Review / validation
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: rights
+    attributes:
+      label: Provenance, rights and privacy
+      description: Identify sources, licences, consent, AI assistance and any restrictions. State unknown if unresolved.
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks and dependencies
+      description: Note safety, privacy, security, legal, operational or external dependencies.
+    validations:
+      required: false
