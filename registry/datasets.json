@@ -1,0 +1,88 @@
+{
+  "registry_version": 1,
+  "source_dataset_id": "sources",
+  "catalog_paths": {
+    "lexical_entries": "data/lexicon/",
+    "concept_records": "data/concepts/",
+    "source_records": "data/sources/",
+    "language_records": "data/languages/languages.jsonl",
+    "variety_records": "data/varieties/varieties.jsonl",
+    "grammar_rules": "data/grammar/",
+    "resource_cards": "data/resources/resources.jsonl",
+    "evaluation_cases": "evaluation/test-cases/"
+  },
+  "datasets": [
+    {
+      "id": "concepts",
+      "path": "data/concepts/concepts.jsonl",
+      "schema": "schemas/concept.schema.json",
+      "record_family": "concept",
+      "catalog_key": "concept_records",
+      "quality_checks": true,
+      "retrieval": true
+    },
+    {
+      "id": "grammar",
+      "path": "data/grammar/grammar.jsonl",
+      "schema": "schemas/grammar-rule.schema.json",
+      "record_family": "grammar_rule",
+      "catalog_key": "grammar_rules",
+      "quality_checks": true,
+      "retrieval": true
+    },
+    {
+      "id": "grammar-rules",
+      "path": "data/grammar/rules.jsonl",
+      "schema": "schemas/grammar-rule.schema.json",
+      "record_family": "grammar_rule",
+      "catalog_key": "grammar_rules",
+      "quality_checks": true,
+      "retrieval": true
+    },
+    {
+      "id": "languages",
+      "path": "data/languages/languages.jsonl",
+      "schema": "schemas/language.schema.json",
+      "record_family": "language",
+      "catalog_key": "language_records",
+      "quality_checks": true,
+      "retrieval": true
+    },
+    {
+      "id": "resources",
+      "path": "data/resources/resources.jsonl",
+      "schema": "schemas/resource-card.schema.json",
+      "record_family": "resource_card",
+      "catalog_key": "resource_cards",
+      "quality_checks": true,
+      "retrieval": true
+    },
+    {
+      "id": "sources",
+      "path": "data/sources/sources.jsonl",
+      "schema": "schemas/source-record.schema.json",
+      "record_family": "source",
+      "catalog_key": "source_records",
+      "quality_checks": true,
+      "retrieval": true
+    },
+    {
+      "id": "varieties",
+      "path": "data/varieties/varieties.jsonl",
+      "schema": "schemas/variety.schema.json",
+      "record_family": "variety",
+      "catalog_key": "variety_records",
+      "quality_checks": true,
+      "retrieval": true
+    },
+    {
+      "id": "evaluation-cases",
+      "path": "evaluation/test-cases/starter-cases.jsonl",
+      "schema": "schemas/evaluation-case.schema.json",
+      "record_family": "evaluation_case",
+      "catalog_key": "evaluation_cases",
+      "quality_checks": false,
+      "retrieval": false
+    }
+  ]
+}
