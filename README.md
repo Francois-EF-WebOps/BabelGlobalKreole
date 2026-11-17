@@ -76,7 +76,9 @@ Preserve source repositories and their histories; distinguish evidence from infe
 - [Read-only MCP adapter](mcp_server/README.md): optional local stdio tools for agent discovery.
 
 ## Contribute
-Open an issue with scope and acceptance criteria, add provenance and rights information, use the relevant schema, add regression cases, run `python scripts/validate_records.py`, `python scripts/check_internal_links.py`, and `python scripts/no_placeholders_check.py`, and request review. See [CONTRIBUTING.md](CONTRIBUTING.md).
+The repository's validation stages and local commands are documented in [Repository validation](docs/validation.md).
+
+Open an issue with scope and acceptance criteria, add provenance and rights information, use the relevant schema, add regression cases, run the checks documented in [Repository validation](docs/validation.md), and request review. See [CONTRIBUTING.md](CONTRIBUTING.md).
 
 
 ## Printable product candidates
