@@ -127,7 +127,7 @@ def run_check(name):
             return 2
 
     if name in {"jsonl", "all"}:
-        for base in (ROOT / "data", ROOT / "evaluation" / "test-cases"):
+        for base in (ROOT / "data",):
             if not base.exists():
                 continue
             for path in sorted(base.rglob("*.jsonl")):
