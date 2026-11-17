@@ -12,16 +12,23 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
-          python-version: "3.x"
+          python-version: "3.12"
       - run: python -m pip install -r requirements-dev.txt
-      - run: python scripts/validate_records.py
-      - name: check internal Markdown links
+      - name: Validate schemas, records, and provenance
+        run: python scripts/validate_records.py
+      - name: Check tracked files and URL hygiene
+        run: python scripts/validation_checks.py --repository
+      - name: Check JSONL integrity
+        run: python scripts/validation_checks.py --jsonl
+      - name: Check unfinished drafting markers in maintained prose
+        run: python scripts/validation_checks.py --drafts
+      - name: Check internal Markdown links
         run: python scripts/check_internal_links.py
-      - name: no_placeholders
-        run: python scripts/no_placeholders_check.py
-      - name: test offline retrieval demo
+      - name: Test validation-check regressions
+        run: python -m unittest discover -s tests/validation -v
+      - name: Test offline retrieval demo
         run: python -m unittest discover -s tests/retrieval -v
-      - name: verify catalog is current
+      - name: Verify catalog is current
         run: |
           python scripts/generate_catalog.py
           git diff --exit-code -- catalog.json
