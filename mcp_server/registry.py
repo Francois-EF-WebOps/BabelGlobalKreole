@@ -2,6 +2,7 @@
 import json
 from pathlib import Path
 
+from scripts.dataset_registry import load_dataset_registry
 from scripts.record_integrity import extract_record_id
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,13 +14,23 @@ CONTENT_FIELDS = {
 
 
 def load_records(data_root=DATA_ROOT):
+    """Load only registry-approved datasets marked for retrieval."""
+    data_root = Path(data_root)
+    repository_root = ROOT if data_root.resolve() == DATA_ROOT.resolve() else data_root.parent
+    manifest, datasets, errors = load_dataset_registry(repository_root)
+    if errors:
+        raise ValueError("Dataset registry invalid: " + "; ".join(errors))
+
     records = []
-    for path in sorted(Path(data_root).rglob("*.jsonl")):
+    for dataset in datasets:
+        if not dataset["retrieval"]:
+            continue
+        path = repository_root / dataset["path"]
         for line_no, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
             if not line.strip():
                 continue
             item = json.loads(line)
-            item["_repository_path"] = path.relative_to(Path(data_root)).as_posix()
+            item["_repository_path"] = path.relative_to(data_root).as_posix()
             item["_line"] = line_no
             records.append(item)
     return records
@@ -95,7 +106,6 @@ def search_records(query, records=None, limit=10):
                 "line": record.get("_line"),
                 "record": safe_record_view(record, sources),
             })
-    # Prefer eligible evidence records so a prefix of draft matches cannot hide them.
     matches.sort(key=lambda item: not item["record"]["evidence_eligible"])
     matches = matches[:limit]
     eligible_found = any(item["record"]["evidence_eligible"] for item in matches)
@@ -109,6 +119,7 @@ def search_records(query, records=None, limit=10):
             else "At least one accepted record has resolvable source metadata; inspect each record's evidence note and rights fields."
         ),
     }
+
 
 def get_record(record_id, records=None):
     records = records if records is not None else load_records()

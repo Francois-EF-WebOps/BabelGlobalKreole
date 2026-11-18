@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Focused repository, JSONL hygiene, and draft-content checks."""
+"""Focused repository, registry-driven JSONL hygiene, and draft-content checks."""
 import argparse
 import json
 import re
@@ -7,6 +7,11 @@ import subprocess
 import sys
 from pathlib import Path
 from urllib.parse import parse_qsl, urlsplit
+
+try:
+    from scripts.dataset_registry import load_dataset_registry
+except ModuleNotFoundError:
+    from dataset_registry import load_dataset_registry
 
 ROOT = Path(__file__).resolve().parents[1]
 TEXT_SUFFIXES = {".md", ".json", ".jsonl", ".yaml", ".yml", ".py", ".txt", ".cff", ".xml"}
@@ -127,19 +132,21 @@ def run_check(name):
             return 2
 
     if name in {"jsonl", "all"}:
-        for base in (ROOT / "data",):
-            if not base.exists():
+        _, datasets, registry_errors = load_dataset_registry(ROOT)
+        errors.extend(registry_errors)
+        for dataset in datasets:
+            if not dataset.get("quality_checks"):
                 continue
-            for path in sorted(base.rglob("*.jsonl")):
-                try:
-                    errors.extend(
-                        check_jsonl_text(
-                            path.relative_to(ROOT).as_posix(),
-                            path.read_text(encoding="utf-8"),
-                        )
+            path = ROOT / dataset["path"]
+            try:
+                errors.extend(
+                    check_jsonl_text(
+                        dataset["path"],
+                        path.read_text(encoding="utf-8"),
                     )
-                except UnicodeDecodeError:
-                    errors.append(f"{path.relative_to(ROOT)}: file is not UTF-8")
+                )
+            except (OSError, UnicodeDecodeError):
+                errors.append(f"{dataset['path']}: cannot read registered JSONL as UTF-8")
 
     if name in {"drafts", "all"}:
         try:
